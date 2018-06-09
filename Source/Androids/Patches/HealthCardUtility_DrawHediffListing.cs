@@ -16,7 +16,7 @@ namespace BlueLeakTest
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             MethodInfo labelHelper = AccessTools.Method(typeof(HealthCardUtility_DrawHediffListing)
-                                            , nameof(HealthCardUtility_DrawHediffListing.TransformToLeakingIfFemale));
+                                            , nameof(HealthCardUtility_DrawHediffListing.TransformToLeakingIfAndroid));
 
             foreach(var code in instructions) 
                 if(code.opcode == OpCodes.Ldstr && (string)code.operand == "BleedingRate") {
@@ -27,7 +27,7 @@ namespace BlueLeakTest
                     yield return code;
         }
 
-        static public string TransformToLeakingIfFemale(Pawn pawn)
+        static public string TransformToLeakingIfAndroid(Pawn pawn)
         {
             if(pawn.IsAndroid())
                 return "AT_LeakingRate";

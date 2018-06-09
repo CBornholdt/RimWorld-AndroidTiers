@@ -18,7 +18,7 @@ namespace BlueLeakTest
         {
             MethodInfo tipStringExtraGetter = AccessTools.Property(typeof(Hediff), nameof(Hediff.TipStringExtra)).GetGetMethod();
             MethodInfo labelHelper = AccessTools.Method(typeof(HealthCardUtility_GetTooltip)
-                                        , nameof(HealthCardUtility_GetTooltip.TransformBleedingToLeakingIfFemale));
+                                        , nameof(HealthCardUtility_GetTooltip.TransformBleedingToLeakingIfAndroid));
 
             foreach(var code in instructions) {
                 yield return code;
@@ -29,7 +29,7 @@ namespace BlueLeakTest
             }   
         }
 
-        static public string TransformBleedingToLeakingIfFemale(string original, Pawn pawn)
+        static public string TransformBleedingToLeakingIfAndroid(string original, Pawn pawn)
         {
             if(pawn.IsAndroid())
                 return original.Replace("BleedingRate".Translate(), "AT_Leaking".Translate());
