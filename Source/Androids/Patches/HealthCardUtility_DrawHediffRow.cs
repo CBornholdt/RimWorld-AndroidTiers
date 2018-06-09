@@ -34,10 +34,11 @@ namespace BlueLeakTest
 					yield return new CodeInstruction(OpCodes.Ldarg_1);  //TextureAndColor, Pawn on stack
 					yield return new CodeInstruction(OpCodes.Call, iconHelper); //Consume 2, leave TextureAndColor
 				}   
-				if(code.opcode == OpCodes.Callvirt && code.operand == labelColorGetter) {
+                //Removed at Atlas' request
+	        /*	if(code.opcode == OpCodes.Callvirt && code.operand == labelColorGetter) {
 					yield return new CodeInstruction(OpCodes.Ldarg_1);  //Color, Pawn on stack
 					yield return new CodeInstruction(OpCodes.Call, labelHelper); //Consume 2, leave Color
-				}
+				}   */
 			}   
         }
 
