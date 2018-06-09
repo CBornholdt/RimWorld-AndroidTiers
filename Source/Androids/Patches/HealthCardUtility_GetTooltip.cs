@@ -7,7 +7,7 @@ using Harmony;
 using Verse;
 using UnityEngine;
 using RimWorld;
-
+ 
 namespace BlueLeakTest
 {
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
@@ -29,11 +29,11 @@ namespace BlueLeakTest
             }   
         }
 
-		static public string TransformBleedingToLeakingIfFemale(string original, Pawn pawn)
-		{
-			if(pawn.IsAndroid())
-				return original.Replace("BleedingRate".Translate(), "AT_Leaking".Translate());
-			return original;
-		}
+        static public string TransformBleedingToLeakingIfFemale(string original, Pawn pawn)
+        {
+            if(pawn.IsAndroid())
+                return original.Replace("BleedingRate".Translate(), "AT_Leaking".Translate());
+            return original;
+        }
     }
 }
