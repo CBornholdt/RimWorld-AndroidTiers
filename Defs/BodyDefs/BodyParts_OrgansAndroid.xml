@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <BodyPartDef>
+    <defName>MHeart</defName>
+    <label>Coolant Pump</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+<bleedingRateMultiplier>5</bleedingRateMultiplier>
+    <tags>
+      <li>CPSource</li>
+    </tags>
+    <dontSuggestAmputation>true</dontSuggestAmputation>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MLeftLung</defName>
+    <label>Left Heatsink</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>HVSource</li>
+    </tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MRightLung</defName>
+    <label>Right Heatsink</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>HVSource</li>
+    </tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MLeftKidney</defName>
+    <label>Battery</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>EVKidney</li>
+    </tags>
+	<dontSuggestAmputation>true</dontSuggestAmputation>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MRightKidney</defName>
+    <label>Mechanite Storage</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>EVKidney</li>
+    </tags>
+	<dontSuggestAmputation>true</dontSuggestAmputation>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MLiver</defName>
+    <label>Voltage Adapter</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>EVLiver</li>
+    </tags>
+    <dontSuggestAmputation>true</dontSuggestAmputation>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MStomach</defName>
+    <label>bio-processor</label>
+    <hitPoints>25</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>MetabolismSource</li>
+    </tags>
+  </BodyPartDef>
+  
+ 
+  <BodyPartDef>
+    <defName>MRightServo</defName>
+    <label>Movement Servos</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>EVKidney</li>
+    </tags>
+	<dontSuggestAmputation>true</dontSuggestAmputation>
+  </BodyPartDef>
+  
+  <BodyPartDef>
+    <defName>MGenerator</defName>
+    <label>Fusion Core</label>
+    <hitPoints>30</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>MetabolismSource</li>
+    </tags>
+  </BodyPartDef>
+  
+</Defs>

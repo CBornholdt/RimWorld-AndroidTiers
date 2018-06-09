@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>Intolerance</defName>
+    <commonality>0.01</commonality>
+    <degreeDatas>
+      <li>
+        <label>Intolerance</label>
+        <description>NAME is intolerant of all lifeforms, whether they be mechanical or biological. There is always a chance they will randomly cause fights, especially when their mood is low.</description>
+		<statOffsets>
+          <SocialImpact>-0.90</SocialImpact>
+        </statOffsets>
+		 <theOnlyAllowedMentalBreaks>
+		  <li>Berserk</li>
+		  <li>Slaughterer</li>
+		  <li>MurderousRage</li>
+		  <li>SadisticRage</li>
+		  <li>InsultingSpree</li>
+        </theOnlyAllowedMentalBreaks>
+        <randomMentalState>MurderousRage</randomMentalState>
+        <randomMentalStateMtbDaysMoodCurve>
+          <points>
+            <li>(0, 4)</li>
+            <li>(40, 850)</li>
+            <li>(100, 4800)</li>
+          </points>
+        </randomMentalStateMtbDaysMoodCurve>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+	
+</Defs>

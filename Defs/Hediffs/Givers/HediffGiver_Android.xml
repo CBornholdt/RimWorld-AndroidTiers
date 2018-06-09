@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffGiverSetDef>
+<defName>AndroidStandardAtlas</defName>
+	<hediffGivers>
+			<li Class="HediffGiver_Bleeding">
+				<hediff>AndroidCoolantLoss</hediff>
+			</li>
+			<li Class="HediffGiver_Heat">
+				<hediff>AndroidOverheating</hediff>
+			</li>
+			<li Class="HediffGiver_Hypothermia">
+				<hediff>AndroidFreezing</hediff>
+			</li>
+	<!--Age-->
+
+<li Class="MOARANDROIDS.HediffGiver_BirthdayMechanical">
+
+        <hediff>DecayedFrame</hediff>
+        <partsToAffect>
+          <li>Framework</li>
+        </partsToAffect>
+        <ageFractionChanceCurve>
+          <points>
+            <li>(0.225, 0)</li>
+            <li>(0.55, 0.01395)</li>
+            <li>(0.675, 0.02604)</li>
+          </points>
+        </ageFractionChanceCurve>
+      </li>
+	 
+      <li Class="MOARANDROIDS.HediffGiver_BirthdayMechanical">
+        <hediff>CorruptMemory</hediff>
+        <partsToAffect>
+          <li>ArtificialBrain</li>
+        </partsToAffect>
+        <ageFractionChanceCurve>
+          <points>
+            <li>(0.225, 0)</li>
+            <li>(0.55, 0.01395)</li>
+            <li>(0.675, 0.02604)</li>
+          </points>
+        </ageFractionChanceCurve>
+      </li>
+	  
+      <li Class="MOARANDROIDS.HediffGiver_BirthdayMechanical">
+        <hediff>FaultyPump</hediff>
+        <partsToAffect>
+          <li>MHeart</li>
+        </partsToAffect>
+        <ageFractionChanceCurve>
+          <points>
+            <li>(0.225, 0)</li>
+            <li>(0.55, 0.01395)</li>
+            <li>(0.675, 0.03604)</li>
+          </points>
+        </ageFractionChanceCurve>
+        <averageSeverityPerDayBeforeGeneration>0.00025</averageSeverityPerDayBeforeGeneration>
+      </li>
+	  
+	</hediffGivers>
+	</HediffGiverSetDef>
+</Defs>

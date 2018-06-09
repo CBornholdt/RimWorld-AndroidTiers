@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ====== Abomination ===== -->
+	<ThingDef ParentName="BasePawn">
+    <defName>Abomination</defName>
+    <label>Fractal Mutant</label>
+    <description>These mutants are quick masses of twisted and tortured flesh, able to heal even the most major of wounds. This is why humans shouldn't consume fractal pills.</description>
+		    <statBases>
+			  <Mass>80</Mass>
+			  <MoveSpeed>6.5</MoveSpeed>
+			  <Flammability>0.9</Flammability>
+			  <PainShockThreshold>5</PainShockThreshold>
+			  <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+			  <ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+			  <ArmorRating_Electric>0</ArmorRating_Electric>
+			  <ArmorRating_Heat>0</ArmorRating_Heat>
+			  <MeatAmount>50</MeatAmount>
+			  <LeatherAmount>40</LeatherAmount>
+			  <ComfyTemperatureMin>-198</ComfyTemperatureMin>
+			  <ComfyTemperatureMax>200</ComfyTemperatureMax>
+			  <ImmunityGainSpeed>5</ImmunityGainSpeed>
+			</statBases>
+			
+		<tools>
+	  <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>45</power>
+        <cooldownTime>4.0</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+						<commonality>0.2</commonality>
+      </li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>30</power>
+				<cooldownTime>1.2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>22</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>30</power>
+				<cooldownTime>1.2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>22</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>40</power>
+				<cooldownTime>1.2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<commonality>0.2</commonality>
+			</li>
+		</tools>
+		
+		<race>
+			<intelligence>ToolUser</intelligence>
+			<thinkTreeMain>AnimalAndroid</thinkTreeMain>
+			<body>Human</body>
+			<needsRest>false</needsRest>
+			<makesFootprints>true</makesFootprints>
+			<manhunterOnDamageChance>1</manhunterOnDamageChance>
+			<wildness>1</wildness>
+			<hasGenders>false</hasGenders>
+			<foodType>Corpse</foodType>
+			<lifeExpectancy>10</lifeExpectancy>
+			<baseBodySize>3.2</baseBodySize>
+			<baseHungerRate>1</baseHungerRate>
+			<baseHealthScale>6.5</baseHealthScale>
+			<useMeatFrom>Human</useMeatFrom>
+			<leatherLabel>Tainted Skin</leatherLabel>
+			<leatherColor>(90,70,70)</leatherColor>
+			<leatherCommonalityFactor>0</leatherCommonalityFactor>
+			<leatherInsulation>0.95</leatherInsulation>
+			<leatherMarketValueFactor>8</leatherMarketValueFactor>
+			<leatherStatFactors>
+				<Beauty>-0.8</Beauty>
+				<MarketValue>1.3</MarketValue>
+				<ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+				<ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+				<ArmorRating_Electric>1</ArmorRating_Electric>
+				<ArmorRating_Heat>1</ArmorRating_Heat>
+				<Insulation_Cold>1</Insulation_Cold>
+				<Insulation_Heat>1</Insulation_Heat>
+				<ArmorRating_Heat>1.0</ArmorRating_Heat>
+				<WorkToMake>2</WorkToMake>
+				<BedRestEffectiveness>0.6</BedRestEffectiveness>
+				<ImmunityGainSpeedFactor>0.3</ImmunityGainSpeedFactor>
+		  </leatherStatFactors>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+		  <soundWounded>AtlasMutant_Pain</soundWounded>
+		  <soundDeath>AtlasMutant_Death</soundDeath>
+          <soundCall>AtlasMutant_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <soundCallIntervalRange>
+        <min>400</min>
+        <max>1800</max>
+      </soundCallIntervalRange>
+		  <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+		  <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+		  <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+	</ThingDef>
+</Defs>

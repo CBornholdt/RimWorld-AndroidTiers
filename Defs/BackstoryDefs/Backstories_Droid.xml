@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AlienRace.BackstoryDef>
+		<defName>AndroidBackstory</defName>
+		<title>Mechanical colonist</title>
+		<titleShort>Android</titleShort>
+		<baseDescription>NAME is a sentient machine that is capable of displaying higher intelligence, newly birthed from their construction pod. What they make of their life is now up to them.</baseDescription>
+		<bodyTypeMale>Male</bodyTypeMale>
+		<slot>Childhood</slot>
+		<spawnCategories>
+			<li>AndroidTiers</li>
+		</spawnCategories>
+	</AlienRace.BackstoryDef>
+
+	<AlienRace.BackstoryDef>
+		<defName>T5Backstory</defName>
+		<title>Transcendant android</title>
+		<titleShort>Transcendant</titleShort>
+		<baseDescription>NAME is an highly advanced android, they come from a civilisation where the human population had transcended into mechanical or quantum forms of pure perfection.</baseDescription>
+		<bodyTypeMale>Male</bodyTypeMale>
+		<slot>Adulthood</slot>
+		<spawnCategories>
+			<li>AndroidTiers</li>
+		</spawnCategories>
+		<skillGains>
+          <li>
+            <defName>Intellectual</defName>
+            <amount>12</amount>
+          </li>
+          <li>
+            <defName>Crafting</defName>
+            <amount>8</amount>
+          </li>
+          <li>
+            <defName>Artistic</defName>
+            <amount>4</amount>
+          </li>
+          <li>
+            <defName>Medicine</defName>
+            <amount>4</amount>
+          </li>
+        </skillGains>
+	</AlienRace.BackstoryDef>
+</Defs>

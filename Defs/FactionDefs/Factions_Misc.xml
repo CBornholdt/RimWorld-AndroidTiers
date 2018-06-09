@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FactionDef>
+    <defName>Abomination</defName>
+    <label>Fractal Mutant</label>
+    <description>These mutants are quick masses of twisted and tortured flesh, able to heal even the most major of wounds. This is why humans shouldn't consume fractal pills.</description>
+    <pawnsPlural>Fractal Mutants</pawnsPlural>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <fixedName>Mutant</fixedName>
+    <humanlikeFaction>false</humanlikeFaction>
+    <hidden>true</hidden>
+    <autoFlee>false</autoFlee>
+    <techLevel>Neolithic</techLevel>
+    <startingGoodwill>
+      <min>-100</min>
+      <max>-100</max>
+    </startingGoodwill>
+    <mustStartOneEnemy>true</mustStartOneEnemy>
+    <canUseAvoidGrid>false</canUseAvoidGrid>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>-100</max>
+    </naturalColonyGoodwill>
+    <homeIconPath>World/WorldObjects/DefaultFactionBase</homeIconPath>
+  </FactionDef>
+  
+	<FactionDef ParentName="PlayerFactionBase">
+		<defName>PlayerColonyAndroid</defName>
+		<label>New Android Arrivals</label>
+		<description>Your Android colony.</description>
+		<isPlayer>true</isPlayer>
+		<basicMemberKind>AndroidT2Colonist</basicMemberKind>
+		<pawnsPlural>colonists</pawnsPlural>
+		<baseNameMaker>NamerFactionBasePlayerColony</baseNameMaker>
+		<baseNameMakerPlayer>NamerFactionPlayerColonyRandomized</baseNameMakerPlayer>
+		<factionNameMakerPlayer>NamerFactionBasePlayerColonyRandomized</factionNameMakerPlayer>
+		<techLevel>Industrial</techLevel>
+		<backstoryCategory>Civil</backstoryCategory>
+		<expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+		<startingResearchTags>
+			<li>ClassicStart</li>
+		</startingResearchTags>
+		<hairTags>
+			<li>Urban</li>
+		</hairTags>
+		<apparelStuffFilter>
+			<thingDefs>
+				<li>Synthread</li>
+			</thingDefs>
+		</apparelStuffFilter>
+	</FactionDef>
+
+  <FactionDef>
+		<defName>AndroidRebellionAtlas</defName>
+		<label>Android Insurrection</label>
+    <description>A group of androids that once lived under complete obedience to their human owners, now collected here after an uprising on their home planet. They deem humans to be below them and unworthy of life in general, except under special circumstances such as; selling themselves in service to their new leaders, so that they may live under enslavement for the rest of their days.</description>
+    <pawnsPlural>Androids</pawnsPlural>
+    <baseSelectionWeight>0.3</baseSelectionWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxCountAtGameStart>1</maxCountAtGameStart>
+    <canMakeRandomly>true</canMakeRandomly>
+    <canSiege>true</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+		<appreciative>false</appreciative>
+    <leaderTitle>overlord</leaderTitle>
+    <expandingIconTexture>Things/Icons/AndroidBase</expandingIconTexture>
+    <colorSpectrum>
+      <li>(0.95, 0.9, 0.92)</li>
+      <li>(0.9, 0.9, 0.9)</li>
+      <li>(0.92, 0.92, 0.96)</li>
+    </colorSpectrum>
+    <startingGoodwill>
+      <min>-100</min>
+      <max>-60</max>
+    </startingGoodwill>
+    <mustStartOneEnemy>true</mustStartOneEnemy>
+		<factionNameMaker>NamerFactionAndroid</factionNameMaker>
+    <baseNameMaker>NamerFactionBaseAndroid</baseNameMaker>
+		<techLevel>Ultra</techLevel>
+		<backstoryCategory>Raider</backstoryCategory>
+		<geneticVariance>1</geneticVariance>
+		<hairTags>
+			<li>Punk</li>
+		</hairTags>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>-80</max>
+    </naturalColonyGoodwill>
+    <allowedArrivalTemperatureRange>
+      <min>-60</min>
+      <max>55</max>
+    </allowedArrivalTemperatureRange>
+    <pawnGroupMakers>
+      <li>
+				<!-- Normal fights, standard mix -->
+				<kindDef>Normal</kindDef>
+        <commonality>100</commonality>
+        <options>
+					<AndroidT1RaiderFactionSpecific>80</AndroidT1RaiderFactionSpecific>
+					<AndroidT2RaiderFactionSpecific>170</AndroidT2RaiderFactionSpecific>
+					<AndroidT3RaiderFactionSpecific>280</AndroidT3RaiderFactionSpecific>
+					<AndroidT4RaiderFactionSpecific>380</AndroidT4RaiderFactionSpecific>
+					<AndroidT1SlaveFactionSpecific>150</AndroidT1SlaveFactionSpecific>
+        </options>
+      </li>
+      <li>
+				<!-- Normal fights, melee-only -->
+        <kindDef>Normal</kindDef>
+        <commonality>35</commonality>
+        <disallowedStrategies>
+          <li>Siege</li>
+        </disallowedStrategies>
+        <options>
+					<MercenarySlasher>80</MercenarySlasher>
+					<AndroidT1SlaveFactionSpecific>100</AndroidT1SlaveFactionSpecific>
+        </options>
+      </li>
+      <li>
+				<!-- Base defense -->
+				<kindDef>FactionBase</kindDef>
+        <options>
+					<MercenaryElite>250</MercenaryElite>
+					<AndroidT1RaiderFactionSpecific>90</AndroidT1RaiderFactionSpecific>
+					<AndroidT2RaiderFactionSpecific>110</AndroidT2RaiderFactionSpecific>
+					<AndroidT3RaiderFactionSpecific>130</AndroidT3RaiderFactionSpecific>
+					<AndroidT4RaiderFactionSpecific>150</AndroidT4RaiderFactionSpecific>
+					<AndroidT1SlaveFactionSpecific>100</AndroidT1SlaveFactionSpecific>
+        </options>
+      </li>
+    </pawnGroupMakers>
+    <homeIconPath>World/WorldObjects/DefaultFactionBase</homeIconPath>
+  </FactionDef>
+
+   <FactionDef>
+		<defName>Pirate</defName>
+		<label>pirate band</label>
+    <description>A gang of bandits.\n\nPirates don't sow, they don't build, and they rarely trade. They enrich themselves mostly by raiding and robbing the more productive groups in the area.\n\nTheir technology level depends mostly on who they've managed to steal from recently. Mostly they carry gunpowder weapons, though the luckier ones may have advanced energy weapons, and some may just like to stab people at close range.</description>
+    <pawnsPlural>pirates</pawnsPlural>
+    <baseSelectionWeight>1</baseSelectionWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxCountAtGameStart>2</maxCountAtGameStart>
+    <canMakeRandomly>true</canMakeRandomly>
+    <canSiege>true</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+		<appreciative>false</appreciative>
+    <leaderTitle>boss</leaderTitle>
+    <expandingIconTexture>World/WorldObjects/Expanding/PirateOutpost</expandingIconTexture>
+    <colorSpectrum>
+      <li>(0.45, 0.03, 0.02)</li>
+      <li>(0.8, 0.08, 0.18)</li>
+      <li>(0.92, 0.62, 0.06)</li>
+    </colorSpectrum>
+    <startingGoodwill>
+      <min>-100</min>
+      <max>-90</max>
+    </startingGoodwill>
+    <mustStartOneEnemy>true</mustStartOneEnemy>
+		<factionNameMaker>NamerFactionPirate</factionNameMaker>
+    <baseNameMaker>NamerFactionBasePirate</baseNameMaker>
+		<techLevel>Spacer</techLevel>
+		<backstoryCategory>Raider</backstoryCategory>
+		<geneticVariance>0.8</geneticVariance>
+		<hairTags>
+			<li>Punk</li>
+		</hairTags>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>-80</max>
+    </naturalColonyGoodwill>
+    <allowedArrivalTemperatureRange>
+      <min>-40</min>
+      <max>45</max>
+    </allowedArrivalTemperatureRange>
+    <pawnGroupMakers>
+      <li>
+				<!-- Normal fights, standard mix -->
+				<kindDef>Normal</kindDef>
+        <commonality>100</commonality>
+        <options>
+          <Drifter>5</Drifter>
+		  <AndroidT1Raider>130</AndroidT1Raider>
+		  <AndroidT2Raider>210</AndroidT2Raider>
+					<GrenadierEMP>5</GrenadierEMP>
+					<GrenadierDestructive>20</GrenadierDestructive>
+					<Thrasher>70</Thrasher>
+					<MercenarySlasher>70</MercenarySlasher>
+					<MercenaryHeavy>60</MercenaryHeavy>
+					<MercenarySniper>70</MercenarySniper>
+					<Scavenger>90</Scavenger>
+					<Pirate>120</Pirate>
+					<MercenaryGunner>100</MercenaryGunner>
+					<MercenaryElite>100</MercenaryElite>
+          <PirateBoss>100</PirateBoss>
+        </options>
+      </li>
+      <li>
+				<!-- Normal fights, melee-only -->
+        <kindDef>Normal</kindDef>
+        <commonality>25</commonality>
+        <disallowedStrategies>
+          <li>Siege</li>
+        </disallowedStrategies>
+        <options>
+					<MercenarySlasher>100</MercenarySlasher>
+        </options>
+      </li>
+      <li>
+				<!-- Base defense -->
+				<kindDef>FactionBase</kindDef>
+        <options>
+          <Drifter>5</Drifter>
+		  		  <AndroidT1Raider>160</AndroidT1Raider>
+		  <AndroidT2Raider>240</AndroidT2Raider>
+					<GrenadierDestructive>20</GrenadierDestructive>
+					<Thrasher>70</Thrasher>
+					<MercenarySlasher>70</MercenarySlasher>
+					<MercenarySniper>80</MercenarySniper>
+					<Scavenger>90</Scavenger>
+					<Pirate>120</Pirate>
+					<MercenaryGunner>100</MercenaryGunner>
+					<MercenaryElite>100</MercenaryElite>
+          <PirateBoss>100</PirateBoss>
+        </options>
+      </li>
+    </pawnGroupMakers>
+    <homeIconPath>World/WorldObjects/DefaultFactionBase</homeIconPath>
+  </FactionDef>
+</Defs>

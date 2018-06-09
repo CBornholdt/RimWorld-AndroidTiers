@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Android tiers - working</name>
+  <author>Atlas, APurpleApple</author>
+  <targetVersion>0.18.1722</targetVersion>
+  <description>
+	Adds 4 tiers of android along with an android doggo
+	- a new android faction
+	- android specific diseases
+	- tons of replacecable upgrades / downgrades for androids
+	- More, etc etc 
+  </description>
+</ModMetaData>

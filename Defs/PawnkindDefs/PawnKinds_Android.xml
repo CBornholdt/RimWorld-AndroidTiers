@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>AbominationAtlas</defName>
+		<label>Mutant</label>
+		<race>Abomination</race>
+		<combatPower>230</combatPower>
+		<defaultFactionType>Abomination</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildSpawn_spawnWild>false</wildSpawn_spawnWild>
+	<apparelTags>
+      <li>Worker</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>0</min>
+      <max>80</max>
+    </apparelMoney>
+    <apparelAllowHeadwearChance>0.1</apparelAllowHeadwearChance>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Abomination/Abomination</texPath>
+          <drawSize>2.5</drawSize>
+          <shadowData>
+            <volume>(0.45, 1.3, 0.45)</volume>
+            <offset>(0,0,-0.15)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Humanlike/HumanoidDessicated</texPath>
+          <drawSize>2.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+	
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>AndroidT5Colonist</defName>
+		<label>T5 Android Colonist</label>
+		<race>Android5Tier</race>
+		<backstoryCategory>AndroidTiers</backstoryCategory>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<chemicalAddictionChance>0.00</chemicalAddictionChance>
+    <techHediffsMoney>
+      <min>2000</min>
+      <max>10000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+    <techHediffsChance>0.1</techHediffsChance>
+		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+	</PawnKindDef>
+	
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>AndroidT4Colonist</defName>
+		<label>T4 Android Colonist</label>
+		<race>Android4Tier</race>
+		<backstoryCategory>AndroidTiers</backstoryCategory>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<chemicalAddictionChance>0.00</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+	</PawnKindDef>
+
+	
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>AndroidT3Colonist</defName>
+		<label>T3 Android Colonist</label>
+		<race>Android3Tier</race>
+		<backstoryCategory>AndroidTiers</backstoryCategory>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<chemicalAddictionChance>0.00</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+	</PawnKindDef>
+	
+	
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>AndroidT1Colonist</defName>
+		<label>T1 Android Colonist</label>
+		<race>Android1Tier</race>
+		<backstoryCategory>AndroidTiers</backstoryCategory>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<chemicalAddictionChance>0.00</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+	</PawnKindDef>
+
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>AndroidT2Colonist</defName>
+		<label>T2 Android Colonist</label>
+		<race>Android2Tier</race>
+		<backstoryCategory>AndroidTiers</backstoryCategory>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<chemicalAddictionChance>0.00</chemicalAddictionChance>
+		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+	</PawnKindDef>
+	
+ <PawnKindDef>
+    <defName>AndroidT1Raider</defName>
+    <label>T1 Android Raider</label>
+    <labelPlural>Raider androids</labelPlural>
+	<backstoryCategory>Raider</backstoryCategory>
+	<race>Android1Tier</race>
+    <combatPower>100</combatPower>
+	    <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
+			<defaultFactionType>Pirate</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.4</max>
+    </gearHealthRange>
+    <apparelTags>
+      <li>Outlander</li>
+      <li>Military</li>
+      <li>BeltDefensePop</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>100</min>
+      <max>150</max>
+    </apparelMoney>
+    <apparelAllowHeadwearChance>0</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>800</min>
+      <max>1400</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>1000</min>
+      <max>2000</max>
+    </techHediffsMoney>
+    <combatEnhancingDrugsCount>
+      <min>0</min>
+      <max>2</max>
+    </combatEnhancingDrugsCount>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.08</techHediffsChance>
+  </PawnKindDef>
+
+  <PawnKindDef>
+    <defName>AndroidT2Raider</defName>
+    <label>T2 Android Raider</label>
+    <labelPlural>Raider androids</labelPlural>
+	<backstoryCategory>Raider</backstoryCategory>
+	    <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
+	<race>Android2Tier</race>
+    <combatPower>180</combatPower>
+			<defaultFactionType>Pirate</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.4</max>
+    </gearHealthRange>
+    <apparelTags>
+      <li>Outlander</li>
+      <li>Military</li>
+      <li>BeltDefensePop</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>200</min>
+      <max>350</max>
+    </apparelMoney>
+    <apparelAllowHeadwearChance>0.2</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>1600</min>
+      <max>2000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>GunHeavy</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>2000</min>
+      <max>3000</max>
+    </techHediffsMoney>
+    <combatEnhancingDrugsCount>
+      <min>0</min>
+      <max>2</max>
+    </combatEnhancingDrugsCount>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.08</techHediffsChance>
+  </PawnKindDef>
+
+
+  
+</Defs>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <SoundDef>
+      <defName>40MMCannon</defName>
+      <context>MapOnly</context>
+      <eventNames />
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Folder">
+              <clipFolderPath>40MMShot</clipFolderPath>
+            </li>
+          </grains>
+          <volumeRange>
+            <min>100</min>
+            <max>150</max>
+          </volumeRange>
+          <pitchRange>
+            <min>0.85</min>
+            <max>1.05</max>
+          </pitchRange>
+          <distRange>
+            <min>0</min>
+            <max>80</max>
+          </distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+
+
+    <SoundDef>
+      <defName>SharpThrower</defName>
+      <context>MapOnly</context>
+      <eventNames />
+      <subSounds>
+        <li>
+          <grains>
+            <li Class="AudioGrain_Folder">
+              <clipFolderPath>SThrowShot</clipFolderPath>
+            </li>
+          </grains>
+          <volumeRange>
+            <min>50</min>
+            <max>90</max>
+          </volumeRange>
+          <pitchRange>
+            <min>0.65</min>
+            <max>1.05</max>
+          </pitchRange>
+          <distRange>
+            <min>0</min>
+            <max>80</max>
+          </distRange>
+        </li>
+      </subSounds>
+    </SoundDef>
+
+
+</Defs>

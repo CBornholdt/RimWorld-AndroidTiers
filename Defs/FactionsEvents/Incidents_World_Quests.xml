@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SiteCoreDef>
+    <defName>DownedT5Android</defName>
+    <label>Strange Crashsite</label>
+		<description>The approximate place the humanoid projectile crashed down.</description>
+    <siteTexture>Things/StrangeCrash</siteTexture>
+    <expandingIconTexture>Things/StrangeCrash</expandingIconTexture>
+	<forceExitAndRemoveMapCountdownDurationDays>4</forceExitAndRemoveMapCountdownDurationDays>
+  </SiteCoreDef>
+
+    <GenStepDef>
+    <defName>DownedT5Android</defName>
+    <linkWithSite>DownedT5Android</linkWithSite>
+    <order>1599</order>
+    <genStep Class="MOARANDROIDS.GenStep_DownedT5Android">
+      <count>1</count>
+      <nearMapCenter>true</nearMapCenter>
+    </genStep>
+  </GenStepDef>
+  
+  <GenStepDef>
+    <defName>TurretsT5</defName>
+    <linkWithSite>DownedT5Android</linkWithSite>
+    <order>470</order>
+    <genStep Class="GenStep_Turrets">
+      <widthRange><min>2</min><max>4</max></widthRange>
+      <turretsCountRange><min>3</min><max>6</max></turretsCountRange>
+      <mortarsCountRange><min>1</min><max>3</max></mortarsCountRange>
+      <guardsCountRange><min>9</min><max>16</max></guardsCountRange>
+    </genStep>
+  </GenStepDef>
+
+  <GenStepDef>
+    <defName>TurretsPowerT5</defName>
+    <linkWithSite>DownedT5Android</linkWithSite>
+    <order>471</order>
+    <genStep Class="GenStep_Power" />
+  </GenStepDef>
+  
+	<IncidentDef>
+		<defName>StrangeCrash</defName>
+		<label>Strange crash</label>
+		<category>Misc</category>
+    <targetTypes>
+      <li>World</li>
+    </targetTypes>
+		<workerClass>MOARANDROIDS.IncidentWorker_DownedT5Android</workerClass>
+		<letterLabel>A Strange crash</letterLabel>
+		<letterText>You notice a beam of plasma score across the sky, at first glance it appears to be a meteor but on closer inspection it is seen to be humanoid in shape, what could it be? The location has been marked on the planetary map.</letterText>
+		<letterDef>NeutralEvent</letterDef>
+		<baseChance>0.45</baseChance>
+		<minRefireDays>50</minRefireDays>
+		<chanceFactorByPopulationCurve>
+			<points>
+				<li>(2,0)</li>
+				<li>(4,1)</li>
+			</points>
+		</chanceFactorByPopulationCurve>
+	</IncidentDef>
+	
+	<!--NonWorld-->
+	
+		<IncidentDef>
+		<defName>WandererJoinMutant</defName>
+		<label>wanderer join</label>
+		<category>Misc</category>
+    <targetTypes>
+      <li>MapPlayerHome</li>
+    </targetTypes>
+		<workerClass>MOARANDROIDS.IncidentWorker_MutantJoin</workerClass>
+		<baseChance>0.35</baseChance>
+		<populationEffect>Increase</populationEffect>
+	</IncidentDef>
+
+</Defs>
