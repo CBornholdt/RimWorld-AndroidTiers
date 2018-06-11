@@ -8,7 +8,7 @@ using Verse;
 using UnityEngine;
 using RimWorld;
  
-namespace BlueLeakTest
+namespace MOARANDROIDS
 {
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
     [HarmonyPatch("DrawHediffRow")]

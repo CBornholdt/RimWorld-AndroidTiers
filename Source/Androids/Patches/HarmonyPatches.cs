@@ -3,7 +3,7 @@ using Harmony;
 using Verse;
 using RimWorld;
 
-namespace BlueLeakTest
+namespace MOARANDROIDS
 {
     [StaticConstructorOnStartup]
     static public class HarmonyPatches

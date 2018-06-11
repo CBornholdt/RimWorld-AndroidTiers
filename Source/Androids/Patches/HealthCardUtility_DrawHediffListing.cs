@@ -7,7 +7,7 @@ using Harmony;
 using Verse;
 using RimWorld;
 
-namespace BlueLeakTest
+namespace MOARANDROIDS
 {
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
     [HarmonyPatch(nameof(RimWorld.HealthCardUtility.DrawHediffListing))]

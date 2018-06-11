@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Linq;
+using Verse;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using Harmony;
-using Verse;
-using UnityEngine;
 using RimWorld;
  
-namespace BlueLeakTest
+namespace MOARANDROIDS
 {
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
     [HarmonyPatch("GetTooltip")]
