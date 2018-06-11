@@ -4,7 +4,7 @@
 	<AlienRace.ThingDef_AlienRace ParentName="BasePawn">
 		<defName>M7Mech</defName>
 		<label>M7 Mechanised infantry</label>
-		<description>The most advanced form of android conceivable; this tier is able to efficiently hold the consciousness of any AI uploaded onto it, with advanced locomotive abilities and manipulation; this android vastly suprasses most humans.</description>
+		<description>A form of mechanized infantry, produced during an ancient time on this rimworld. These units are very strong, powerful war machines but are subsequently slow and have limited battery to them.</description>
 		<alienRace>
 	<raceRestriction>
 	
@@ -15,6 +15,8 @@
 	<weaponList>
         <li>Mech40MMCannon</li>
 		<li>MechMastiffGun</li>
+		<li>MechHandCannon</li>
+		<li>MeleeWeapon_MechKnife</li>
     </weaponList>
     <onlyUseRaceRestrictedWeapons>true</onlyUseRaceRestrictedWeapons>
 	
@@ -206,10 +208,11 @@
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
 			<intelligence>Humanlike</intelligence>
 			<makesFootprints>true</makesFootprints>
+			      <nameGenerator>AndroidAtlasStandard</nameGenerator>
 			<lifeExpectancy>4000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
 			<body>AndroidM7Mech</body>
-			<baseHealthScale>10</baseHealthScale>
+			<baseHealthScale>7.5</baseHealthScale>
 			<needsRest>false</needsRest>
 			<foodType>None</foodType>
 			<baseHungerRate>0.01</baseHungerRate>
@@ -274,8 +277,8 @@
 		<aiAvoidCover>true</aiAvoidCover>
 		<wildSpawn_spawnWild>false</wildSpawn_spawnWild>
    <weaponMoney>
-      <min>2000</min>
-      <max>2800</max>
+      <min>800</min>
+      <max>1200</max>
     </weaponMoney>
     <weaponTags>
       <li>MechM7Gun</li>
@@ -342,7 +345,7 @@
 	
   <TraitDef>
     <defName>MechAtlas</defName>
-    <commonality>0.000001</commonality>
+	    <commonality>0</commonality>
     <degreeDatas>
       <li>
         <label>Mech</label>

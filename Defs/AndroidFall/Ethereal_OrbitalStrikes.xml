@@ -28,9 +28,9 @@
     <thingClass>MOARANDROIDS.MechFall</thingClass>
     <comps>
       <li Class="CompProperties_OrbitalBeam">
-        <width>0.5</width>
+        <width>0.25</width>
         <color>(255, 50, 50, 150)</color>
-        <sound>OrbitalBeamSubtle</sound>
+        <sound>MortarRound_Ambient</sound>
       </li>
     </comps>
   </ThingDef>
@@ -48,7 +48,7 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>5800</MarketValue>
+      <MarketValue>2400</MarketValue>
       <Mass>0.2</Mass>
       <Beauty>-2</Beauty>
       <Weapon_Bulk>0.1</Weapon_Bulk>
@@ -65,7 +65,7 @@
         <hasStandardCommand>true</hasStandardCommand>
         <warmupTime>3</warmupTime>
         <ai_AvoidFriendlyFireRadius>6</ai_AvoidFriendlyFireRadius>
-        <range>45</range>
+        <range>85</range>
         <burstShotCount>1</burstShotCount>
         <soundAiming>OrbitalTargeter_Aiming</soundAiming>
         <soundCast>OrbitalTargeter_Fire</soundCast>

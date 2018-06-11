@@ -36,15 +36,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\.steam\steam\steamapps\common\RimWorld\RimWorldLinux_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\.steam\steam\steamapps\common\RimWorld\RimWorldLinux_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\RimWorldLinux_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\..\usr\local\lib\dotnet\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\..\usr\local\lib\dotnet\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -82,11 +82,20 @@
     <Compile Include="ThingDefOfAtlascs.cs" />
     <Compile Include="Verb_MechFall.cs" />
     <Compile Include="WorldObjectDef_DownedT5Android.cs" />
+    <Compile Include="Patches\HarmonyPatches.cs" />
+    <Compile Include="Patches\HealthCardUtility_DrawHediffListing.cs" />
+    <Compile Include="Patches\HealthCardUtility_DrawHediffRow.cs" />
+    <Compile Include="Patches\HealthCardUtility_GetTooltip.cs" />
+    <Compile Include="Extensions\PawnExt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\About\About.xml">
       <Link>About\About.xml</Link>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patches\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
