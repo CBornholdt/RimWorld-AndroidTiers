@@ -9,8 +9,8 @@ using RimWorld;
 
 namespace MOARANDROIDS
 {
-    [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
-    [HarmonyPatch(nameof(RimWorld.HealthCardUtility.DrawHediffListing))]
+    [HarmonyPatch(typeof(RimWorld.GatheringsUtility))]
+    [HarmonyPatch(nameof(RimWorld.GatheringsUtility.ShouldGuestKeepAttendingGathering))]
     static public class GatheringUtility_ShouldGuestKeepAttendingGathering
     {
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -22,16 +22,16 @@ namespace MOARANDROIDS
                                                     .AddNullCheckToRestCurCategory));
 
             foreach(var code in instructions) 
-                if(code.opcode == OpCodes.Call && code.operand == restCurCategoryGetter) {
+                if(code.opcode == OpCodes.Callvirt && code.operand == restCurCategoryGetter) {
                     yield return new CodeInstruction(OpCodes.Call, helper); //Consume 1, return RestCategory
                 }
                 else
                     yield return code;
         }
 
-        static public RestCategory AddNullCheckToRestCurCategory(Pawn_NeedsTracker needs)
+        static public RestCategory AddNullCheckToRestCurCategory(Need_Rest rest)
         {
-			return needs.rest?.CurCategory ?? RestCategory.Rested;
+			return rest?.CurCategory ?? RestCategory.Rested;
         }
     }
 }
