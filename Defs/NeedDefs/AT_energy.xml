@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<NeedDef>
+		<defName>AT_Energy</defName>
+		<needClass>MOARANDROIDS.Need_Energy</needClass>
+		<label>Energy</label>
+		<description>TODO DESC</description>
+		<listPriority>698</listPriority>
+		<major>true</major>
+		<showForCaravanMembers>true</showForCaravanMembers>
+	</NeedDef>
+</Defs>

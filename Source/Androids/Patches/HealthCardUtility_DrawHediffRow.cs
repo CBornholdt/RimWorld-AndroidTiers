@@ -10,6 +10,7 @@ using RimWorld;
  
 namespace MOARANDROIDS
 {
+    [StaticConstructorOnStartup]
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
     [HarmonyPatch("DrawHediffRow")]
     static public class HealthCardUtility_DrawHediffRow

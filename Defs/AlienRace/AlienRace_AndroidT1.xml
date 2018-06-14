@@ -268,36 +268,40 @@
 		<recipes>
 			<li>AdministerMechSerumHealer</li>
 			<li>InstallJoywire</li>
-	  <li>InstallBasicReplacementArm</li>
-      <li>InstallBasicReplacementLeg</li>
-	        <li>InstallScytherBlade</li>
-	  <li>InstallLightReceivingDiode</li>
-	  <li>InstallCrudeHeatsink</li>
-	  <li>InstallFlimsyCoolantPump</li>
-	  <li>InstallSmallBatteryPack</li>
-	  <li>InstallTubeSealantTank</li>
-	  <li>InstallLowPowerTransformer</li>
-	  <li>InstallBasicDCConverter</li>
-	  <li>InstallBasicPlating</li>
-	  <li>RemoveBodyPartAndroid</li>
-	  <li>ShutdownAndroid</li>
-	  
-	  	  <li>InstallPositronMindImplant</li>
-	  <li>InstallSoldierMindImplant</li>
-	  <li>InstallBuilderMindImplant</li>
-	  <li>InstallSurgeonMindImplant</li>
-	  <li>InstallSpeedMindImplant</li>
-	  <li>InstallGeoMindImplant</li>
+			<li>InstallBasicReplacementArm</li>
+			<li>InstallBasicReplacementLeg</li>
+			<li>InstallScytherBlade</li>
+			<li>InstallLightReceivingDiode</li>
+			<li>InstallCrudeHeatsink</li>
+			<li>InstallFlimsyCoolantPump</li>
+			<li>InstallSmallBatteryPack</li>
+			<li>InstallTubeSealantTank</li>
+			<li>InstallLowPowerTransformer</li>
+			<li>InstallBasicDCConverter</li>
+			<li>InstallBasicPlating</li>
+			<li>RemoveBodyPartAndroid</li>
+			<li>ShutdownAndroid</li>
+
+			<li>InstallPositronMindImplant</li>
+			<li>InstallSoldierMindImplant</li>
+			<li>InstallBuilderMindImplant</li>
+			<li>InstallSurgeonMindImplant</li>
+			<li>InstallSpeedMindImplant</li>
+			<li>InstallGeoMindImplant</li>
 		</recipes>
 		<butcherProducts>
 			<Plasteel>25</Plasteel>
 			<Component>2</Component>
 		</butcherProducts>
 		<modExtensions>
-    <li Class="MOARANDROIDS.AndroidTweaker">
-        <tweakCorpseRot>true</tweakCorpseRot>
-    </li>
-</modExtensions>
+	    	<li Class="MOARANDROIDS.AndroidTweaker">
+	       		<tweakCorpseRot>true</tweakCorpseRot>
+	    	</li>
+		</modExtensions>
+		<comps>
+			<li Class="MOARANDROIDS.CompProperties_NeedsEnergy">
+				<compClass>MOARANDROIDS.CompNeedsEnergy</compClass>
+			</li>
+		</comps>
 	</AlienRace.ThingDef_AlienRace>
-
 </Defs>
