@@ -87,6 +87,7 @@
     <Compile Include="Patches\HealthCardUtility_DrawHediffRow.cs" />
     <Compile Include="Patches\HealthCardUtility_GetTooltip.cs" />
     <Compile Include="Extensions\PawnExt.cs" />
+    <Compile Include="Patches\GatheringUtility_ShouldGuestKeepAttendingGathering.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\About\About.xml">
