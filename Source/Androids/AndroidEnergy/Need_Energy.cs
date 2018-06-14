@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MOARANDROIDS
 {
-	public enum AndroidEnergyNeedCategory { None, Low, Critical, Empty };
+	public enum EnergyNeedCategory : byte { Acceptable, Low, Critical, Empty };
 
     public class Need_Energy : Need
     {
@@ -15,19 +15,21 @@ namespace MOARANDROIDS
 
 		public CompProperties_NeedsEnergy Props => this.pawn.TryGetComp<CompNeedsEnergy>()?.Props;
         
-        public AndroidEnergyNeedCategory LowEnergyNeed {
+        public EnergyNeedCategory LowEnergyNeed {
 			get {
 				switch(this.CurLevel) {
 					case var testLevel when testLevel <= 0.00001:
-						return AndroidEnergyNeedCategory.Empty;
+						return EnergyNeedCategory.Empty;
 					case var testLevel when testLevel <= Props.criticallyLowLevelThreshPercent:
-						return AndroidEnergyNeedCategory.Critical;
-					case var testLevel when testLevel <= Props.criticallyLowLevelThreshPercent:
-						return AndroidEnergyNeedCategory.Low;
+						return EnergyNeedCategory.Critical;
+					case var testLevel when testLevel <= Props.lowLevelThreshPercent:
+						return EnergyNeedCategory.Low;
 				}
-				return AndroidEnergyNeedCategory.None;
+				return EnergyNeedCategory.Acceptable;
 			}
 		}
+
+		public float RechargeThreshold => Props.lowLevelThreshPercent + EnergyConstants.AdditionalRechargeThresholdFromLow;
                              
 		public Need_Energy(Pawn pawn) : base(pawn)
 		{
@@ -48,27 +50,31 @@ namespace MOARANDROIDS
 
 		override public void NeedInterval()
         {
-			this.CurLevel = Mathf.Max(CurLevel - Props.ValueLossPerTick, 0);
+			this.CurLevel -=  150f * Props.ValueLossPerTick;    //150 ticks per NeedsInterval
 			AdjustLowEnergyHediffs();         
 		}
 
+		public void AddPower(float amount) => this.CurLevel += amount * MaxLevel / Props.powerForFullEnergy;
+
 		public void AdjustLowEnergyHediffs()
 		{
-			AndroidEnergyNeedCategory eNeeds = LowEnergyNeed;
-			if(Props.emptyLevelHediff != null && eNeeds != AndroidEnergyNeedCategory.Empty
+			EnergyNeedCategory eNeeds = LowEnergyNeed;
+			if(Props.emptyLevelHediff != null && eNeeds != EnergyNeedCategory.Empty
 				&& this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.emptyLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);
 
-			if(Props.criticallyLowLevelHediff != null && eNeeds != AndroidEnergyNeedCategory.Critical
+			if(Props.criticallyLowLevelHediff != null && eNeeds != EnergyNeedCategory.Critical
 				&& this.pawn.health.hediffSet.HasHediff(Props.criticallyLowLevelHediff))
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.criticallyLowLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);
 
-			if(Props.emptyLevelHediff != null && eNeeds != AndroidEnergyNeedCategory.Low
+			if(Props.emptyLevelHediff != null && eNeeds != EnergyNeedCategory.Low
 				&& this.pawn.health.hediffSet.HasHediff(Props.lowLevelHediff))
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.lowLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);
 		}
+        
+        
 	}
 }

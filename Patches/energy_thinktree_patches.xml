@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>/Defs/ThinkTreeDef//*[@Class="MOARANDROIDS.JobGiver_RechargeEnergy"]</xpath>
+				<success>Invert</success>
+			</li>
+			<!-- Look for priority sorter under nodes tagged 'SatisyingNeeds' -->
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/ThinkTreeDef//*[@Class='ThinkNode_Tagger' and tagToGive='SatisfyingNeeds']//li[@Class='ThinkNode_PrioritySorter']//li[@Class='JobGiver_GetFood']</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="MOARANDROIDS.JobGiver_RechargeEnergy"/>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>/Defs/ThinkTreeDef//li[@Class="MOARANDROIDS.ThinkNode_ConditionalLowEnergy"]</xpath>
+				<success>Invert</success>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/ThinkTreeDef//li[@Class='ThinkNode_ConditionalStarving']</xpath>
+				<value>
+					<li Class="MOARANDROIDS.ThinkNode_ConditionalLowEnergy">
+		              <subNodes>
+		                <li Class="ThinkNode_Tagger">
+		                  <tagToGive>SatisfyingNeeds</tagToGive>
+		                  <subNodes>
+		                    <li Class="MOARANDROIDS.JobGiver_RechargeEnergy">
+		                      <leaveJoinableLordIfIssuesJob>true</leaveJoinableLordIfIssuesJob>
+		                    </li>
+		                  </subNodes>
+		                </li>
+		              </subNodes>
+		            </li>
+		        </value>
+		    </li>
+		</operations>
+	</Operation>
+</Patch>

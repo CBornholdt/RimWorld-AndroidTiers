@@ -31,7 +31,6 @@ namespace MOARANDROIDS
             foreach(var code in instructions) {
                 yield return code;
                 if(code.opcode == OpCodes.Ldsfld && code.operand == bleedingIconField) {
-                    Log.Message("Patching");
                     yield return new CodeInstruction(OpCodes.Ldarg_1);  //TextureAndColor, Pawn on stack
                     yield return new CodeInstruction(OpCodes.Call, iconHelper); //Consume 2, leave TextureAndColor
                 }   

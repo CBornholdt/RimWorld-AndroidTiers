@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  	<JobDef>
+		<defName>AT_RechargeEnergy</defName>
+		<driverClass>MOARANDROIDS.JobDriver_RechargeAtBuilding</driverClass>
+		<reportString>rechargine</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+</Defs>

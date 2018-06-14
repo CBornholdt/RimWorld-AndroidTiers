@@ -10,7 +10,7 @@ namespace MOARANDROIDS
         
 		public float lowLevelThreshPercent = 0.25f;
 		public float criticallyLowLevelThreshPercent = 0.1f;
-		public float powerForFullEnergy = 10000;
+		public float powerForFullEnergy = 800;
 
 		public HediffDef lowLevelHediff;
 		public HediffDef criticallyLowLevelHediff;
