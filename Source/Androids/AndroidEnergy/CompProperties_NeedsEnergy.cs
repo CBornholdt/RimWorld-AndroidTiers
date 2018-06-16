@@ -17,5 +17,7 @@ namespace MOARANDROIDS
 		public HediffDef emptyLevelHediff;
 
 		public float ValueLossPerTick => 0.1f / (float)ticksToLoseTenPercent;
+        
+        public CompProperties_NeedsEnergy() => this.compClass = typeof(CompNeedsEnergy);
     }
 }

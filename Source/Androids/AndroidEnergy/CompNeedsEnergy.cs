@@ -16,6 +16,22 @@ namespace MOARANDROIDS
         {
         }
 
+		public bool IsSinkActive => EnergyNeed.CurLevel < EnergyNeed.MaxLevel;
+
+		public float TryAddEnergy(float amount)
+		{
+			if(amount < 0) {
+				Log.Message("Attempted to add negative amount of energy to sink on " + this.parent);
+				return 0;
+			}
+			float storageRemaining = EnergyNeed.MaxLevel - EnergyNeed.CurLevel;
+			float amountToDraw = storageRemaining < amount ? storageRemaining : amount;
+			EnergyNeed.CurLevel += amountToDraw;
+			return amountToDraw;
+		}
+
+		public float NaturalConsumeRate => Props.ValueLossPerTick;   
+
 		override public IEnumerable<Gizmo> CompGetGizmosExtra()
 		{
 			if(Prefs.DevMode && DebugSettings.godMode) {

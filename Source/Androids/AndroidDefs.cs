@@ -15,4 +15,10 @@ namespace MOARANDROIDS
 	{
 		static public JobDef AT_RechargeEnergy;
 	}
+
+	[DefOf]
+	static public class EnergyHediffs
+	{
+		static public HediffDef AT_GainEnergy;
+	}
 }

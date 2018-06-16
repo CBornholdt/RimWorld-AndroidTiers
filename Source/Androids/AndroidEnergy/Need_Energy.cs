@@ -14,6 +14,8 @@ namespace MOARANDROIDS
 		public Need_Energy() => this.threshPercents = new List<float>(3);
 
 		public CompProperties_NeedsEnergy Props => this.pawn.TryGetComp<CompNeedsEnergy>()?.Props;
+
+		public EnergySystem EnergySystem => this.pawn.TryGetComp<EnergySystem>();
         
         public EnergyNeedCategory LowEnergyNeed {
 			get {
@@ -38,7 +40,16 @@ namespace MOARANDROIDS
 
 		override public void SetInitialLevel() => CurLevel = 1f;
 
-		override public float MaxLevel => 1f;
+		override public float CurLevel {
+			get => EnergySystem?.StoredEnergy ?? base.CurLevel;
+			set {
+				if(EnergySystem != null)
+					Log.Message("Attempted to set Energy need level but connected to an energy system that should be interacted with instead");
+				base.CurLevel = value;
+			}
+		}
+
+		override public float MaxLevel => EnergySystem?.StorageCapacity ?? 1f;
 
 		override public void DrawOnGUI(Rect rect, int maxThresholdMarkers = int.MaxValue, float customMargin = -1F, bool drawArrows = true, bool doTooltip = true)
 		{
@@ -50,7 +61,7 @@ namespace MOARANDROIDS
 
 		override public void NeedInterval()
         {
-			this.CurLevel -=  150f * Props.ValueLossPerTick;    //150 ticks per NeedsInterval
+			this.CurLevel -= 150f * Props.ValueLossPerTick;    //150 ticks per NeedsInterval
 			AdjustLowEnergyHediffs();         
 		}
 
@@ -74,7 +85,5 @@ namespace MOARANDROIDS
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.lowLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);
 		}
-        
-        
 	}
 }
