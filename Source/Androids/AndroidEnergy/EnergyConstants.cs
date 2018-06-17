@@ -5,5 +5,6 @@ namespace MOARANDROIDS
     {
         static public readonly float EnergyThreshPercentAcceptable = 0.8f;
         static public readonly float AdditionalRechargeThresholdFromLow = 0.25f;
+		static public readonly int TicksPerSystemUpdate = 200;
     }
 }

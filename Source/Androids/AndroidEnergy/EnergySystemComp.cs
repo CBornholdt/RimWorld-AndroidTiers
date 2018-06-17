@@ -6,7 +6,7 @@ using Harmony;
 
 namespace MOARANDROIDS
 {
-    public abstract class EnergySystemComp : ThingComp, IExposable
+    public abstract class EnergySystemComp : ThingComp
     {
 		public EnergySystem energySystem;
     
@@ -20,8 +20,6 @@ namespace MOARANDROIDS
         
 			Scribe_References.Look<EnergySystem>(ref this.energySystem, "EnergySystem");
 		}
-
-		public void ExposeData() { }
 
 		virtual public void ApplyEffects() { }
 		virtual public IEnumerable<Gizmo> GetEnergyGizmos() { yield break; }

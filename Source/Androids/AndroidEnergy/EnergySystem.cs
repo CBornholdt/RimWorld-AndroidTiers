@@ -9,8 +9,6 @@ namespace MOARANDROIDS
 {
 	public class EnergySystem : ThingComp, IThingHolder, IEnergyStorage
 	{
-        static public readonly int tickFrequency = 100;
-
 		List<IEnergySink> attachedSinksSorted;
 		List<IEnergySource> attachedSourcesSorted;
 		ThingOwner<ThingWithComps> installedComps;
@@ -31,7 +29,6 @@ namespace MOARANDROIDS
 			this.attachedSinksSorted = new List<IEnergySink>(4);
 			this.attachedSourcesSorted = new List<IEnergySource>(4);
 			this.installedComps = new ThingOwner<ThingWithComps>(this);
-			this.baseEnergyConsumption = new BaseEnergyConsumption(this);
 		}
 
 		public void InstallEnergySystemComp(EnergySystemComp newComp)
@@ -52,6 +49,7 @@ namespace MOARANDROIDS
 		public override void Initialize(CompProperties props)
 		{
 			base.Initialize(props);
+            this.baseEnergyConsumption = new BaseEnergyConsumption(this);
 			if(Scribe.mode == LoadSaveMode.Inactive)
 				PostPostMake();
             this.lastTickWorked = Find.TickManager.TicksGame - 1;  
@@ -66,7 +64,6 @@ namespace MOARANDROIDS
             Scribe_Collections.Look<IEnergySink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Reference);
             Scribe_Collections.Look<IEnergySource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Reference);
             Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");    
-            Scribe_Deep.Look<BaseEnergyConsumption>(ref this.baseEnergyConsumption, "BaseEnergyConsumption", new object[1] { this });
         }
 
 		void PostPostMake()
@@ -78,7 +75,7 @@ namespace MOARANDROIDS
         
         override public void CompTick()
         {
-            if(!(this.parent as Pawn).IsHashIntervalTick(tickFrequency))
+            if(!(this.parent as Pawn).IsHashIntervalTick(EnergyConstants.TicksPerSystemUpdate))
                 return;
 
             EnergySystemTick();
@@ -225,7 +222,8 @@ namespace MOARANDROIDS
 				}	
 				source = sourceEnumerator.Current;
 				maxDrawOnSource = Mathf.Min(source.CurrentMaxSourcableEnergy
-										, source.DesiredSourceRatePer1000Ticks * tickFrequency / 1000f);
+										, source.DesiredSourceRatePer1000Ticks 
+                                            * EnergyConstants.TicksPerSystemUpdate / 1000f);
 				amountDrawnOnSource = 0;
 				return true;
 			};
@@ -235,7 +233,8 @@ namespace MOARANDROIDS
 			while(sinkEnumerator.MoveNext()) {
 				sink = sinkEnumerator.Current;
 				maxPlaceInSink = Mathf.Min(sink.CurrentMaxSinkableEnergy
-												, sink.DesiredSinkRatePer1000Ticks * tickFrequency / 1000f);
+												, sink.DesiredSinkRatePer1000Ticks 
+                                                    * EnergyConstants.TicksPerSystemUpdate / 1000f);
 				amountPlacedInSink = 0;
 				while(true) {
 					//Sinks cannot pull on themselves if also a source, nor can two passive types (passive = 1)
@@ -259,10 +258,9 @@ namespace MOARANDROIDS
 			applyEnergyToSource();                                                                                          
 		}
 		
-		private class BaseEnergyConsumption : IEnergySink, IExposable
+		private class BaseEnergyConsumption : IEnergySink
 		{
 			EnergySystem parent;
-			string loadID;
 			int lastTickWorked;
             
             public BaseEnergyConsumption() => this.lastTickWorked = Find.TickManager.TicksGame - 1;
@@ -270,21 +268,13 @@ namespace MOARANDROIDS
 			public BaseEnergyConsumption(EnergySystem parent) : this()
 			{
 				this.parent = parent;
-				this.loadID = "ES" + parent.GetHashCode() + "_BEC";
-			/*	if(Scribe.mode == LoadSaveMode.LoadingVars) {
-					Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
-						.Method("RegisterLoaded", new object[1] { this });
-
-					Log.Message("Registering :" + GetUniqueLoadID());
-				}   */
+                
+                if(Scribe.mode == LoadSaveMode.LoadingVars) 
+                Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
+                    .Method("RegisterLoaded", new object[1] { this }).GetValue();
 			}
 
-			public void ExposeData()
-			{
-				Scribe_Values.Look<string>(ref this.loadID, "LoadID");
-			}
-
-			public string GetUniqueLoadID() => loadID;
+			public string GetUniqueLoadID() => parent.GetUniqueLoadID() + "_BEC";
 
 			public SinkStatusType SinkStatus => SinkStatusType.Active;
 
