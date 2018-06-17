@@ -299,8 +299,11 @@
 	    	</li>
 		</modExtensions>
 		<comps>
-			<li Class="MOARANDROIDS.CompProperties_NeedsEnergy">
-				<compClass>MOARANDROIDS.CompNeedsEnergy</compClass>
+			<li Class="MOARANDROIDS.CompProperties_EnergySystem">
+				<initialComponentTypes>
+					<li>ESBattery</li>
+				</initialComponentTypes>
+				<baseEnergyConsumptionPer1000Ticks>0.1</baseEnergyConsumptionPer1000Ticks>
 			</li>
 		</comps>
 	</AlienRace.ThingDef_AlienRace>

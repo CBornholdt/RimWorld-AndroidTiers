@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HediffDef>
+  	<defName>AT_GainEnergy</defName>
+  	<label>gain energy</label>
+    <hediffClass>MOARANDROIDS.Hediff_GainEnergy</hediffClass>
+    <defaultLabelColor>(0.6, 0.6, 0.7)</defaultLabelColor>
+    <isBad>false</isBad>
+  </HediffDef>
+</Defs>

@@ -9,6 +9,8 @@ namespace MOARANDROIDS
 {
 	public class EnergySystem : ThingComp, IThingHolder, IEnergyStorage
 	{
+        static public readonly int tickFrequency = 100;
+
 		List<IEnergySink> attachedSinksSorted;
 		List<IEnergySource> attachedSourcesSorted;
 		ThingOwner<ThingWithComps> installedComps;
@@ -18,23 +20,68 @@ namespace MOARANDROIDS
 		public List<IEnergySink> AttachedSinks => attachedSinksSorted;
 		public List<IEnergySource> AttachedSources => attachedSourcesSorted;
 		public IEnumerable<EnergySystemComp> InstalledComps => installedComps.InnerListForReading
-				.Select(thing => (EnergySystemComp)thing.AllComps.First(comp => comp is EnergySystemComp));
+			.Select(thing => (EnergySystemComp)thing.TryGetComp<EnergySystemComp>());
 
 		private int lastTickWorked;
 
 		public CompProperties_EnergySystem Props => (CompProperties_EnergySystem)this.props;
 
-		public EnergySystem() { }
+		public EnergySystem()
+		{
+			this.attachedSinksSorted = new List<IEnergySink>(4);
+			this.attachedSourcesSorted = new List<IEnergySource>(4);
+			this.installedComps = new ThingOwner<ThingWithComps>(this);
+			this.baseEnergyConsumption = new BaseEnergyConsumption(this);
+		}
+
+		public void InstallEnergySystemComp(EnergySystemComp newComp)
+		{
+			installedComps.TryAdd(newComp.parent, canMergeWithExistingStacks: false);
+			if(newComp is IEnergySink sink) {
+				attachedSinksSorted.Add(sink);
+				attachedSinksSorted.SortByDescending<IEnergySink, float>(s => s.SinkPriority);
+			}
+            if(newComp is IEnergySource source) {
+                attachedSourcesSorted.Add(source);
+                attachedSourcesSorted.SortByDescending<IEnergySource, float>(s => s.SourcePriority);
+            }
+			newComp.Installed(this);
+		}
+
+        //ThingComp or ThingComp-like stuff
+		public override void Initialize(CompProperties props)
+		{
+			base.Initialize(props);
+			if(Scribe.mode == LoadSaveMode.Inactive)
+				PostPostMake();
+            this.lastTickWorked = Find.TickManager.TicksGame - 1;  
+		}
 
 		public override void PostExposeData()
-        {
-			Scribe_Collections.Look<IEnergySink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Reference);
+        {        
+			if(Scribe.mode == LoadSaveMode.LoadingVars) 
+                Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
+                    .Method("RegisterLoaded", new object[1] { this }).GetValue();
+            
+            Scribe_Collections.Look<IEnergySink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Reference);
             Scribe_Collections.Look<IEnergySource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Reference);
-			Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");
-			Scribe_Deep.Look<BaseEnergyConsumption>(ref this.baseEnergyConsumption, "BaseEnergyComsumption");
+            Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");    
+            Scribe_Deep.Look<BaseEnergyConsumption>(ref this.baseEnergyConsumption, "BaseEnergyConsumption", new object[1] { this });
+        }
 
-			if(Scribe.mode == LoadSaveMode.LoadingVars)
-				Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory").Method("RegisterLoaded", new object[1] { this });  
+		void PostPostMake()
+		{
+			attachedSinksSorted.Add(this.baseEnergyConsumption);
+			foreach(var compDef in this.Props.initialComponentTypes ?? Enumerable.Empty<ThingDef>())
+				InstallEnergySystemComp(ThingMaker.MakeThing(compDef).TryGetComp<EnergySystemComp>());
+		}
+        
+        override public void CompTick()
+        {
+            if(!(this.parent as Pawn).IsHashIntervalTick(tickFrequency))
+                return;
+
+            EnergySystemTick();
         }
         
 		//ILoadReferenceable stuff
@@ -96,7 +143,7 @@ namespace MOARANDROIDS
 				for(int i = 0; i < attachedSinksSorted.Count; i++)
 					if(attachedSinksSorted[i].SinkStatus == SinkStatusType.Active)
 						return SinkStatusType.Active;
-				return SinkStatusType.NotActive;
+				return SinkStatusType.Disabled;
 			}
 		}
         
@@ -110,17 +157,11 @@ namespace MOARANDROIDS
 			}
 		}
 
-		public float TrySinkEnergy(float amount)
+		public float CurrentMaxSinkableEnergy => StorageCapacity - StoredEnergy;
+
+		public void SinkEnergy(float amount)
 		{
-			float amountSunk = 0;
-			for(int i = 0; i < attachedSinksSorted.Count; i++)
-				if(attachedSinksSorted[i].SinkStatus == SinkStatusType.Active) {
-					float amountRemaining = amount - amountSunk;
-					amountSunk += attachedSinksSorted[i].TrySinkEnergy(amountRemaining);
-					if(Mathf.Approximately(amount, amountSunk))
-						return amount;
-				}
-			return amountSunk;
+			
 		}
 
 		public float SinkPriority => 1f;    //TODO need to think about this
@@ -133,9 +174,11 @@ namespace MOARANDROIDS
 				for(int i = 0; i < attachedSourcesSorted.Count; i++)
 					if(attachedSourcesSorted[i].SourceStatus == SourceStatusType.Active)
 						return SourceStatusType.Active;
-				return SourceStatusType.NotActive;
+				return SourceStatusType.Disabled;
 			}
 		}
+
+		public float CurrentMaxSourcableEnergy => StoredEnergy;
         
         public float DesiredSourceRatePer1000Ticks {
 			get {
@@ -147,62 +190,112 @@ namespace MOARANDROIDS
 			}
 		}
 
-		public float TrySourceEnergy(float amount)
+		public void SourceEnergy(float amount)
 		{
-			float amountSourced = 0;
-			for(int i = 0; i < attachedSourcesSorted.Count; i++)
-				if(attachedSourcesSorted[i].SourceStatus == SourceStatusType.Active) {
-					float amountRemaining = amount - amountSourced;
-					amountSourced += attachedSourcesSorted[i].TrySourceEnergy(amountRemaining);
-					if(Mathf.Approximately(amount, amountSourced))
-						return amount;
-				}
-			return amountSourced;
+		    	
 		}
 
-		public float SourcePriority => 1f;
+		public float SourcePriority => 1f;		
 
-		//ThingComp stuff
-		override public void CompTick()
+		//Energy System internals
+		public void EnergySystemTick()
 		{
-			if(!(this.parent as Pawn).IsHashIntervalTick(100))
+			IEnumerator<IEnergySink> sinkEnumerator = attachedSinksSorted.GetEnumerator();
+			IEnumerator<IEnergySource> sourceEnumerator = attachedSourcesSorted.GetEnumerator();
+			IEnergySource source = null;
+			IEnergySink sink = null;
+			float maxDrawOnSource = 0;
+			float amountDrawnOnSource = 0;
+			float maxPlaceInSink = 0;
+			float amountPlacedInSink = 0;
+            
+            Action applyEnergyToSink = () => {
+				if(sink != null && amountPlacedInSink > 0)
+					sink.SinkEnergy(amountPlacedInSink);
+			};
+			Action applyEnergyToSource = () => {
+				if(source != null && amountDrawnOnSource > 0)
+					source.SourceEnergy(amountDrawnOnSource);
+			};
+            
+			Func<bool> tryAdvanceSourceEnumerator = () => {
+				if(!sourceEnumerator.MoveNext()) {
+					applyEnergyToSink();
+					return false;
+				}	
+				source = sourceEnumerator.Current;
+				maxDrawOnSource = Mathf.Min(source.CurrentMaxSourcableEnergy
+										, source.DesiredSourceRatePer1000Ticks * tickFrequency / 1000f);
+				amountDrawnOnSource = 0;
+				return true;
+			};
+
+			if(!tryAdvanceSourceEnumerator())
 				return;
+			while(sinkEnumerator.MoveNext()) {
+				sink = sinkEnumerator.Current;
+				maxPlaceInSink = Mathf.Min(sink.CurrentMaxSinkableEnergy
+												, sink.DesiredSinkRatePer1000Ticks * tickFrequency / 1000f);
+				amountPlacedInSink = 0;
+				while(true) {
+					//Sinks cannot pull on themselves if also a source, nor can two passive types (passive = 1)
+                    
+                    //TODO I think there will be an issue if an active sink follows a passive one, is that ok?
+					if(source as IEnergySink != sink && (byte)sink.SinkStatus + (byte)source.SourceStatus > 2) {
+						float transferAmount = Mathf.Min(maxPlaceInSink - amountPlacedInSink
+													, maxDrawOnSource - amountDrawnOnSource);
+						amountPlacedInSink += transferAmount;
+						amountDrawnOnSource += transferAmount;                            
+					}
+					if(amountPlacedInSink >= maxPlaceInSink)
+						break;
+					applyEnergyToSource();
+					if(!tryAdvanceSourceEnumerator())
+						return;
+				}
+				applyEnergyToSink();
+			}
+			//Ran out of sinks first, process last source
+			applyEnergyToSource();                                                                                          
 		}
-
-		public override void Initialize(CompProperties props)
-		{
-			base.Initialize(props);
-            this.lastTickWorked = Find.TickManager.TicksGame - 1;              
-		}
-
+		
 		private class BaseEnergyConsumption : IEnergySink, IExposable
 		{
 			EnergySystem parent;
+			string loadID;
 			int lastTickWorked;
             
             public BaseEnergyConsumption() => this.lastTickWorked = Find.TickManager.TicksGame - 1;
 
-			public BaseEnergyConsumption(EnergySystem parent) : this() => this.parent = parent;
+			public BaseEnergyConsumption(EnergySystem parent) : this()
+			{
+				this.parent = parent;
+				this.loadID = "ES" + parent.GetHashCode() + "_BEC";
+			/*	if(Scribe.mode == LoadSaveMode.LoadingVars) {
+					Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
+						.Method("RegisterLoaded", new object[1] { this });
+
+					Log.Message("Registering :" + GetUniqueLoadID());
+				}   */
+			}
 
 			public void ExposeData()
 			{
-				Scribe_References.Look<EnergySystem>(ref this.parent, "Parent");
+				Scribe_Values.Look<string>(ref this.loadID, "LoadID");
 			}
 
-			public string GetUniqueLoadID() => parent.GetUniqueLoadID() + "_BEC";
+			public string GetUniqueLoadID() => loadID;
 
 			public SinkStatusType SinkStatus => SinkStatusType.Active;
 
 			public float SinkPriority => 100f;
 
-			public float DesiredSinkRatePer1000Ticks => parent.Props.baseEnergyConsumptionPer1000Ticks / 1000f;
+			public float DesiredSinkRatePer1000Ticks => parent.Props.baseEnergyConsumptionPer1000Ticks;
 
-			public float TrySinkEnergy(float amount)
-			{
-				float desiredSinkAmount = DesiredSinkRatePer1000Ticks * (float)Math.Min((Find.TickManager.TicksGame - lastTickWorked), 200);
-				this.lastTickWorked = Find.TickManager.TicksGame;
-				return Mathf.Min(amount, desiredSinkAmount);
-			}
+			public float CurrentMaxSinkableEnergy => (float)(Find.TickManager.TicksGame - lastTickWorked) *
+                DesiredSinkRatePer1000Ticks / 1000f;
+
+			public void SinkEnergy(float amount) => this.lastTickWorked = Find.TickManager.TicksGame;
 		}
 	}
 }

@@ -7,38 +7,48 @@ namespace MOARANDROIDS
 {
     public class EnergySystemComp_Battery : EnergySystemComp, IEnergyStorage
     {
-		private float storedEnergy;
-
+		float storedEnergy;
+    
 		public EnergySystemProps_Battery Props => (EnergySystemProps_Battery) this.props;
+
+		public override void Initialize(CompProperties props)
+		{
+			base.Initialize(props);
+			if(Scribe.mode == LoadSaveMode.Inactive)
+				PostPostMake();
+		}
 
 		public override void PostExposeData()
 		{
+			base.PostExposeData();
 			Scribe_Values.Look<float>(ref this.storedEnergy, "StoredEnergy");
-            
-            if(Scribe.mode == LoadSaveMode.LoadingVars)
-                Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory").Method("RegisterLoaded", new object[1] { this });
+		}
+
+		public void PostPostMake()
+		{
+			this.storedEnergy = Props.initialStoragePercentage * StorageCapacity;
 		}
 
 		override public float AttachPriority => this.Props.attachPriority;
         
-		public SinkStatusType SinkStatus => (StoredEnergy >= StorageCapacity) ? SinkStatusType.NotActive : SinkStatusType.Active;
+		public SinkStatusType SinkStatus => (StoredEnergy >= StorageCapacity) ? SinkStatusType.Disabled : SinkStatusType.Passive;
 		public float SinkPriority => this.Props.sinkPriority;
 		public float DesiredSinkRatePer1000Ticks => this.Props.energyTransferPer1000Ticks;
-		public float TrySinkEnergy(float amount)
+		public float CurrentMaxSinkableEnergy => StorageCapacity - StoredEnergy;
+		public void SinkEnergy(float amount)
 		{
-			float amountToSink = Mathf.Clamp(amount, 0, StorageCapacity - StoredEnergy);
-			storedEnergy += amountToSink;
-			return amountToSink;
+			storedEnergy += amount;
+			storedEnergy = Mathf.Min(storedEnergy, StorageCapacity);
 		}
 
-		public SourceStatusType SourceStatus => (StoredEnergy <= 0) ? SourceStatusType.NotActive : SourceStatusType.Active;
+		public SourceStatusType SourceStatus => (StoredEnergy <= 0) ? SourceStatusType.Disabled : SourceStatusType.Passive;
 		public float SourcePriority => this.Props.sourcePriority;
 		public float DesiredSourceRatePer1000Ticks => this.Props.energyTransferPer1000Ticks;
-		public float TrySourceEnergy(float amount)
+		public float CurrentMaxSourcableEnergy => StoredEnergy;
+		public void SourceEnergy(float amount)
 		{
-			float amountToSource = Mathf.Clamp(amount, 0, StoredEnergy);
-			storedEnergy -= amountToSource;
-			return amountToSource;
+			storedEnergy -= amount;
+			storedEnergy = Mathf.Max(storedEnergy, 0);
 		}
         
         public StorageStatusType StorageStatus {

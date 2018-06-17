@@ -3,13 +3,14 @@ using Verse;
 
 namespace MOARANDROIDS
 {
-	public enum SinkStatusType : byte { NotActive, Active };
+	public enum SinkStatusType : byte { Disabled = 0, Passive = 1, Active = 2 };
 
     public interface IEnergySink : ILoadReferenceable
     {
 		SinkStatusType SinkStatus { get; }
 		float SinkPriority { get; }
 		float DesiredSinkRatePer1000Ticks { get; }
-		float TrySinkEnergy(float amount);
+        float CurrentMaxSinkableEnergy { get; }
+		void SinkEnergy(float amount);
     }
 }

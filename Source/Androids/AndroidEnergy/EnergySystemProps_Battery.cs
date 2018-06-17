@@ -13,6 +13,8 @@ namespace MOARANDROIDS
 
 		public float storageCapacity = 1f;
 		public float energyTransferPer1000Ticks = 1;
+
+		public float initialStoragePercentage = 1;
         
 		public EnergySystemProps_Battery() => this.compClass = typeof(EnergySystemComp_Battery);
     }

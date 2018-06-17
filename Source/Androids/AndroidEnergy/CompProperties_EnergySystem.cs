@@ -17,7 +17,7 @@ namespace MOARANDROIDS
 				yield return error;
 
 			var invalidInitialComponents = initialComponentTypes?
-					.Where(thingDef => !typeof(EnergySystemComp).IsAssignableFrom(thingDef.thingClass));
+					.Where(thingDef => !thingDef.comps.Any(prop => prop.compClass.IsSubclassOf(typeof(EnergySystemComp))));
 			foreach(var badThingDef in invalidInitialComponents ?? Enumerable.Empty<ThingDef>())
 				yield return string.Format("Error with initial energy system components, {0} is not valid EnergySystemComp Thing", badThingDef.label);
                 
