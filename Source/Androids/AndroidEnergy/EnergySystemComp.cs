@@ -6,18 +6,17 @@ using Harmony;
 
 namespace MOARANDROIDS
 {
-    public abstract class EnergySystemComp : ThingComp
+    public abstract class EnergySystemComp : ThingComp, ILoadReferenceable
     {
 		public EnergySystem energySystem;
     
         abstract public float AttachPriority { get; }
 
+		abstract public string GetUniqueLoadID();
+
 		public override void PostExposeData()
 		{
-            if(Scribe.mode == LoadSaveMode.LoadingVars)
-                Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
-                    .Method("RegisterLoaded", new object[1] { this }).GetValue();
-        
+			this.ForceRegisterReferenceable();
 			Scribe_References.Look<EnergySystem>(ref this.energySystem, "EnergySystem");
 		}
 

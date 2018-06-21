@@ -37,19 +37,19 @@ namespace MOARANDROIDS
 			if(Prefs.DevMode && DebugSettings.godMode) {
 				yield return new Command_Action() {
 					defaultLabel = "DEBUG: Set Energy FULL",
-					action = () => EnergyNeed.CurLevel = EnergyNeed.MaxLevel
+					action = () => EnergyNeed.SetCurLevelPercentDirect(1f)
 				};
 				yield return new Command_Action() {
 					defaultLabel = "DEBUG: Set Energy LOW",
-					action = () => EnergyNeed.CurLevel = EnergyNeed.Props.lowLevelThreshPercent
+					action = () => EnergyNeed.SetCurLevelPercentDirect(EnergyNeed.Props.lowLevelThreshPercent)
 				};
 				yield return new Command_Action() {
 					defaultLabel = "DEBUG: Set Energy CRITICAL LOW",
-					action = () => EnergyNeed.CurLevel = EnergyNeed.Props.criticallyLowLevelThreshPercent
+					action = () => EnergyNeed.SetCurLevelPercentDirect(EnergyNeed.Props.criticallyLowLevelThreshPercent)
 				};
 				yield return new Command_Action() {
 					defaultLabel = "DEBUG: Set Energy EMPTY",
-					action = () => EnergyNeed.CurLevel = EnergyNeed.Props.criticallyLowLevelThreshPercent
+					action = () => EnergyNeed.SetCurLevelPercentDirect(0)
 				};
 			}
 		}

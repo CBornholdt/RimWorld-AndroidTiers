@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MOARANDROIDS
 {
-	public enum EnergyNeedCategory : byte { Acceptable, Low, Critical, Empty };
+	public enum EnergyNeedCategory : byte { None, Minor, Moderate, Major, Critical };
 
     public class Need_Energy : Need
     {
@@ -17,43 +17,58 @@ namespace MOARANDROIDS
 
 		public EnergySystem EnergySystem => this.pawn.TryGetComp<EnergySystem>();
         
-        public EnergyNeedCategory LowEnergyNeed {
+        public EnergyNeedCategory EnergyNeed {
 			get {
+				float max = MaxLevel;
 				switch(this.CurLevel) {
-					case var testLevel when testLevel <= 0.00001:
-						return EnergyNeedCategory.Empty;
-					case var testLevel when testLevel <= Props.criticallyLowLevelThreshPercent:
+					case var testLevel when testLevel > max * 0.95:
+						return EnergyNeedCategory.None;
+					case var testLevel when testLevel > max *
+									(Props.lowLevelThreshPercent + EnergyConstants.AdditionalRechargeThresholdFromLow):
+						return EnergyNeedCategory.Minor;
+					case var testLevel when testLevel > max * Props.lowLevelThreshPercent:
+						return EnergyNeedCategory.Moderate;
+					case var testLevel when testLevel > max * Props.criticallyLowLevelThreshPercent:
+						return EnergyNeedCategory.Major;
+					default:
 						return EnergyNeedCategory.Critical;
-					case var testLevel when testLevel <= Props.lowLevelThreshPercent:
-						return EnergyNeedCategory.Low;
 				}
-				return EnergyNeedCategory.Acceptable;
 			}
 		}
-
-		public float RechargeThreshold => Props.lowLevelThreshPercent + EnergyConstants.AdditionalRechargeThresholdFromLow;
                              
 		public Need_Energy(Pawn pawn) : base(pawn)
 		{
 			this.threshPercents = new List<float>(3);
 		}
 
-		override public void SetInitialLevel() => CurLevel = 1f;
+		override public void SetInitialLevel()
+		{
+			if(this.EnergySystem == null)
+				this.CurLevel = 1f;
+		}
 
 		override public float CurLevel {
-			get => EnergySystem?.StoredEnergy ?? base.CurLevel;
+			get => this.EnergySystem?.StoredEnergy ?? base.CurLevel;
 			set {
-				if(EnergySystem != null)
-					Log.Message("Attempted to set Energy need level but connected to an energy system that should be interacted with instead");
+				if(this.EnergySystem != null)
+					Log.ErrorOnce("Attempted to set Energy need level but connected to an energy system that should be interacted with instead", 87);
 				base.CurLevel = value;
 			}
 		}
 
-		override public float MaxLevel => EnergySystem?.StorageCapacity ?? 1f;
+		public void SetCurLevelPercentDirect(float percent)
+		{
+			if(EnergySystem == null)
+				this.CurLevel = percent * this.MaxLevel;
+			else
+				this.EnergySystem.SetEnergyDirect(percent * EnergySystem.StorageCapacity);
+		}
+
+		override public float MaxLevel => this.EnergySystem?.StorageCapacity ?? 1f;
 
 		override public void DrawOnGUI(Rect rect, int maxThresholdMarkers = int.MaxValue, float customMargin = -1F, bool drawArrows = true, bool doTooltip = true)
 		{
-			this.threshPercents.Clear();
+            this.threshPercents.Clear();
 			this.threshPercents.Add(Props.criticallyLowLevelThreshPercent);
 			this.threshPercents.Add(Props.lowLevelThreshPercent);
 			base.DrawOnGUI(rect, maxThresholdMarkers, customMargin, drawArrows, doTooltip);
@@ -61,7 +76,8 @@ namespace MOARANDROIDS
 
 		override public void NeedInterval()
         {
-			this.CurLevel -= 150f * Props.ValueLossPerTick;    //150 ticks per NeedsInterval
+            if(EnergySystem == null)
+			    this.CurLevel -= 150f * Props.ValueLossPerTick;    //150 ticks per NeedsInterval
 			AdjustLowEnergyHediffs();         
 		}
 
@@ -69,18 +85,18 @@ namespace MOARANDROIDS
 
 		public void AdjustLowEnergyHediffs()
 		{
-			EnergyNeedCategory eNeeds = LowEnergyNeed;
-			if(Props.emptyLevelHediff != null && eNeeds != EnergyNeedCategory.Empty
+			EnergyNeedCategory eNeeds = EnergyNeed;
+			if((Props.emptyLevelHediff != null && this.CurLevel < 0.00001f)
 				&& this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.emptyLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);
 
-			if(Props.criticallyLowLevelHediff != null && eNeeds != EnergyNeedCategory.Critical
+			if(Props.criticallyLowLevelHediff != null && eNeeds == EnergyNeedCategory.Critical
 				&& this.pawn.health.hediffSet.HasHediff(Props.criticallyLowLevelHediff))
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.criticallyLowLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);
 
-			if(Props.emptyLevelHediff != null && eNeeds != EnergyNeedCategory.Low
+			if(Props.lowLevelHediff != null && eNeeds != EnergyNeedCategory.Major
 				&& this.pawn.health.hediffSet.HasHediff(Props.lowLevelHediff))
 				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.lowLevelHediff))
 					this.pawn.health.RemoveHediff(hediff);

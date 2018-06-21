@@ -66,8 +66,10 @@ namespace MOARANDROIDS
 
 		public float StoragePriority => this.Props.storagePriority;
 		public float StoredEnergy => this.storedEnergy;
+		public void SetEnergyDirect(float amount) => this.storedEnergy = Mathf.Clamp(amount, 0, StorageCapacity);
 		public float StorageCapacity => this.Props.storageCapacity;
+		public StorageLevelTag StorageLevel => this.GetDefaultStorageLevel();
 
-		public string GetUniqueLoadID() => this.parent.GetUniqueLoadID() + "_ESC_Battery";
+		override public string GetUniqueLoadID() => this.parent.GetUniqueLoadID() + "_ESC_Battery";
     }
 }

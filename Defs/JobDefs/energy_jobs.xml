@@ -3,7 +3,20 @@
   	<JobDef>
 		<defName>AT_RechargeEnergy</defName>
 		<driverClass>MOARANDROIDS.JobDriver_RechargeAtBuilding</driverClass>
-		<reportString>rechargine</reportString>
+		<reportString>recharging</reportString>
 		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+	<JobDef>
+		<defName>AT_ConnectSource</defName>
+		<driverClass>MOARANDROIDS.JobDriver_ConnectSource</driverClass>
+		<reportString>connecting to energy source</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+	<JobDef>
+		<defName>AT_ConnectSourceThenDisconnect</defName>
+		<driverClass>MOARANDROIDS.JobDriver_ConnectSourceThenDisconnect</driverClass>
+		<reportString>connecting to energy source</reportString>
+		<casualInterruptible>true</casualInterruptible>
 	</JobDef>
 </Defs>

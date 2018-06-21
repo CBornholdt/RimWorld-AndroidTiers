@@ -305,6 +305,7 @@
 				</initialComponentTypes>
 				<baseEnergyConsumptionPer1000Ticks>0.1</baseEnergyConsumptionPer1000Ticks>
 			</li>
+			<li Class="MOARANDROIDS.CompProperties_NeedsEnergy"/>
 		</comps>
 	</AlienRace.ThingDef_AlienRace>
 </Defs>

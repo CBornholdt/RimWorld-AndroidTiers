@@ -14,4 +14,16 @@ namespace MOARANDROIDS
         float CurrentMaxSourcableEnergy { get; }
 		void SourceEnergy(float amount);
     }
+
+	static public class SourceExt
+	{
+		static public float SourceLevelPercent(this IEnergySource source)
+		{
+			if(source is IEnergyStorage storage)
+				return storage.StoredEnergy / storage.StorageCapacity;
+			if(source is CompPowerBattery_EnergyAdapterComp battery)
+				return battery.StoredEnergyPct;
+			return 1f;
+		}
+	}
 }

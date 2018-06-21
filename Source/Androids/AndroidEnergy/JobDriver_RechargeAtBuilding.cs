@@ -10,7 +10,7 @@ namespace MOARANDROIDS
 {
     public class JobDriver_RechargeAtBuilding : JobDriver
     {
-		public const TargetIndex BatteryInd = TargetIndex.A;
+		public readonly TargetIndex BatteryInd = TargetIndex.A;
 		public readonly float PowerWithdrawnPerTick = 1f;
     
 		override public bool TryMakePreToilReservations()

@@ -10,7 +10,7 @@ namespace MOARANDROIDS
         protected override bool Satisfied(Pawn pawn)
         {
 			Need_Energy eNeed = pawn.needs.TryGetNeed<Need_Energy>();
-			return eNeed != null && eNeed.LowEnergyNeed >= EnergyNeedCategory.Critical;
+			return eNeed != null && eNeed.EnergyNeed >= EnergyNeedCategory.Major;
         }
     }
 }

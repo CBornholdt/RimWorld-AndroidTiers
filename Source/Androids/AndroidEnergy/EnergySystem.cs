@@ -9,43 +9,92 @@ namespace MOARANDROIDS
 {
 	public class EnergySystem : ThingComp, IThingHolder, IEnergyStorage
 	{
-		List<IEnergySink> attachedSinksSorted;
-		List<IEnergySource> attachedSourcesSorted;
+		List<AttachedSink> attachedSinksSorted;
+		List<AttachedSource> attachedSourcesSorted;
 		ThingOwner<ThingWithComps> installedComps;
 
 		BaseEnergyConsumption baseEnergyConsumption;
 
-		public List<IEnergySink> AttachedSinks => attachedSinksSorted;
-		public List<IEnergySource> AttachedSources => attachedSourcesSorted;
+		public IEnumerable<IEnergySink> AttachedSinks => attachedSinksSorted.Select(aSink => aSink.sink);
+		public IEnumerable<IEnergySource> AttachedSources => attachedSourcesSorted.Select(aSource => aSource.source);
+		public IEnumerable<IEnergyStorage> AttachedStorages => AttachedSinks.OfType<IEnergyStorage>()
+										.Concat(AttachedSources.OfType<IEnergyStorage>())
+                                        .Cast<IEnergyStorage>()
+                                        .Distinct();
+           
 		public IEnumerable<EnergySystemComp> InstalledComps => installedComps.InnerListForReading
 			.Select(thing => (EnergySystemComp)thing.TryGetComp<EnergySystemComp>());
 
 		private int lastTickWorked;
 
-		public CompProperties_EnergySystem Props => (CompProperties_EnergySystem)this.props;
-
 		public EnergySystem()
 		{
-			this.attachedSinksSorted = new List<IEnergySink>(4);
-			this.attachedSourcesSorted = new List<IEnergySource>(4);
+			this.attachedSinksSorted = new List<AttachedSink>(4);
+			this.attachedSourcesSorted = new List<AttachedSource>(4);
 			this.installedComps = new ThingOwner<ThingWithComps>(this);
 		}
+
+		public void AttachSink(IEnergySink sink, DisconnectWhen when = new DisconnectWhen())
+		{
+			attachedSinksSorted.Add(new AttachedSink(sink, when));
+			attachedSinksSorted.SortByDescending<AttachedSink, float>(s => s.sink.SinkPriority);
+		}
+
+		public void AttachSource(IEnergySource source, DisconnectWhen when = new DisconnectWhen())
+		{
+            attachedSourcesSorted.Add(new AttachedSource(source, when));
+            attachedSourcesSorted.SortByDescending<AttachedSource, float>(s => s.source.SourcePriority);
+		}
+
+	/*	public void DeinstallEnergySystemComp(EnergySystemComp comp, bool shouldSpawn = true)
+		{
+            installedComps.TryAdd(newComp.parent, canMergeWithExistingStacks: false);
+            if(newComp is IEnergySink sink)
+                AttachSink(sink);
+            if(newComp is IEnergySource source)
+                AttachSource(source);
+            newComp.Installed(this);
+
+
+		}   */
+
+		public void DetachSink(IEnergySink sink) => attachedSinksSorted.RemoveAll(aSink => aSink.sink == sink);
+
+		public void DetachSource(IEnergySource source) => attachedSourcesSorted.RemoveAll(aSource => aSource.source == source);
+
+		public void UpdateDisconnections()
+		{
+			for(int i = attachedSourcesSorted.Count; --i >= 0;)
+				if(attachedSourcesSorted[i].disconnectWhen.ShouldDisconnectSystemFrom(this, attachedSourcesSorted[i].source))
+					attachedSourcesSorted.RemoveAt(i);
+			for(int i = attachedSinksSorted.Count; --i >= 0;)
+				if(attachedSinksSorted[i].disconnectWhen.ShouldDisconnectSystemFrom(this, attachedSinksSorted[i].sink))
+					attachedSinksSorted.RemoveAt(i);
+		}  
+                
 
 		public void InstallEnergySystemComp(EnergySystemComp newComp)
 		{
 			installedComps.TryAdd(newComp.parent, canMergeWithExistingStacks: false);
-			if(newComp is IEnergySink sink) {
-				attachedSinksSorted.Add(sink);
-				attachedSinksSorted.SortByDescending<IEnergySink, float>(s => s.SinkPriority);
-			}
-            if(newComp is IEnergySource source) {
-                attachedSourcesSorted.Add(source);
-                attachedSourcesSorted.SortByDescending<IEnergySource, float>(s => s.SourcePriority);
-            }
+			if(newComp is IEnergySink sink)
+				AttachSink(sink);
+			if(newComp is IEnergySource source)
+				AttachSource(source);
 			newComp.Installed(this);
 		}
 
+		public int LastTickProcessed => this.lastTickWorked;
+
+		public void SetEnergyDirect(float amount)
+		{
+			float ePercent = Mathf.Min(amount / this.StorageCapacity, 1f);
+			foreach(var storage in AttachedStorages)
+				storage.SetEnergyDirect(ePercent * storage.StorageCapacity);
+		}
+
         //ThingComp or ThingComp-like stuff
+        public CompProperties_EnergySystem Props => (CompProperties_EnergySystem)this.props;
+        
 		public override void Initialize(CompProperties props)
 		{
 			base.Initialize(props);
@@ -56,21 +105,20 @@ namespace MOARANDROIDS
 		}
 
 		public override void PostExposeData()
-        {        
-			if(Scribe.mode == LoadSaveMode.LoadingVars) 
-                Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
-                    .Method("RegisterLoaded", new object[1] { this }).GetValue();
+        {
+			this.ForceRegisterReferenceable();
             
-            Scribe_Collections.Look<IEnergySink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Reference);
-            Scribe_Collections.Look<IEnergySource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Reference);
+            Scribe_Collections.Look<AttachedSink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Deep);
+            Scribe_Collections.Look<AttachedSource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Deep);
             Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");    
         }
 
 		void PostPostMake()
 		{
-			attachedSinksSorted.Add(this.baseEnergyConsumption);
+			attachedSinksSorted.Add(new AttachedSink(this.baseEnergyConsumption));
 			foreach(var compDef in this.Props.initialComponentTypes ?? Enumerable.Empty<ThingDef>())
 				InstallEnergySystemComp(ThingMaker.MakeThing(compDef).TryGetComp<EnergySystemComp>());
+			Log.Message($"PostPostMake {StoredEnergy} {StorageCapacity}");
 		}
         
         override public void CompTick()
@@ -78,6 +126,7 @@ namespace MOARANDROIDS
             if(!(this.parent as Pawn).IsHashIntervalTick(EnergyConstants.TicksPerSystemUpdate))
                 return;
 
+			UpdateDisconnections();
             EnergySystemTick();
         }
         
@@ -99,7 +148,7 @@ namespace MOARANDROIDS
 			get {
 				float storedEnergy = 0;
 				for(int i = 0; i < attachedSourcesSorted.Count; i++)
-					if(attachedSourcesSorted[i] is IEnergyStorage storage
+					if(attachedSourcesSorted[i].source is IEnergyStorage storage
                         && storage.ActiveStorageOrFull())
 						storedEnergy += storage.StoredEnergy;
 				return storedEnergy;
@@ -123,14 +172,17 @@ namespace MOARANDROIDS
 			get {
 				float storageCapacity = 0;
 				for(int i = 0; i < attachedSinksSorted.Count; i++)
-					if(attachedSinksSorted[i] is IEnergyStorage storage
-                        && storage.ActiveStorageOrEmpty())
+					if(attachedSinksSorted[i].sink is IEnergyStorage storage
+                        && storage.StorageStatus != StorageStatusType.NotActive)
 						storageCapacity += storage.StorageCapacity;
 				return storageCapacity;
 			}
 		}
 
 		public float StoragePriority => 1f;     //TODO need to think about this 
+
+		//TODO implement stat based on xml
+		public StorageLevelTag StorageLevel => this.GetDefaultStorageLevel();
         
         //IEnergySink stuff
         public SinkStatusType SinkStatus {
@@ -138,7 +190,7 @@ namespace MOARANDROIDS
 				if(this.ActiveStorageOrEmpty())
 					return SinkStatusType.Active;
 				for(int i = 0; i < attachedSinksSorted.Count; i++)
-					if(attachedSinksSorted[i].SinkStatus == SinkStatusType.Active)
+					if(attachedSinksSorted[i].sink.SinkStatus == SinkStatusType.Active)
 						return SinkStatusType.Active;
 				return SinkStatusType.Disabled;
 			}
@@ -148,8 +200,8 @@ namespace MOARANDROIDS
 			get {
 				float desiredSinkRate = 0;
 				for(int i = 0; i < attachedSinksSorted.Count; i++)
-					if(attachedSinksSorted[i].SinkStatus == SinkStatusType.Active)
-						desiredSinkRate += attachedSinksSorted[i].DesiredSinkRatePer1000Ticks;
+					if(attachedSinksSorted[i].sink.SinkStatus == SinkStatusType.Active)
+						desiredSinkRate += attachedSinksSorted[i].sink.DesiredSinkRatePer1000Ticks;
 				return desiredSinkRate;
 			}
 		}
@@ -169,7 +221,7 @@ namespace MOARANDROIDS
 				if(this.ActiveStorageOrFull())
 					return SourceStatusType.Active;
 				for(int i = 0; i < attachedSourcesSorted.Count; i++)
-					if(attachedSourcesSorted[i].SourceStatus == SourceStatusType.Active)
+					if(attachedSourcesSorted[i].source.SourceStatus == SourceStatusType.Active)
 						return SourceStatusType.Active;
 				return SourceStatusType.Disabled;
 			}
@@ -181,8 +233,8 @@ namespace MOARANDROIDS
 			get {
 				float desiredSourceRate = 0;
 				for(int i = 0; i < attachedSourcesSorted.Count; i++)
-					if(attachedSourcesSorted[i].SourceStatus == SourceStatusType.Active)
-						desiredSourceRate += attachedSourcesSorted[i].DesiredSourceRatePer1000Ticks;
+					if(attachedSourcesSorted[i].source.SourceStatus == SourceStatusType.Active)
+						desiredSourceRate += attachedSourcesSorted[i].source.DesiredSourceRatePer1000Ticks;
 				return desiredSourceRate;
 			}
 		}
@@ -197,27 +249,29 @@ namespace MOARANDROIDS
 		//Energy System internals
 		public void EnergySystemTick()
 		{
-			IEnumerator<IEnergySink> sinkEnumerator = attachedSinksSorted.GetEnumerator();
-			IEnumerator<IEnergySource> sourceEnumerator = attachedSourcesSorted.GetEnumerator();
+			IEnumerator<IEnergySink> sinkEnumerator = AttachedSinks.GetEnumerator();
+			IEnumerator<IEnergySource> sourceEnumerator = AttachedSources.GetEnumerator();
 			IEnergySource source = null;
 			IEnergySink sink = null;
 			float maxDrawOnSource = 0;
 			float amountDrawnOnSource = 0;
 			float maxPlaceInSink = 0;
 			float amountPlacedInSink = 0;
+
+			this.lastTickWorked = Find.TickManager.TicksGame;
             
             Action applyEnergyToSink = () => {
-				if(sink != null && amountPlacedInSink > 0)
-					sink.SinkEnergy(amountPlacedInSink);
+				if(amountPlacedInSink > 0)
+					sink?.SinkEnergy(amountPlacedInSink);
 			};
 			Action applyEnergyToSource = () => {
-				if(source != null && amountDrawnOnSource > 0)
-					source.SourceEnergy(amountDrawnOnSource);
+				if(amountDrawnOnSource > 0)
+					source?.SourceEnergy(amountDrawnOnSource);
 			};
             
 			Func<bool> tryAdvanceSourceEnumerator = () => {
 				if(!sourceEnumerator.MoveNext()) {
-					applyEnergyToSink();
+					applyEnergyToSink();    //Ran out of sources, process last sink
 					return false;
 				}	
 				source = sourceEnumerator.Current;
@@ -237,8 +291,7 @@ namespace MOARANDROIDS
                                                     * EnergyConstants.TicksPerSystemUpdate / 1000f);
 				amountPlacedInSink = 0;
 				while(true) {
-					//Sinks cannot pull on themselves if also a source, nor can two passive types (passive = 1)
-                    
+					//Sinks cannot pull on themselves if also a source, nor can two passive types (passive = 1, disabled = 0)             
                     //TODO I think there will be an issue if an active sink follows a passive one, is that ok?
 					if(source as IEnergySink != sink && (byte)sink.SinkStatus + (byte)source.SourceStatus > 2) {
 						float transferAmount = Mathf.Min(maxPlaceInSink - amountPlacedInSink
@@ -246,7 +299,7 @@ namespace MOARANDROIDS
 						amountPlacedInSink += transferAmount;
 						amountDrawnOnSource += transferAmount;                            
 					}
-					if(amountPlacedInSink >= maxPlaceInSink)
+					if(amountPlacedInSink >= (maxPlaceInSink - 0.0000001))  //Epsilon as a precaution
 						break;
 					applyEnergyToSource();
 					if(!tryAdvanceSourceEnumerator())
@@ -257,6 +310,42 @@ namespace MOARANDROIDS
 			//Ran out of sinks first, process last source
 			applyEnergyToSource();                                                                                          
 		}
+
+		private class AttachedSink : IExposable
+		{
+			public IEnergySink sink;
+			public DisconnectWhen disconnectWhen;
+
+			public AttachedSink(IEnergySink sink, DisconnectWhen when = new DisconnectWhen())
+			{
+				this.sink = sink;
+				this.disconnectWhen = when;
+			}
+
+			public void ExposeData()
+			{
+				Scribe_References.Look<IEnergySink>(ref this.sink, "Sink");
+				Scribe_Values.Look<DisconnectWhen>(ref this.disconnectWhen, "DisconnectWhen");
+			}
+		}
+        
+        private class AttachedSource : IExposable
+        {
+            public IEnergySource source;
+            public DisconnectWhen disconnectWhen;
+            
+            public AttachedSource(IEnergySource source, DisconnectWhen when)
+            {
+                this.source = source;
+                this.disconnectWhen = when;
+            }
+
+            public void ExposeData()
+            {
+                Scribe_References.Look<IEnergySource>(ref this.source, "Source");
+                Scribe_Values.Look<DisconnectWhen>(ref this.disconnectWhen, "DisconnectWhen");
+            }
+        }
 		
 		private class BaseEnergyConsumption : IEnergySink
 		{
@@ -268,10 +357,8 @@ namespace MOARANDROIDS
 			public BaseEnergyConsumption(EnergySystem parent) : this()
 			{
 				this.parent = parent;
-                
-                if(Scribe.mode == LoadSaveMode.LoadingVars) 
-                Traverse.Create(Scribe.loader.crossRefs).Field("loadedObjectDirectory")
-                    .Method("RegisterLoaded", new object[1] { this }).GetValue();
+
+				this.ForceRegisterReferenceable();
 			}
 
 			public string GetUniqueLoadID() => parent.GetUniqueLoadID() + "_BEC";
