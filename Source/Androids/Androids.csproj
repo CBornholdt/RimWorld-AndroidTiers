@@ -117,6 +117,8 @@
     <Compile Include="AndroidEnergy\EnergySystemJob.cs" />
     <Compile Include="AndroidEnergy\JobDriver_ConnectSourceThenDisconnect.cs" />
     <Compile Include="AndroidEnergy\DisconnectWhen.cs" />
+    <Compile Include="AndroidEnergy\JobDriver_InstallEnergySystemComp.cs" />
+    <Compile Include="AndroidEnergy\JobDriver_RemoveEnergySystemComp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\About\About.xml">

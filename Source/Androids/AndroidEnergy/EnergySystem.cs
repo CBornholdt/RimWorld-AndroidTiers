@@ -75,12 +75,27 @@ namespace MOARANDROIDS
 
 		public void InstallEnergySystemComp(EnergySystemComp newComp)
 		{
+			newComp.parent.DeSpawn();
 			installedComps.TryAdd(newComp.parent, canMergeWithExistingStacks: false);
 			if(newComp is IEnergySink sink)
 				AttachSink(sink);
 			if(newComp is IEnergySource source)
 				AttachSource(source);
 			newComp.Installed(this);
+		}
+
+		public void RemoveEnergySystemComp(EnergySystemComp comp)
+		{
+			if(!installedComps.Contains(comp.parent))
+				return;
+
+			comp.Removed();
+			if(comp is IEnergySink sink)
+				DetachSink(sink);
+			if(comp is IEnergySource source)
+				DetachSource(source);
+			installedComps.TryDrop(comp.parent, this.parent.Position, this.parent.Map
+			   , ThingPlaceMode.Near, count: 1, resultingThing: out Thing resultingThing); 
 		}
 
 		public int LastTickProcessed => this.lastTickWorked;

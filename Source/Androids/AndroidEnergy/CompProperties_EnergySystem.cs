@@ -10,6 +10,7 @@ namespace MOARANDROIDS
     {
 		public float baseEnergyConsumptionPer1000Ticks = 0.1f;
 		public List<ThingDef> initialComponentTypes;
+		public int maxInstalledComps = 3;
 
 		public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
 		{
