@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Harmony;
+using RimWorld;
 
 namespace MOARANDROIDS
 {
@@ -27,11 +28,14 @@ namespace MOARANDROIDS
 
 		private int lastTickWorked;
 
+		public Pawn Owner => this.parent as Pawn;
+
 		public EnergySystem()
 		{
 			this.attachedSinksSorted = new List<AttachedSink>(4);
 			this.attachedSourcesSorted = new List<AttachedSource>(4);
 			this.installedComps = new ThingOwner<ThingWithComps>(this);
+			this.lastTickWorked = Find.TickManager.TicksGame - 1;
 		}
 
 		public void AttachSink(IEnergySink sink, DisconnectWhen when = new DisconnectWhen())
@@ -45,18 +49,6 @@ namespace MOARANDROIDS
             attachedSourcesSorted.Add(new AttachedSource(source, when));
             attachedSourcesSorted.SortByDescending<AttachedSource, float>(s => s.source.SourcePriority);
 		}
-
-	/*	public void DeinstallEnergySystemComp(EnergySystemComp comp, bool shouldSpawn = true)
-		{
-            installedComps.TryAdd(newComp.parent, canMergeWithExistingStacks: false);
-            if(newComp is IEnergySink sink)
-                AttachSink(sink);
-            if(newComp is IEnergySource source)
-                AttachSource(source);
-            newComp.Installed(this);
-
-
-		}   */
 
 		public void DetachSink(IEnergySink sink) => attachedSinksSorted.RemoveAll(aSink => aSink.sink == sink);
 
@@ -75,7 +67,8 @@ namespace MOARANDROIDS
 
 		public void InstallEnergySystemComp(EnergySystemComp newComp)
 		{
-			newComp.parent.DeSpawn();
+			if(newComp.parent.Spawned)
+                newComp.parent.DeSpawn();
 			installedComps.TryAdd(newComp.parent, canMergeWithExistingStacks: false);
 			if(newComp is IEnergySink sink)
 				AttachSink(sink);
@@ -125,14 +118,32 @@ namespace MOARANDROIDS
             
             Scribe_Collections.Look<AttachedSink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Deep);
             Scribe_Collections.Look<AttachedSource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Deep);
-            Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");    
+            Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");
+			Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked");
         }
 
 		void PostPostMake()
 		{
 			attachedSinksSorted.Add(new AttachedSink(this.baseEnergyConsumption));
-			foreach(var compDef in this.Props.initialComponentTypes ?? Enumerable.Empty<ThingDef>())
-				InstallEnergySystemComp(ThingMaker.MakeThing(compDef).TryGetComp<EnergySystemComp>());
+
+			if(this.Owner.health == null)
+				PawnComponentsUtility.CreateInitialComponents(this.Owner);
+
+			Hediff batteryHediff;
+			if(Props.initialBattery != null) {
+				batteryHediff = HediffMaker.MakeHediff(Props.initialBattery, this.Owner, null);
+				var energyStorage = batteryHediff.TryGetComp<HediffComp_EnergyStorage>();
+				energyStorage.SetEnergyDirect(energyStorage.StorageCapacity);
+			}
+			else
+				batteryHediff = HediffMaker.MakeHediff(EnergyHediffs.AT_NotPresent, this.Owner, null);
+			this.Owner.health.AddHediff(batteryHediff
+									, Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MBattery));
+            this.Owner.health.AddHediff(Props.initialReactor ?? EnergyHediffs.AT_NotPresent
+                                    , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MReactor));
+            this.Owner.health.AddHediff(Props.initialConduit ?? EnergyHediffs.AT_NotPresent
+                                    , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MConduit));
+            
 			Log.Message($"PostPostMake {StoredEnergy} {StorageCapacity}");
 		}
         

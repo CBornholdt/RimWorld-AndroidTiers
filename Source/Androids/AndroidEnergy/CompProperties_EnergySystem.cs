@@ -3,14 +3,17 @@ using System.Linq;
 using System.Collections.Generic;
 using Verse;
 using RimWorld;
+using Harmony;
 
 namespace MOARANDROIDS
 {
     public class CompProperties_EnergySystem : CompProperties
     {
 		public float baseEnergyConsumptionPer1000Ticks = 0.1f;
+		public HediffDef initialReactor;
+		public HediffDef initialConduit;
+		public HediffDef initialBattery;
 		public List<ThingDef> initialComponentTypes;
-		public int maxInstalledComps = 3;
 
 		public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
 		{
@@ -27,5 +30,15 @@ namespace MOARANDROIDS
 		}
 
 		public CompProperties_EnergySystem() => this.compClass = typeof(EnergySystem);
+
+		public override void ResolveReferences(ThingDef parentDef)
+		{
+			parentDef.recipes.AddRange(
+				DefDatabase<RecipeDef>.AllDefsListForReading
+					.Where(recipeDef => recipeDef.HasModExtension<DefModExt_AutoIncludeWithEnergySystems>()
+								&& !parentDef.recipes.Contains(recipeDef)));
+
+			Traverse.Create(parentDef).Field("allRecipesCached").SetValue(null);
+		}
 	}
 }

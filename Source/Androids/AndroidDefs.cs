@@ -22,5 +22,15 @@ namespace MOARANDROIDS
 	static public class EnergyHediffs
 	{
 		static public HediffDef AT_GainEnergy;
+		static public HediffDef AT_NotPresent;
+	}
+
+	[DefOf]
+	static public class AndroidParts
+	{
+		static public BodyPartDef MEnergySystem;
+		static public BodyPartDef MConduit;
+		static public BodyPartDef MReactor;
+		static public BodyPartDef MBattery;
 	}
 }

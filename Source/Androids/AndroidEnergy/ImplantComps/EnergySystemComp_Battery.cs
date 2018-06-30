@@ -71,5 +71,9 @@ namespace MOARANDROIDS
 		public StorageLevelTag StorageLevel => this.GetDefaultStorageLevel();
 
 		override public string GetUniqueLoadID() => this.parent.GetUniqueLoadID() + "_ESC_Battery";
-    }
+
+		public override void LoadStateFromHediffComp(HediffComp_AndroidImplant implant) =>
+			SetEnergyDirect((implant as IEnergyStorage).StoredEnergy);
+		
+	}
 }

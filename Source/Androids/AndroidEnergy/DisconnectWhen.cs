@@ -44,6 +44,7 @@ namespace MOARANDROIDS
 
 	public static class DisconnectWhenExt
 	{
+        //TODO redo as chain of command
 		public static bool ShouldDisconnectSystemFrom(this DisconnectWhen when, EnergySystem system, IEnergySource source)
 		{
 			DisconnectWhenTag tag = when.whenTag;

@@ -83,7 +83,6 @@
       <li>MetabolismSource</li>
     </tags>
   </BodyPartDef>
-  
  
   <BodyPartDef>
     <defName>MRightServo</defName>
@@ -96,7 +95,50 @@
     </tags>
 	<dontSuggestAmputation>true</dontSuggestAmputation>
   </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MEnergySystem</defName>
+    <label>Energy System</label>
+    <hitPoints>30</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>MConduit</defName>
+    <label>Energy Conduit</label>
+    <hitPoints>40</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>NeedsImplantablePart</li>
+    </tags>
+  </BodyPartDef>
+
+
+  <BodyPartDef>
+    <defName>MBattery</defName>
+    <label>Energy Battery</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>NeedsImplantablePart</li>
+    </tags>
+  </BodyPartDef>
   
+  <BodyPartDef>
+    <defName>MReactor</defName>
+    <label>Energy Reactor</label>
+    <hitPoints>30</hitPoints>
+    <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>MetabolismSource</li>
+      <li>NeedsImplantablePart</li>
+    </tags>
+  </BodyPartDef>
+
   <BodyPartDef>
     <defName>MGenerator</defName>
     <label>Fusion Core</label>
@@ -107,5 +149,4 @@
       <li>MetabolismSource</li>
     </tags>
   </BodyPartDef>
-  
 </Defs>

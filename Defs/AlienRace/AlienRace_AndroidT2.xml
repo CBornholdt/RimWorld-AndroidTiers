@@ -234,7 +234,7 @@
 			<lifeExpectancy>1000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
 			<nameCategory>HumanStandard</nameCategory>
-			<body>Android4Tier</body>
+			<body>Android2Tier</body>
 			<baseHealthScale>0.8</baseHealthScale>
 			<needsRest>false</needsRest>
 			<foodType>OmnivoreHuman</foodType>

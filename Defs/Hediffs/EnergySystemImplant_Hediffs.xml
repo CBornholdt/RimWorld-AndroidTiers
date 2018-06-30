@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef Abstract='True' Name='EnergyImplantHediffBase'>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.6, 0.6, 0.7)</defaultLabelColor>
+    <isBad>false</isBad>
+  </HediffDef>
+
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+  	<defName>AT_ImplantBatterySmall</defName>
+  	<label>small battery</label>
+    <comps>
+    	<li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+    		<storageCapacity>1</storageCapacity>
+    	</li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>AT_ImplantBatteryMedium</defName>
+    <label>medium battery</label>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+        <storageCapacity>2</storageCapacity>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+  	<defName>AT_ImplantReactorSmall</defName>
+  	<label>small reactor</label>
+    <comps>
+    	<li Class="MOARANDROIDS.HediffProperties_EnergySource">
+    		<desiredSourceRatePer1000Ticks>0.05</desiredSourceRatePer1000Ticks>
+    	</li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+  	<defName>AT_NotPresent</defName>
+  	<label>not present</label>
+    <defaultLabelColor>(0.6, 0.6, 0.7)</defaultLabelColor>
+    <isBad>true</isBad>
+  </HediffDef>
+</Defs>

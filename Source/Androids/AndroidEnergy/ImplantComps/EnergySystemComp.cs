@@ -6,7 +6,7 @@ using Harmony;
 
 namespace MOARANDROIDS
 {
-    public abstract class EnergySystemComp : ThingComp, ILoadReferenceable
+    public abstract class EnergySystemComp : ThingComp_AndroidImplant, ILoadReferenceable
     {
 		public EnergySystem energySystem;
     

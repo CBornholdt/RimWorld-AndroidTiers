@@ -2,7 +2,7 @@
 
 <Defs>
   <BodyDef ParentName="AndroidBaseBody">
-    <defName>Android4Tier</defName>
-    <label>Tier 4 Android</label>
+    <defName>Android2Tier</defName>
+    <label>Tier 2 Android</label>
   </BodyDef>
 </Defs>

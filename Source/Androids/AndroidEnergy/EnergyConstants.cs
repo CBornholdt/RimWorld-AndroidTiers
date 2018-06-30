@@ -3,6 +3,8 @@ namespace MOARANDROIDS
 {
     static public class EnergyConstants
     {
+		static public readonly int maxTicksForNotStorageToBuildEnergy = 100;
+    
         static public readonly float EnergyThreshPercentAcceptable = 0.8f;
         static public readonly float AdditionalRechargeThresholdFromLow = 0.25f;
 		static public readonly int TicksPerSystemUpdate = 25;

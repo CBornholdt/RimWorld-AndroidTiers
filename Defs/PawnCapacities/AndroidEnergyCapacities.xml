@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <PawnCapacityDef>
+    <defName>Reactor</defName>
+    <label>reactor</label>
+    <listOrder>51</listOrder>
+    <workerClass>MOARANDROIDS.CapacityWorker_Reactor</workerClass>
+  </PawnCapacityDef>
+
+  <PawnCapacityDef>
+    <defName>Battery</defName>
+    <label>battery</label>
+    <listOrder>52</listOrder>
+    <workerClass>MOARANDROIDS.CapacityWorker_Battery</workerClass>
+  </PawnCapacityDef>
+
+  <PawnCapacityDef>
+    <defName>Conduit</defName>
+    <label>conduit</label>
+    <listOrder>53</listOrder>
+    <workerClass>MOARANDROIDS.CapacityWorker_Conduit</workerClass>
+  </PawnCapacityDef>
+
+</Defs>

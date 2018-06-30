@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef Name="EnergySystemImplantBase" Abstract="True">
-    <label>EScomponent</label>
+    <label>energy system component</label>
     <thingClass>ThingWithComps</thingClass>
     <category>Item</category>
     <useHitPoints>true</useHitPoints>
@@ -22,19 +22,21 @@
     </tradeTags>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
-      <li Class="MOARANDROIDS.EnergySystemProps_Battery"/>
     </comps>
     <thingCategories>
       <li>BodyPartsArtificial</li>
     </thingCategories>
     <pathCost>10</pathCost>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
   </ThingDef>
 
 
   <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>ESBattery</defName>
-    <label>esbattery</label>
-    <description>This little brain implant will make you feel happy and relaxed, though you might end up a bit drowsy as a result.</description>
+    <defName>AT_EnergySystemBatterySmall</defName>
+    <label>small battery</label>
+    <description>small energy battery</description>
     <graphicData>
       <texPath>Things/Item/Implant/Implant</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -46,9 +48,54 @@
       <MarketValue>800</MarketValue>
       <Mass>0.2</Mass>
     </statBases>
-    <techHediffsTags>
-      <li>Advanced</li>
-    </techHediffsTags>
+    <comps>
+      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
+        <storageCapacity>1</storageCapacity>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemBatteryMedium</defName>
+    <label>medium battery</label>
+    <description>medium energy battery</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>0.2</Mass>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
+        <storageCapacity>2</storageCapacity>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemReactorSmall</defName>
+    <label>small reactor</label>
+    <description>small energy reactor</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>0.2</Mass>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
   </ThingDef>
 </Defs>
 
