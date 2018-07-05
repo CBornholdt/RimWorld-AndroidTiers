@@ -49,25 +49,17 @@ namespace MOARANDROIDS
 				return null;
 
 			if(rechargeSource.IngestibleNow)
-				return new Job(JobDefOf.Ingest, rechargeSource) {
-					count = Math.Min(rechargeSource.def.stackLimit
-								, rechargeSource.def.ingestible.maxNumToIngestAtOnce)
-                    , takeExtraIngestibles = AT_Mod.settings.energySearchSettings.maxConsumablesToCarry            
-				};
+				return EnergyUtility.CreateEnergyConsumableJob(pawn, rechargeSource);
 
 			if(!(rechargeSource as ThingWithComps)?.AllComps.Any(comp => comp is IEnergySource) ?? false) {
-				Log.Warning($"JobGiver_RechargeEnergy.TryGiveJob ... should not have reached here, TryFindBestEnergyRechargeSource should have returned false");
+				Log.Warning("JobGiver_RechargeEnergy.TryGiveJob ... should not have reached here, TryFindBestEnergyRechargeSource should have returned false");
 				return null;
 			}
 
             var whenToDisconnect = DisconnectWhenTag.NotTouching | DisconnectWhenTag.EnergySystemFull
                             | DisconnectWhenTag.SourceSlow | DisconnectWhenTag.SourceLow;
 
-            return new EnergySystemJob() {
-                def = EnergyJobs.AT_ConnectSourceThenDisconnect,
-                disconnectWhen = new DisconnectWhen(whenToDisconnect),
-                targetA = rechargeSource
-            };                 
+			return EnergyUtility.CreateConnectSourceThenDisconnectJob(pawn, rechargeSource, whenToDisconnect);  
         }
     }
 }

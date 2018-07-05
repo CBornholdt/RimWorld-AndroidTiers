@@ -17,6 +17,22 @@ namespace MOARANDROIDS
             gainEnergy.ticksPassed = 0;
             return gainEnergy;
         }
+        
+        static public Job CreateEnergyConsumableJob(Pawn pawn, Thing consumable) =>
+            new Job(JobDefOf.Ingest, consumable) {
+                    count = Math.Min(consumable.def.stackLimit
+                                , consumable.def.ingestible.maxNumToIngestAtOnce)
+                    , takeExtraIngestibles = AT_Mod.settings.energySearchSettings.maxConsumablesToCarry            
+            };
+            
+        static public Job CreateConnectSourceThenDisconnectJob(Pawn pawn, Thing source
+            , DisconnectWhenTag whenToDisconnect = DisconnectWhenTag.Never, int atTick = int.MaxValue) =>
+            new EnergySystemJob() {
+                def = EnergyJobs.AT_ConnectSourceThenDisconnect,
+                disconnectWhen = new DisconnectWhen(whenToDisconnect, atTick),
+                targetA = source
+            };              
+            
 
         static public bool TryFindBestEnergyRechargeSource(Pawn getter, Pawn user, bool criticalSearch
                                  , out Thing rechargeSource)
