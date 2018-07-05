@@ -7,7 +7,7 @@ using Verse;
 
 namespace MOARANDROIDS
 {
-    static public class ImplantUtility
+    static public class ImplantExt
     {
 		static public ThingDef GetImplantThingDef(this HediffDef implantedHediff) =>
 			DefDatabase<RecipeDef>.AllDefsListForReading

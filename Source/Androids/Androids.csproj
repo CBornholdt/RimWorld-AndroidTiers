@@ -87,9 +87,6 @@
     <Compile Include="Patches\HealthCardUtility_DrawHediffRow.cs" />
     <Compile Include="Patches\HealthCardUtility_GetTooltip.cs" />
     <Compile Include="Extensions\PawnExt.cs" />
-    <Compile Include="AndroidEnergy\Need_Energy.cs" />
-    <Compile Include="AndroidEnergy\CompProperties_NeedsEnergy.cs" />
-    <Compile Include="AndroidEnergy\CompNeedsEnergy.cs" />
     <Compile Include="Patches\Pawn_NeedsTracker_ShouldHaveNeed.cs" />
     <Compile Include="AndroidDefs.cs" />
     <Compile Include="Extensions\UtilityExt.cs" />
@@ -102,10 +99,10 @@
     <Compile Include="AndroidEnergy\IEnergyStorage.cs" />
     <Compile Include="AndroidEnergy\EnergySystem.cs" />
     <Compile Include="AndroidEnergy\CompProperties_EnergySystem.cs" />
-    <Compile Include="AndroidEnergy\CompPowerBattery_EnergyAdapterComp.cs" />
+    <Compile Include="AndroidEnergy\EnergyAdapter_PowerBattery.cs" />
     <Compile Include="Extensions\EnergyExt.cs" />
     <Compile Include="Extensions\ILoadReferenceableExt.cs" />
-    <Compile Include="AndroidEnergy\CompPowerBattery_EnergyAdaptorProps.cs" />
+    <Compile Include="AndroidEnergy\EnergyAdapter_PowerBatteryProps.cs" />
     <Compile Include="AndroidEnergy\EnergySystemJob.cs" />
     <Compile Include="AndroidEnergy\DisconnectWhen.cs" />
     <Compile Include="AndroidEnergy\Jobs\JobDriver_ConnectSource.cs" />
@@ -130,12 +127,24 @@
     <Compile Include="AndroidEnergy\ImplantComps\EnergySystemProps_Battery.cs" />
     <Compile Include="AndroidEnergy\Hediffs\HediffComp_AndroidImplant.cs" />
     <Compile Include="AndroidEnergy\ImplantComps\ThingComp_AndroidImplant.cs" />
-    <Compile Include="AndroidEnergy\Recipe_InstallAndroidImplant.cs" />
-    <Compile Include="AndroidEnergy\ImplantUtility.cs" />
+    <Compile Include="AndroidEnergy\ImplantExt.cs" />
     <Compile Include="DefModExt\DefModExt_ImplantableBodyPart.cs" />
     <Compile Include="DefModExt\DefModExt_AutoIncludeWithEnergySystems.cs" />
-    <Compile Include="AndroidEnergy\Recipe_RemoveAndroidImplant.cs" />
     <Compile Include="AndroidEnergy\ImplantComps\CompProperties_AndroidImplant.cs" />
+    <Compile Include="AndroidEnergy\Need\Need_Energy.cs" />
+    <Compile Include="AndroidEnergy\Need\CompNeedsEnergy.cs" />
+    <Compile Include="AndroidEnergy\Need\CompProperties_NeedsEnergy.cs" />
+    <Compile Include="AndroidEnergy\Recipes\Recipe_InstallAndroidImplant.cs" />
+    <Compile Include="AndroidEnergy\Recipes\Recipe_RemoveAndroidImplant.cs" />
+    <Compile Include="AndroidEnergy\ThingComp_EnergyConsumable.cs" />
+    <Compile Include="AndroidEnergy\CompProperties_EnergyConsumable.cs" />
+    <Compile Include="Extensions\FoodTypeFlagsExt.cs" />
+    <Compile Include="AndroidEnergy\IngestionOutcomeDoer_EnergyConsumable.cs" />
+    <Compile Include="Utilities\Tuple.cs" />
+    <Compile Include="ModSettings\AT_ModSettings.cs" />
+    <Compile Include="ModSettings\AT_Mod.cs" />
+    <Compile Include="AndroidEnergy\Need\EnergyNeedUtility.cs" />
+    <Compile Include="ModSettings\EnergySearchSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\About\About.xml">
@@ -151,6 +160,10 @@
     <Folder Include="AndroidEnergy\Hediffs\" />
     <Folder Include="AndroidEnergy\ImplantComps\" />
     <Folder Include="DefModExt\" />
+    <Folder Include="AndroidEnergy\Need\" />
+    <Folder Include="AndroidEnergy\Recipes\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="ModSettings\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

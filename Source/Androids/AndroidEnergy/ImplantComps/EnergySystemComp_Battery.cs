@@ -74,6 +74,13 @@ namespace MOARANDROIDS
 
 		public override void LoadStateFromHediffComp(HediffComp_AndroidImplant implant) =>
 			SetEnergyDirect((implant as IEnergyStorage).StoredEnergy);
-		
+
+		public void SinkAttached(EnergySystem system) { }
+
+		public void SinkDetached(EnergySystem system) { }
+
+		public void SourceAttached(EnergySystem system) { }
+
+		public void SourceDetached(EnergySystem system) { }		
 	}
 }

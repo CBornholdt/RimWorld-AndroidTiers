@@ -8,12 +8,12 @@ namespace MOARANDROIDS
 {
     static public class UtilityExt
     {
-		static public IEnumerable<Building> AllBuildingsOfType_L<T>(this Map map) where T : Building
+		static public IEnumerable<T> AllBuildingsOfType_L<T>(this Map map) where T : Building
 		{
-			return map.listerThings.AllThings.OfType<T>().Cast<Building>();
+			return map.listerThings.AllThings.OfType<T>().Cast<T>();
 		}  
         
-        static public IEnumerable<Building> AllBuildingsOfType<T>(this Map map) where T : Building
+        static public IEnumerable<T> AllBuildingsOfType<T>(this Map map) where T : Building
         {
             return map.AllBuildingsOfType_L<T>();
         }
@@ -29,13 +29,14 @@ namespace MOARANDROIDS
 			return map.AllBuildingsOfDef_L(buildingDef);
         }
         
-        static public IEnumerable<Building> AllBuildingsWithComp_L<T>(this Map map) where T : ThingComp
+        static public IEnumerable<T> AllBuildingsWithComp_L<T>(this Map map) where T : ThingComp
         {
-            return map.listerThings.AllThings.OfType<Building>().Cast<Building>()
-                            .Where(building => building.TryGetComp<T>() != null);
+			return map.listerThings.AllThings.OfType<Building>()
+							.Select(thing => thing.TryGetComp<T>())
+							.Where(tComp => tComp != null);
         }
         
-        static public IEnumerable<Building> AllBuildingsWithComp<T>(this Map map) where T : ThingComp
+        static public IEnumerable<T> AllBuildingsWithComp<T>(this Map map) where T : ThingComp
         {
 			return map.AllBuildingsWithComp_L<T>();
         }

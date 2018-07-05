@@ -4,12 +4,12 @@ using Verse;
 
 namespace MOARANDROIDS
 {
-    public class CompPowerBattery_EnergyAdaptorProps : CompProperties_Battery
+    public class EnergyAdapter_PowerBatteryProps : CompProperties_Battery
     {
 		public float sourcePriority = 10f;
 		public float desiredTranferRatePer1000Ticks = 1;
 		public float powerPerUnitEnergy = 800f;
     
-		public CompPowerBattery_EnergyAdaptorProps() => this.compClass = typeof(CompPowerBattery_EnergyAdapterComp);
+		public EnergyAdapter_PowerBatteryProps() => this.compClass = typeof(EnergyAdapter_PowerBattery);
     }
 }

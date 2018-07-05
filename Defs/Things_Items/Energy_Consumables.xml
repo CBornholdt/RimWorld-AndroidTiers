@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="EnergySystemConsumable" Abstract="True">
+    <label>energy system consumable</label>
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+			<Beauty>-4</Beauty>
+		</statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <tickerType>Never</tickerType>
+    <alwaysHaulable>true</alwaysHaulable>
+    <isBodyPartOrImplant>false</isBodyPartOrImplant>
+    <ingestible>
+      <foodType>None</foodType>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <preferability>NeverForNutrition</preferability>
+      <maxNumToIngestAtOnce>3</maxNumToIngestAtOnce>
+      <outcomeDoers>
+        <li Class="MOARANDROIDS.IngestionOutcomeDoer_EnergyConsumable"/>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <pathCost>10</pathCost>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemConsumable">
+    <defName>AT_EnergySystemConsumableSmall</defName>
+    <label>small consumable</label>
+    <description>small energy consumable</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>0.2</Mass>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_EnergyConsumable">
+        <energyAmount>0.5</energyAmount>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

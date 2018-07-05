@@ -3,7 +3,7 @@
 	<Operation Class="PatchOperationReplace">
 		<xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Battery"]</xpath>
 		<value>
-			<li Class="MOARANDROIDS.CompPowerBattery_EnergyAdaptorProps"/>
+			<li Class="MOARANDROIDS.EnergyAdapter_PowerBatteryProps"/>
 		</value>
 	</Operation>
 </Patch>

@@ -13,6 +13,8 @@ namespace MOARANDROIDS
         float DesiredSourceRatePer1000Ticks { get; }
         float CurrentMaxSourcableEnergy { get; }
 		void SourceEnergy(float amount);
+		void SourceAttached(EnergySystem system);
+		void SourceDetached(EnergySystem system);
     }
 
 	static public class SourceExt
@@ -21,7 +23,7 @@ namespace MOARANDROIDS
 		{
 			if(source is IEnergyStorage storage)
 				return storage.StoredEnergy / storage.StorageCapacity;
-			if(source is CompPowerBattery_EnergyAdapterComp battery)
+			if(source is EnergyAdapter_PowerBattery battery)
 				return battery.StoredEnergyPct;
 			return 1f;
 		}

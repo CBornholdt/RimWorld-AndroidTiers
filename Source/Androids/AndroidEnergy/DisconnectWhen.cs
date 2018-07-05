@@ -35,7 +35,7 @@ namespace MOARANDROIDS
         public DisconnectWhenTag whenTag;
         public int atTick;
 
-        public DisconnectWhen(DisconnectWhenTag tag = DisconnectWhenTag.Never, int atTick = 0)
+        public DisconnectWhen(DisconnectWhenTag tag = DisconnectWhenTag.Never, int atTick = int.MaxValue)
         {
             this.whenTag = tag;
             this.atTick = atTick;

@@ -38,12 +38,22 @@ namespace MOARANDROIDS
 
 		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
+			if(EnergySystem == null) {
+				Log.ErrorOnce($"Somehow an energy hediff was placed onto a pawn without an energy system", 82349);
+				return;
+			}
+        
 			EnergySystem.AttachSource(this);
 			EnergySystem.AttachSink(this);
 		}
 
 		public override void CompPostPostRemoved()
 		{
+            if(EnergySystem == null) {
+                Log.ErrorOnce($"Somehow an energy hediff was placed onto a pawn without an energy system", 82350);
+                return;
+            }
+        
 			EnergySystem.DetachSource(this);
 			EnergySystem.DetachSink(this);
 		}
@@ -125,6 +135,13 @@ namespace MOARANDROIDS
 
 		public override void LoadSettingsFromThingComp(ThingComp_AndroidImplant implant) =>
 			SetEnergyDirect((implant as IEnergyStorage).StoredEnergy);
-		
+
+		public void SinkAttached(EnergySystem system) { }
+
+		public void SinkDetached(EnergySystem system) { }
+
+		public void SourceAttached(EnergySystem system) { }
+
+		public void SourceDetached(EnergySystem system) { }
 	}
 }

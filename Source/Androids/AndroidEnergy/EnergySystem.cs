@@ -42,17 +42,28 @@ namespace MOARANDROIDS
 		{
 			attachedSinksSorted.Add(new AttachedSink(sink, when));
 			attachedSinksSorted.SortByDescending<AttachedSink, float>(s => s.sink.SinkPriority);
+			sink.SinkAttached(this);
 		}
 
 		public void AttachSource(IEnergySource source, DisconnectWhen when = new DisconnectWhen())
 		{
             attachedSourcesSorted.Add(new AttachedSource(source, when));
             attachedSourcesSorted.SortByDescending<AttachedSource, float>(s => s.source.SourcePriority);
+			source.SourceAttached(this);
 		}
 
-		public void DetachSink(IEnergySink sink) => attachedSinksSorted.RemoveAll(aSink => aSink.sink == sink);
+		public void DetachSink(IEnergySink sink)
+		{
+			if(attachedSinksSorted.RemoveAll(aSink => aSink.sink == sink) > 0)
+				sink.SinkDetached(this);
+		}
 
-		public void DetachSource(IEnergySource source) => attachedSourcesSorted.RemoveAll(aSource => aSource.source == source);
+
+		public void DetachSource(IEnergySource source)
+		{
+			if(attachedSourcesSorted.RemoveAll(aSource => aSource.source == source) > 0)
+				source.SourceDetached(this);
+		}
 
 		public void UpdateDisconnections()
 		{
@@ -92,6 +103,18 @@ namespace MOARANDROIDS
 		}
 
 		public int LastTickProcessed => this.lastTickWorked;
+
+		public void AddEnergyDirect(float amount)
+		{
+			float amountStored = 0;
+			foreach(var storage in AttachedStorages) {
+				float amountToStore = Mathf.Min(amount - amountStored, storage.CurrentMaxSinkableEnergy);
+				storage.SinkEnergy(amountToStore);
+				amountStored += amountToStore;
+				if(amountStored >= amount - 0.000001f)
+					break;
+			}
+		}    
 
 		public void SetEnergyDirect(float amount)
 		{
@@ -337,6 +360,26 @@ namespace MOARANDROIDS
 			applyEnergyToSource();                                                                                          
 		}
 
+		public void SinkAttached(EnergySystem system)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SinkDetached(EnergySystem system)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SourceAttached(EnergySystem system)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SourceDetached(EnergySystem system)
+		{
+			throw new NotImplementedException();
+		}
+
 		private class AttachedSink : IExposable
 		{
 			public IEnergySink sink;
@@ -399,6 +442,10 @@ namespace MOARANDROIDS
                 DesiredSinkRatePer1000Ticks / 1000f;
 
 			public void SinkEnergy(float amount) => this.lastTickWorked = Find.TickManager.TicksGame;
+
+			public void SinkAttached(EnergySystem system) { }
+
+			public void SinkDetached(EnergySystem system) { }
 		}
 	}
 }

@@ -12,5 +12,7 @@ namespace MOARANDROIDS
 		float DesiredSinkRatePer1000Ticks { get; }
         float CurrentMaxSinkableEnergy { get; }
 		void SinkEnergy(float amount);
+		void SinkAttached(EnergySystem system);
+		void SinkDetached(EnergySystem system);
     }
 }
