@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Atlas_FactionChange>{0} was successfully reprogrammed. They are now part of the colony.</Atlas_FactionChange>
+	<LetterLabelAtlas_FactionChange>New Colonist</LetterLabelAtlas_FactionChange>
+	
+</LanguageData>

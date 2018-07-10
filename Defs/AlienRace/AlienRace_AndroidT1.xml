@@ -5,7 +5,22 @@
 		<label>T1 Android</label>
 		<description>As simple as sentient robotics can get. This design is the bare skeletal amount of components needed to create full autonomous functionality. Obviously not the best but it works well when needed.</description>
 		<alienRace>
+
+	<raceRestriction>
+
+	<traitList>
+	<li>SimpleMindedAndroid</li>
+	</traitList>
+
+	
+	</raceRestriction>
 			<generalSettings>
+							<forcedRaceTraitEntries>
+                <li>
+                    <defName>SimpleMindedAndroid</defName>
+                    <chance>100</chance>
+                </li>
+							</forcedRaceTraitEntries>
 			<!--Chemical Settings-->
 			            <chemicalSettings>
                 <li>
@@ -221,12 +236,12 @@
 			<makesFootprints>true</makesFootprints>
 			<lifeExpectancy>1000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
-			<nameCategory>HumanStandard</nameCategory>
+			<nameGenerator>AndroidAtlasStandard</nameGenerator>
 			<body>Android4Tier</body>
 			<baseHealthScale>0.8</baseHealthScale>
 			<needsRest>false</needsRest>
 			<foodType>OmnivoreHuman</foodType>
-			<baseHungerRate>0.6</baseHungerRate>
+			<baseHungerRate>0.3</baseHungerRate>
 			<fleshType>Android</fleshType>
 			<bloodDef>CoolantAndroidTier</bloodDef>
 			<useMeatFrom>Alpaca</useMeatFrom>
@@ -288,6 +303,12 @@
 	  <li>InstallSurgeonMindImplant</li>
 	  <li>InstallSpeedMindImplant</li>
 	  <li>InstallGeoMindImplant</li>
+	  <li>InstallMakeshiftReplacementArm</li>
+	  <li>InstallMakeshiftReplacementLeg</li>
+	  <li>InstallCrudeHearingS</li>
+	  
+	  <li>ReprogramTraitsAndroidSimple</li>
+	  <li>OverclockAndroid</li>
 		</recipes>
 		<butcherProducts>
 			<Plasteel>25</Plasteel>
@@ -300,4 +321,33 @@
 </modExtensions>
 	</AlienRace.ThingDef_AlienRace>
 
+	  <TraitDef>
+    <defName>SimpleMindedAndroid</defName>
+	    <commonality>1</commonality>
+    <degreeDatas>
+      <li>
+        <label>Simple minded</label>
+        <description>Due to the limitations of this androids mind: they are only barely able to understand and feel emotion. This makes them less than desired in social situations.</description>
+		<statOffsets>
+          <SocialImpact>-0.90</SocialImpact>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+  
+    <ThoughtDef>
+    <defName>MoodOffsetSimpleMindedAndroid</defName>
+    <workerClass>ThoughtWorker_AlwaysActive</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <requiredTraits>
+      <li>SimpleMindedAndroid</li>
+    </requiredTraits>
+    <stages>
+      <li>
+        <label>Simple mind</label>
+        <description>NAME is unable to fully feel emotion.</description>
+        <baseMoodEffect>20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 </Defs>

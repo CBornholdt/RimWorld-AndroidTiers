@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<AlienRace.ThingDef_AlienRace ParentName="BasePawnMech">
+		<defName>ColonyMech</defName>
+		<label>Improvised Mech</label>
+		<description>A take of the concept of mechanised infantry, this unit may not be as powerful as a M7 but it is the best that colony could muster together.</description>
+		<alienRace>
+	<raceRestriction>
+	
+    <apparelList>
+    </apparelList>
+    <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
+	
+	<traitList>
+	<li>MechAtlas</li>
+	</traitList>
+	
+	<weaponList>
+        <li>Mech40MMCannon</li>
+		<li>MechMastiffGun</li>
+		<li>MechHandCannon</li>
+		<li>MeleeWeapon_MechKnife</li>
+		<li>MechGaussCannon</li>
+		<li>AutoCannonMech</li>
+		<li>Weapon_80MMLauncher</li>
+		<li>MechGaussRifle</li>
+    </weaponList>
+    <onlyUseRaceRestrictedWeapons>true</onlyUseRaceRestrictedWeapons>
+	
+	</raceRestriction>
+			<generalSettings>
+			<!--Chemical Settings-->
+			            <chemicalSettings>
+                <li>
+                    <chemical>FractalP</chemical>
+                    <reactions>
+                        <li Class="IngestionOutcomeDoer_GiveHediff">
+                                <hediffDef>FractalPillAndroid</hediffDef>
+                                <severity>0.1</severity>
+                        </li>
+                    </reactions>
+                </li>
+                <li>
+                    <chemical>SGel</chemical>
+                    <reactions>
+                        <li Class="IngestionOutcomeDoer_GiveHediff">
+                                <hediffDef>SGelandroid</hediffDef>
+                                <severity>1</severity>
+                        </li>
+                    </reactions>
+                </li>
+                <li>
+                    <chemical>AFreeze</chemical>
+                    <reactions>
+                        <li Class="IngestionOutcomeDoer_GiveHediff">
+                                <hediffDef>AFreezeandroid</hediffDef>
+                                <severity>1</severity>
+                        </li>
+                    </reactions>
+                </li>
+                <li>
+                    <chemical>MSwarm</chemical>
+                    <reactions>
+                        <li Class="IngestionOutcomeDoer_GiveHediff">
+                                <hediffDef>MechSwarmandroid</hediffDef>
+                                <severity>1</severity>
+                        </li>
+                    </reactions>
+                </li>
+						</chemicalSettings>
+			<maleGenderProbability>1</maleGenderProbability>
+			<pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+				<maxDamageForSocialfight>1</maxDamageForSocialfight>
+				            <forcedRaceTraitEntries>
+                <li>
+                    <defName>MechAtlas</defName>
+                    <chance>100</chance>
+                </li>
+							</forcedRaceTraitEntries>
+				<immuneToAge>false</immuneToAge>
+				<disallowedTraits>
+					<li>DrugDesire</li>
+					<li>AnnoyingVoice</li>
+					<li>CreepyBreathing</li>
+					<li>Pyromaniac</li>
+					<li>Wimp</li>
+					<li>Masochist</li>
+					<li>NightOwl</li>
+					<li>Jealous</li>
+					<li>Prosthophile</li>
+					<li>Kind</li>
+					<li>TooSmart</li>
+					<li>Ascetic</li>
+					<li>Slothful</li>
+					<li>Nudist</li>
+					<li>Prosthophobe</li>
+					<li>SuperImmune</li>
+					<li>Beautiful</li>
+				</disallowedTraits>
+		   <notXenophobistTowards>
+              <li>Human</li>
+			  <li>Android3Tier</li>
+			  <li>Android1Tier</li>
+			  <li>Android2Tier</li>
+           </notXenophobistTowards>
+				<alienPartGenerator>
+					<alienbodytypes>
+						<li>Male</li>
+					</alienbodytypes>
+					<alienskincolorgen Class="ColorGenerator_Options">
+						<options>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.54,0.54,0.58,1)</only>
+							</li>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.5,0.5,0.54,1)</only>
+							</li>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.4,0.4,0.46,1)</only>
+							</li>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.4,0.4,0.46,1)</only>
+							</li>
+						</options>
+					</alienskincolorgen>
+					
+					<customDrawSize>(2.8, 2.9)</customDrawSize>
+				</alienPartGenerator>
+			</generalSettings>
+			<graphicPaths>
+				<li>
+					<body>Things/Droids/ColonyMech/body/</body>
+					<head>Things/Droids/ColonyMech/head/</head>
+				</li>
+			</graphicPaths>
+			<hairSettings>
+				<hasHair>false</hasHair>
+			</hairSettings>
+			<thoughtSettings>
+				<cannotReceiveThoughtsAtAll>true</cannotReceiveThoughtsAtAll>
+			</thoughtSettings>
+		<relationSettings>
+				<relationChanceModifierChild>0</relationChanceModifierChild>
+				<relationChanceModifierExLover>0</relationChanceModifierExLover>
+				<relationChanceModifierExSpouse>0</relationChanceModifierExSpouse>
+				<relationChanceModifierFiance>0</relationChanceModifierFiance>
+				<relationChanceModifierLover>0</relationChanceModifierLover>
+				<relationChanceModifierParent>0</relationChanceModifierParent>
+				<relationChanceModifierSibling>0</relationChanceModifierSibling>
+				<relationChanceModifierSpouse>0</relationChanceModifierSpouse>
+		</relationSettings>
+		</alienRace>
+		<statBases>
+			<MarketValue>15000</MarketValue>
+			<MoveSpeed>4</MoveSpeed>
+			<Flammability>0</Flammability>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<ComfyTemperatureMin>-200</ComfyTemperatureMin>
+			<ComfyTemperatureMax>200</ComfyTemperatureMax>
+			<PainShockThreshold>5</PainShockThreshold>
+			<ToxicSensitivity>0.08</ToxicSensitivity>
+			<MentalBreakThreshold>0.01</MentalBreakThreshold>
+			<GlobalLearningFactor>2</GlobalLearningFactor>
+			<WorkSpeedGlobal>1.8</WorkSpeedGlobal>
+			<ImmunityGainSpeed>10</ImmunityGainSpeed>
+			<LeatherAmount>0</LeatherAmount>
+			<MeatAmount>0</MeatAmount>
+			<SocialImpact>0.1</SocialImpact>
+			<ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+			<Mass>350</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>40</power>
+				<cooldownTime>3.2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>22</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>40</power>
+				<cooldownTime>3.2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>22</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+		</tools>
+		<race>
+      <thinkTreeMain>MechM7Like</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+			<intelligence>Humanlike</intelligence>
+			<makesFootprints>true</makesFootprints>
+			      <nameGenerator>AndroidAtlasMech</nameGenerator>
+			<lifeExpectancy>4000</lifeExpectancy>
+			<leatherCommonalityFactor>0</leatherCommonalityFactor>
+			<body>AndroidM7Mech</body>
+			<baseHealthScale>5</baseHealthScale>
+			<needsRest>false</needsRest>
+			<foodType>None</foodType>
+			<baseHungerRate>0.01</baseHungerRate>
+			<fleshType>MechanisedInfantry</fleshType>
+			<bloodDef>CoolantAndroidTier</bloodDef>
+			<useMeatFrom>Alpaca</useMeatFrom>
+						<baseBodySize>4.2</baseBodySize>
+			<gestationPeriodDays>1</gestationPeriodDays>
+			<canBePredatorPrey>false</canBePredatorPrey>
+			<lifeStageAges>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>0</minAge>
+				</li>
+			</lifeStageAges>
+			<litterSizeCurve>
+				<points>
+					<li>(0.5, 0)</li>
+					<li>(1, 1)</li>
+					<li>(1.01, 0.02)</li>
+					<li>(3.5, 0)</li>
+				</points>
+			</litterSizeCurve>
+			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+			<specialShadowData>
+				<volume>(0.7, 1.8, 0.7)</volume>
+				<offset>(0,0,0)</offset>
+			</specialShadowData>
+			<ageGenerationCurve>
+				<points>
+					<li>(0,0)</li>
+					<li>(400,100)</li>
+					<li>(900,50)</li>
+					<li>(1500,0)</li>
+				</points>
+			</ageGenerationCurve>
+			<hediffGiverSets>
+				<li>AndroidStandardAtlas</li>
+			</hediffGiverSets>
+		</race>
+		
+		<recipes>
+		<li>RepairMechInfantry</li>
+		</recipes>
+		
+		<butcherProducts>
+			<Plasteel>120</Plasteel>
+			<Component>30</Component>
+			<Gold>2</Gold>
+		</butcherProducts>
+		<modExtensions>
+    <li Class="MOARANDROIDS.AndroidTweaker">
+        <tweakCorpseRot>true</tweakCorpseRot>
+    </li>
+</modExtensions>
+	</AlienRace.ThingDef_AlienRace>
+
+	<PawnKindDef ParentName="BasePlayerPawnKind">
+		<defName>ColonyMechPawn</defName>
+		<label>Improvised Mech</label>
+		<race>ColonyMech</race>
+		<combatPower>1000</combatPower>
+		<backstoryCategory>ColonyMechStory</backstoryCategory>
+		<defaultFactionType>PlayerColony</defaultFactionType>
+		<aiAvoidCover>true</aiAvoidCover>
+		<wildSpawn_spawnWild>false</wildSpawn_spawnWild>
+    <weaponTags>
+      <li>MechM7Gun</li>
+	  <li>MechColonyGun</li>
+    </weaponTags>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <drawSize>4, 4.5</drawSize>
+          <shadowData>
+            <volume>(0.85, 2.3, 0.85)</volume>
+            <offset>(0,0,-0.15)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+	</PawnKindDef>
+	
+	<AlienRace.BackstoryDef>
+		<defName>ColonyMadeMech</defName>
+		<title>Colony made</title>
+		<titleShort>Mech</titleShort>
+		<baseDescription>NAME was made by the colony.</baseDescription>
+		<bodyTypeMale>Male</bodyTypeMale>
+		<slot>Childhood</slot>
+				<spawnCategories>
+			<li>ColonyMechStory</li>
+		</spawnCategories>
+	</AlienRace.BackstoryDef>
+	
+
+</Defs>

@@ -209,7 +209,7 @@
 			<makesFootprints>true</makesFootprints>
 			<lifeExpectancy>1000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
-			<nameCategory>HumanStandard</nameCategory>
+			<nameGenerator>AndroidAtlasStandard</nameGenerator>
 			<body>Android4Tier</body>
 			<baseHealthScale>1.1</baseHealthScale>
 			<needsRest>false</needsRest>
@@ -284,6 +284,14 @@
 	  <li>InstallSpeedMindImplant</li>
 	  <li>InstallGeoMindImplant</li>
 	  <li>InstallEvolvingMindImplant</li>
+	  <li>InstallMakeshiftReplacementArm</li>
+	  <li>InstallMakeshiftReplacementLeg</li>
+	  	  <li>InstallSmellingAdvS</li>
+	  <li>InstallAdvHearingS</li>
+	  <li>InstallCrudeHearingS</li>
+	  
+	  <li>ReprogramTraitsAndroidAdv</li>
+	  <li>OverclockAndroid</li>
 	<!--Install Plating-->
 		</recipes>
 		<butcherProducts>

@@ -49,7 +49,7 @@
 		<letterLabel>A Strange crash</letterLabel>
 		<letterText>You notice a beam of plasma score across the sky, at first glance it appears to be a meteor but on closer inspection it is seen to be humanoid in shape, what could it be? The location has been marked on the planetary map.</letterText>
 		<letterDef>NeutralEvent</letterDef>
-		<baseChance>0.45</baseChance>
+		<baseChance>0.25</baseChance>
 		<minRefireDays>50</minRefireDays>
 		<chanceFactorByPopulationCurve>
 			<points>
@@ -69,7 +69,8 @@
       <li>MapPlayerHome</li>
     </targetTypes>
 		<workerClass>MOARANDROIDS.IncidentWorker_MutantJoin</workerClass>
-		<baseChance>0.35</baseChance>
+		<baseChance>0.05</baseChance>
+				<minRefireDays>40</minRefireDays>
 		<populationEffect>Increase</populationEffect>
 	</IncidentDef>
 

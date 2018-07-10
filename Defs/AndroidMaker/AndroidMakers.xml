@@ -92,4 +92,14 @@
             </li>
         </comps>
     </ThingDef>
+
+    <ThingDef ParentName="BuildingCreatorBase">
+        <defName>MicroScytherGeneratorAI</defName>
+        <label>MicroScyther</label>
+        <comps>
+            <li>
+            <compClass>MOARANDROIDS.CompAndroidSpawnerLightSwarm</compClass>
+            </li>
+        </comps>
+    </ThingDef>
 </Defs>

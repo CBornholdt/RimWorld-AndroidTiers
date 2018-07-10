@@ -92,7 +92,11 @@
 			<Plasteel>80</Plasteel>
 			<Component>10</Component>
 		</butcherProducts>
-
+<modExtensions>
+    <li Class="MOARANDROIDS.AndroidTweaker">
+        <tweakCorpseRot>true</tweakCorpseRot>
+    </li>
+</modExtensions>
   </ThingDef>
   
   <PawnKindDef ParentName="AnimalAndroidKindBaseDog">

@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <ThingDef Name="BasePawnMech" Abstract="True">
+    <thingClass>Pawn</thingClass>
+    <category>Pawn</category>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Pawn</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <hasTooltip>true</hasTooltip>
+    <soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
+    <statBases>
+      <Mass>70</Mass>
+    </statBases>
+    <inspectorTabs>
+      <li>ITab_Pawn_Health</li>
+      <li>ITab_Pawn_Gear</li>
+      <li>ITab_Pawn_Guest</li>
+      <li>ITab_Pawn_Prisoner</li>
+      <li>ITab_Pawn_Combat</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompAttachBase</compClass>
+      </li>
+    </comps>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+  
+	<AlienRace.ThingDef_AlienRace ParentName="BasePawnMech">
 		<defName>M7Mech</defName>
 		<label>M7 Mechanised infantry</label>
 		<description>A form of mechanized infantry, produced during an ancient time on this rimworld. These units are very strong, powerful war machines but are subsequently slow and have limited battery to them.</description>
@@ -12,11 +40,11 @@
     </apparelList>
     <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
 	
+	<traitList>
+	<li>MechAtlas</li>
+	</traitList>
+	
 	<weaponList>
-        <li>Mech40MMCannon</li>
-		<li>MechMastiffGun</li>
-		<li>MechHandCannon</li>
-		<li>MeleeWeapon_MechKnife</li>
     </weaponList>
     <onlyUseRaceRestrictedWeapons>true</onlyUseRaceRestrictedWeapons>
 	
@@ -100,23 +128,39 @@
 					<alienbodytypes>
 						<li>Male</li>
 					</alienbodytypes>
+            <alienskinsecondcolorgen Class="ColorGenerator_Options">
+                <options>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.36,0.36,0.36,1)</only>
+							</li>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.3,0.3,0.3,1)</only>
+							</li>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.25,0.25,0.25,1)</only>
+							</li>
+                </options>
+            </alienskinsecondcolorgen>
 					<alienskincolorgen Class="ColorGenerator_Options">
 						<options>
 							<li>
-								<weight>10</weight>
-								<only>RGBA(0.94,0.94,0.94,1)</only>
-							</li>
-							<li>
-								<weight>10</weight>
-								<only>RGBA(0.74,0.74,0.74,1)</only>
+								<weight>5</weight>
+								<only>RGBA(0.44,0.45,0.41,1)</only>
 							</li>
 							<li>
 								<weight>5</weight>
-								<only>RGBA(0.80,0.80,0.8,1)</only>
+								<only>RGBA(0.44,0.5,0.41,1)</only>
 							</li>
 							<li>
 								<weight>5</weight>
-								<only>RGBA(0.90,0.90,0.80,1)</only>
+								<only>RGBA(0.34,0.35,0.31,1)</only>
+							</li>
+							<li>
+								<weight>5</weight>
+								<only>RGBA(0.44,0.45,0.46,1)</only>
 							</li>
 						</options>
 					</alienskincolorgen>
@@ -208,7 +252,7 @@
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
 			<intelligence>Humanlike</intelligence>
 			<makesFootprints>true</makesFootprints>
-			      <nameGenerator>AndroidAtlasStandard</nameGenerator>
+			      <nameGenerator>AndroidAtlasMech</nameGenerator>
 			<lifeExpectancy>4000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
 			<body>AndroidM7Mech</body>
@@ -216,7 +260,7 @@
 			<needsRest>false</needsRest>
 			<foodType>None</foodType>
 			<baseHungerRate>0.01</baseHungerRate>
-			<fleshType>Android</fleshType>
+			<fleshType>MechanisedInfantry</fleshType>
 			<bloodDef>CoolantAndroidTier</bloodDef>
 			<useMeatFrom>Alpaca</useMeatFrom>
 						<baseBodySize>5.2</baseBodySize>
@@ -255,12 +299,17 @@
 				<li>AndroidStandardAtlas</li>
 			</hediffGiverSets>
 		</race>
+		
+		<recipes>
+		<li>RepairMechInfantry</li>
+		</recipes>
+		
 		<butcherProducts>
 			<Plasteel>160</Plasteel>
 			<Component>50</Component>
 			<Gold>6</Gold>
 		</butcherProducts>
-		<modExtensions>
+<modExtensions>
     <li Class="MOARANDROIDS.AndroidTweaker">
         <tweakCorpseRot>true</tweakCorpseRot>
     </li>
@@ -305,6 +354,7 @@
 		<slot>Adulthood</slot>
 				<spawnCategories>
 			<li>Mechdrop</li>
+			<li>ColonyMechStory</li>
 		</spawnCategories>
 		<skillGains>
           <li>
@@ -345,7 +395,7 @@
 	
   <TraitDef>
     <defName>MechAtlas</defName>
-	    <commonality>0</commonality>
+	    <commonality>1</commonality>
     <degreeDatas>
       <li>
         <label>Mech</label>

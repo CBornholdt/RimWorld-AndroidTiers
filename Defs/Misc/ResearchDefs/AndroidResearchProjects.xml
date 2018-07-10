@@ -75,6 +75,19 @@
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
+		<defName>AndroidPsychology</defName>
+		<label>Advanced programming</label>
+		<tab>AtlasAndroids</tab>
+		<description>Researching this tech will allow you to reprogram androids in a magnitude of ways from: converting prisoners to adding passions for work and increasing stats.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites><li>T2Androids</li></prerequisites>
+		<researchViewY>2</researchViewY>
+		<researchViewX>2</researchViewX>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
 		<defName>T2Plating</defName>
 		<label>Basic android plating</label>
 		<tab>AtlasAndroids</tab>
@@ -137,7 +150,7 @@
 		<label>Android mind implants</label>
 		<tab>AtlasAndroids</tab>
 		<description>Implants that give a variety of bonuses ranging from mining upgrades to combat upgrades.</description>
-		<baseCost>1400</baseCost>
+		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites><li>T3Androids</li></prerequisites>
 		<researchViewY>2</researchViewY>
@@ -206,6 +219,54 @@
 		<prerequisites><li>T4Androids</li></prerequisites>
 		<researchViewY>2</researchViewY>
 		<researchViewX>4</researchViewX>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>MechCreationBasic</defName>
+		<label>Mechanised Infantry</label>
+		<tab>AtlasAndroids</tab>
+		<description>Research how to create basic mechanised infantry from raw materials.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites><li>T4Androids</li></prerequisites>
+		<researchViewY>2</researchViewY>
+		<researchViewX>5</researchViewX>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>MechWeaponsBasic</defName>
+		<label>Semi-Auto Mech Equipment</label>
+		<tab>AtlasAndroids</tab>
+		<description>Research how to create basic mech equipment and semi-auto mech weaponry such as gauss cannons and mech blades.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites><li>MechCreationBasic</li></prerequisites>
+		<researchViewY>3</researchViewY>
+		<researchViewX>5</researchViewX>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>MechWeaponsAdv</defName>
+		<label>Advanced Mech Equipment</label>
+		<tab>AtlasAndroids</tab>
+		<description>Research how to make even more advanced mech equipment and weaponry that include items such as: 80mm Launchers, Autocannons and more.</description>
+		<baseCost>2500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites><li>MechWeaponsBasic</li></prerequisites>
+		<researchViewY>4</researchViewY>
+		<researchViewX>5</researchViewX>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 		<requiredResearchFacilities>
 			<li>MultiAnalyzer</li>

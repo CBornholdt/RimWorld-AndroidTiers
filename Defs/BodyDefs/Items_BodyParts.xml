@@ -137,7 +137,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>LightReceivingDiode</defName>
-    <label>light receiving diode</label>
+    <label>crude light sensor</label>
     <description>As simple as light detection gets, this diode simply acts as a switch that is either opened or closed depending on whether light reaches it or not.</description>
     <graphicData>
       <texPath>Things/Item/Organblack</texPath>
@@ -154,7 +154,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>FlimsyCoolantPump</defName>
-    <label>flimsy coolant pump</label>
+    <label>crude coolant pump</label>
     <description>This coolant pump operates through differential pressure; which isn't a bad mechanism for operation but, the ability for this pump to even hold pressure is questionable.</description>
     <graphicData>
       <texPath>Things/Item/Organblack</texPath>
@@ -171,7 +171,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>SmallBatteryPack</defName>
-    <label>small battery pack</label>
+    <label>crude battery pack</label>
     <description>An array of small batteries lined up end-to-end to produce the most voltage. Which unsurprisingly; still isn't a lot.</description>
     <graphicData>
       <texPath>Things/Item/Organblack</texPath>
@@ -188,7 +188,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>TubeSealantTank</defName>
-    <label>tube sealant tank</label>
+    <label>crude mechanite storage</label>
     <description>A small tank that holds a gel like fluid capable of plugging up holes in mechanisms as it flows through the tubing of the android it is connected to.</description>
     <graphicData>
       <texPath>Things/Item/Organblack</texPath>
@@ -279,7 +279,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>MultiSpectrumEye</defName>
-    <label>multi-spectrum eye</label>
+    <label>advanced light sensor</label>
     <description>the average human eye and factory standard eyes used for androids are only able to see the visible spectrum of light. This eye model is very different, allowing the host android to switch between infra-red, x-ray and ultraviolet. </description>
     <graphicData>
       <texPath>Things/Item/Organwhite</texPath>
@@ -299,7 +299,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>MultiLayerHeatsink</defName>
-    <label>multi-layer heatsink</label>
+    <label>advanced heatsink</label>
     <description>This heatsink is composed of multiple layers of materials for maximum heat transfer. </description>
     <graphicData>
       <texPath>Things/Item/Organwhite</texPath>
@@ -319,7 +319,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>AdvancedCoolantInjector</defName>
-    <label>advanced coolant injector</label>
+    <label>advanced coolant pump</label>
     <description>This coolant pump no longer operates in rhythmic pulses but now allows for continuous injection of coolant under high pressure. </description>
     <graphicData>
       <texPath>Things/Item/Organwhite</texPath>
@@ -339,7 +339,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>NanowireBattery</defName>
-    <label>nanowire battery</label>
+    <label>advanced battery pack</label>
     <description>This battery operates under the concept of meshed layers of materials such as gold and plasteel, giving the most electrical output and storage for size. </description>
     <graphicData>
       <texPath>Things/Item/Organwhite</texPath>
@@ -359,7 +359,7 @@
 
    <ThingDef ParentName="BodyPartAndroidBase">
     <defName>NaniteStorageDevice</defName>
-    <label>nanite storage device</label>
+    <label>advanced mechanite storage</label>
     <description>Compared to it's precursor; this mechanism of repair allows for quicker operation and recovery from memetic hazards such as malicious viruses by releasing a swarm of nanites within the coolant of the android it is host to. </description>
     <graphicData>
       <texPath>Things/Item/Organwhite</texPath>
@@ -439,7 +439,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>AdvRearCounterweight</defName>
-    <label>gyroscopic counterweight</label>
+    <label>advanced counterweight</label>
     <description>This counterweight works off gyroscopic principles, giving much higher efficiency.</description>
     <graphicData>
       <texPath>Things/Item/Organwhite</texPath>
@@ -678,7 +678,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>SecretHeatsink</defName>
-    <label>Heat ejector</label>
+    <label>archotech heatsink</label>
     <description>this modified advanced heatsink is made using materials that effectively radiate heat at almost 99% efficiency, practically shooting heat out.</description>
     <graphicData>
       <texPath>Things/Item/Organgold</texPath>
@@ -695,7 +695,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>MDEye</defName>
-    <label>Multi-dimensional eye</label>
+    <label>archotech light sensor</label>
     <description>This eye will allow the user to switch their vision between the 3 dimensions they live in and the 4th dimension, this allows them to easily predict movement patterns in real time with pinpoint accuracy as they are practically able to see future events before they occur.</description>
     <graphicData>
       <texPath>Things/Item/Organgold</texPath>
@@ -712,7 +712,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>SecretCoolantPump</defName>
-    <label>Zero kelvin injection</label>
+    <label>archotech coolant pump</label>
     <description>This coolant injector allows for a much higher coolant temperature range, Able to operate even at near absolute zero temperatures.</description>
     <graphicData>
       <texPath>Things/Item/Organgold</texPath>
@@ -729,7 +729,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>SecretBatteryPack</defName>
-    <label>Vanometric battery cell</label>
+    <label>archotech battery pack</label>
     <description>In an attempt to recreate Vanometric power generation, this battery cell somewhat achieves that. Boasting far increased charge capacity than that of its precursors.</description>
     <graphicData>
       <texPath>Things/Item/Organgold</texPath>
@@ -746,7 +746,7 @@
  
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>ArchotechNanites</defName>
-    <label>Archotech nanites</label>
+    <label>archotech mechanite storage</label>
     <description>This compartment of archotech nanites is somewhat mis-understood by even the most advanced cultures. What is known however is that it works well as a repair disperal unit, very very well.</description>
     <graphicData>
       <texPath>Things/Item/Organgold</texPath>
@@ -763,7 +763,7 @@
   
   <ThingDef ParentName="BodyPartAndroidBase">
     <defName>MolecularDecomposer</defName>
-    <label>Molecular decomposer</label>
+    <label>archotech molecular decomposer</label>
     <description>Making other forms of mechanical digestion look primitive, this reactor converts consumed material on the molecular level, increasing efficiency twofold.</description>
     <graphicData>
       <texPath>Things/Item/Organgold</texPath>
@@ -795,4 +795,72 @@
     </techHediffsTags>
   </ThingDef>
   
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CrudeHearingS</defName>
+    <label>crude hearing sensor</label>
+    <description>This hearing sensor simply acts as a basic interpretation implant, allowing for the translation of only the most basic sounds.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvHearingS</defName>
+    <label>advanced hearing sensor</label>
+    <description>This hearing sensor is accurate up to a kilometer. Making it very useful when picking up the faintest of sounds.</description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>ArchHearingS</defName>
+    <label>archotech hearing sensor</label>
+    <description>This sensor is the state of the line in sound detection, able to detect all frequencies of sound. It has potentially unlimited detection.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2200</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SmellingAdvS</defName>
+    <label>advanced smelling sensor</label>
+    <description>The widened openings on this smell sensor not only allow for the detection of odor but also increases ventilation.</description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
 </Defs>

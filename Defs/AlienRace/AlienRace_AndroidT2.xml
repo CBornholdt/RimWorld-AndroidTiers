@@ -78,7 +78,6 @@
 					
 			    <aliencrowntypes>
                     <li>Average_Normal</li>
-                    <li>AndroidPaintJob_1</li>
 					<li>AndroidPaintJob_2</li>
                 </aliencrowntypes>
             <alienskinsecondcolorgen Class="ColorGenerator_Options">
@@ -155,7 +154,7 @@
 		</alienRace>
 
 		<statBases>
-			<MarketValue>6000</MarketValue>
+			<MarketValue>5000</MarketValue>
 			<MoveSpeed>4.50</MoveSpeed>
 			<Flammability>0.2</Flammability>
 			<PsychicSensitivity>0.2</PsychicSensitivity>
@@ -233,7 +232,7 @@
 			<makesFootprints>true</makesFootprints>
 			<lifeExpectancy>1000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
-			<nameCategory>HumanStandard</nameCategory>
+			<nameGenerator>AndroidAtlasStandard</nameGenerator>
 			<body>Android4Tier</body>
 			<baseHealthScale>0.8</baseHealthScale>
 			<needsRest>false</needsRest>
@@ -302,6 +301,13 @@
 	  <li>InstallSpeedMindImplant</li>
 	  <li>InstallGeoMindImplant</li>
 	  <li>InstallEvolvingMindImplant</li>
+	  <li>InstallMakeshiftReplacementArm</li>
+	  <li>InstallMakeshiftReplacementLeg</li>
+	  	  <li>InstallSmellingAdvS</li>
+	  <li>InstallCrudeHearingS</li>
+	  
+	  <li>ReprogramTraitsAndroidSimple</li>
+	  <li>OverclockAndroid</li>
 	<!--InstallPlating-->
 		</recipes>
 		<butcherProducts>
