@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using Verse;
 using RimWorld;
 
@@ -20,5 +22,15 @@ namespace RimWorld
         {
             return pawn.RaceProps.FleshType == androidFlesh;
         }
+
+		static public int RemoveAllHediffsWhere(this Pawn pawn, Func<Hediff, bool> hediffChoser)
+		{
+			var hediffsToRemove = pawn.health?.hediffSet.hediffs.Where(hediffChoser).ToList() ?? new List<Hediff>();
+
+			foreach(var hediff in hediffsToRemove)
+				pawn.health.RemoveHediff(hediff);
+
+			return hediffsToRemove.Count;
+		}
     }
 }

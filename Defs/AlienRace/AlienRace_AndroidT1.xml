@@ -302,7 +302,11 @@
         <initialReactor>AT_ImplantReactorSmall</initialReactor>
         <baseEnergyConsumptionPer1000Ticks>0.1</baseEnergyConsumptionPer1000Ticks>
       </li>
-      <li Class="MOARANDROIDS.CompProperties_NeedsEnergy"/>
+      <li Class="MOARANDROIDS.CompProperties_NeedsEnergy">
+        <lowLevelHediff>AT_LowEnergy</lowLevelHediff>
+        <criticallyLowLevelHediff>AT_CriticalEnergy</criticallyLowLevelHediff>
+        <emptyLevelHediff>AT_EmptyEnergy</emptyLevelHediff>
+      </li>
     </comps>
   </AlienRace.ThingDef_AlienRace>
 </Defs>

@@ -86,20 +86,33 @@ namespace MOARANDROIDS
 		public void AdjustLowEnergyHediffs()
 		{
 			EnergyNeedCategory eNeeds = EnergyNeed;
-			if((Props.emptyLevelHediff != null && this.CurLevel < 0.00001f)
-				&& this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
-				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.emptyLevelHediff))
-					this.pawn.health.RemoveHediff(hediff);
 
-			if(Props.criticallyLowLevelHediff != null && eNeeds == EnergyNeedCategory.Critical
-				&& this.pawn.health.hediffSet.HasHediff(Props.criticallyLowLevelHediff))
-				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.criticallyLowLevelHediff))
-					this.pawn.health.RemoveHediff(hediff);
+			if(Props.emptyLevelHediff != null) {
+				if(this.CurLevel < 0.00001f) {
+					if(!this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
+						this.pawn.health.AddHediff(Props.emptyLevelHediff);
+				}   //Check for hediff removal
+				else if(this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
+					pawn.RemoveAllHediffsWhere(hediff => hediff.def == Props.emptyLevelHediff);
+			}
+            
+            if(Props.criticallyLowLevelHediff != null) {
+                if(eNeeds == EnergyNeedCategory.Critical) {
+                    if(!this.pawn.health.hediffSet.HasHediff(Props.criticallyLowLevelHediff))
+                        this.pawn.health.AddHediff(Props.criticallyLowLevelHediff);
+                }   //Check for hediff removal
+                else if(this.pawn.health.hediffSet.HasHediff(Props.criticallyLowLevelHediff))
+                    pawn.RemoveAllHediffsWhere(hediff => hediff.def == Props.criticallyLowLevelHediff);
+            }
 
-			if(Props.lowLevelHediff != null && eNeeds != EnergyNeedCategory.Major
-				&& this.pawn.health.hediffSet.HasHediff(Props.lowLevelHediff))
-				foreach(var hediff in this.pawn.health.hediffSet.hediffs.Where(hd => hd.def == Props.lowLevelHediff))
-					this.pawn.health.RemoveHediff(hediff);
+			if(Props.lowLevelHediff != null) {
+				if(eNeeds == EnergyNeedCategory.Major) {
+					if(!this.pawn.health.hediffSet.HasHediff(Props.lowLevelHediff))
+						this.pawn.health.AddHediff(Props.lowLevelHediff);
+				}   //Check for hediff removal
+				else if(this.pawn.health.hediffSet.HasHediff(Props.lowLevelHediff))
+					pawn.RemoveAllHediffsWhere(hediff => hediff.def == Props.lowLevelHediff);
+			}
 		}
 	}
 }

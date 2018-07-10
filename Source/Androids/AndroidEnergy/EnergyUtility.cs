@@ -63,9 +63,10 @@ namespace MOARANDROIDS
                                                         , GetPersistentPriority(bComp.parent
                                                                 , bComp.CurrentMaxSourcableEnergy))));
 
-            rechargeSource = allPotentialTargets.MinBy(target_priority => target_priority.Item2)?.Item1;
-            if(rechargeSource == null)
-                return false;
+			if(!allPotentialTargets.Any())
+				return false;                                                
+
+            rechargeSource = allPotentialTargets.MinBy(target_priority => target_priority.Item2).Item1;
 
             return true;
         }
