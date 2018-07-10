@@ -23,6 +23,7 @@ namespace MOARANDROIDS
             Scribe_Values.Look<bool>(ref this.allowCriticalToOverrideProtection, "AllowCriticalToOverrideProtection");
             Scribe_Values.Look<int>(ref this.batteryReconnectionTicks, "BatteryReconnectionTicks");
             Scribe_Values.Look<bool>(ref this.allowConsumableWaste, "AllowConsumableWaste");
+			Scribe_Values.Look<int>(ref this.maxConsumablesToCarry, "MaxConsumablesToCarry");
         }
     }
 }
