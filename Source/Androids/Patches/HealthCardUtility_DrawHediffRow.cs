@@ -8,7 +8,7 @@ using Verse;
 using UnityEngine;
 using RimWorld;
  
-namespace MOARANDROIDS
+namespace BlueLeakTest
 {
     [StaticConstructorOnStartup]
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
@@ -22,9 +22,9 @@ namespace MOARANDROIDS
             FieldInfo bleedingIconField = AccessTools.Field(typeof(HealthCardUtility), "BleedingIcon");
             MethodInfo labelColorGetter = AccessTools.Property(typeof(Hediff), nameof(Hediff.LabelColor)).GetGetMethod();
             MethodInfo iconHelper = AccessTools.Method(typeof(HealthCardUtility_DrawHediffRow)
-                                        , nameof(HealthCardUtility_DrawHediffRow.TransformIconColorBlueIfAndroid));
+                                        , nameof(HealthCardUtility_DrawHediffRow.TransformIconColorBlueIfFemale));
             MethodInfo labelHelper = AccessTools.Method(typeof(HealthCardUtility_DrawHediffRow)
-                                        , nameof(HealthCardUtility_DrawHediffRow.TransformLabelColorRedToBlueIfAndroid));
+                                        , nameof(HealthCardUtility_DrawHediffRow.TransformLabelColorRedToBlueIfFemale));
                                         
             leakingIcon = ContentFinder<Texture2D>.Get("UI/Icons/Medical/Leaking", true);                                        
 
@@ -42,17 +42,17 @@ namespace MOARANDROIDS
             }   
         }
 
-        static public Texture2D TransformIconColorBlueIfAndroid(Texture2D original, Pawn pawn)
+        static public Texture2D TransformIconColorBlueIfFemale(Texture2D original, Pawn pawn)
         {
             if(pawn.IsAndroid())
                 return leakingIcon; 
             return original;
         }
 
-        static public Color TransformLabelColorRedToBlueIfAndroid(Color original, Pawn pawn)
+        static public Color TransformLabelColorRedToBlueIfFemale(Color original, Pawn pawn)
         {
             if(pawn.IsAndroid())
-                return Color.blue;
+                return Color.cyan;
             return original;
         }
     }

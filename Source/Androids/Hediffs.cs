@@ -10,5 +10,9 @@ namespace MOARANDROIDS
         public static HediffDef Conversion;
 
         public static HediffDef BatteryChargeMech;
+
+        public static HediffDef CorruptMemory;
+
+        public static HediffDef AndroidCoolantLoss;
     }
 }

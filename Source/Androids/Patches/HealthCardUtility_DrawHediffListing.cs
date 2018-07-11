@@ -7,7 +7,7 @@ using Harmony;
 using Verse;
 using RimWorld;
 
-namespace MOARANDROIDS
+namespace BlueLeakTest
 {
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
     [HarmonyPatch(nameof(RimWorld.HealthCardUtility.DrawHediffListing))]
@@ -16,7 +16,7 @@ namespace MOARANDROIDS
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             MethodInfo labelHelper = AccessTools.Method(typeof(HealthCardUtility_DrawHediffListing)
-                                            , nameof(HealthCardUtility_DrawHediffListing.TransformToLeakingIfAndroid));
+                                            , nameof(HealthCardUtility_DrawHediffListing.TransformToLeakingIfFemale));
 
             foreach(var code in instructions) 
                 if(code.opcode == OpCodes.Ldstr && (string)code.operand == "BleedingRate") {
@@ -27,7 +27,7 @@ namespace MOARANDROIDS
                     yield return code;
         }
 
-        static public string TransformToLeakingIfAndroid(Pawn pawn)
+        static public string TransformToLeakingIfFemale(Pawn pawn)
         {
             if(pawn.IsAndroid())
                 return "AT_LeakingRate";

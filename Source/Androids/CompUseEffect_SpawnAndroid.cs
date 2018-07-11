@@ -31,11 +31,10 @@ namespace MOARANDROIDS
         // Token: 0x0600007F RID: 127 RVA: 0x000054E4 File Offset: 0x000036E4
         public virtual void DoSpawn(Pawn usedBy)
         {
-            Pawn pawn = PawnGenerator.GeneratePawn(this.SpawnerProps.pawnKind, null);
+            Pawn pawn = PawnGenerator.GeneratePawn(this.SpawnerProps.pawnKind, Faction.OfPlayer);
             bool flag = pawn != null;
             if (flag)
             {
-                pawn.SetFaction(Faction.OfPlayer);
                 GenPlace.TryPlaceThing(pawn, this.parent.Position, this.parent.Map, ThingPlaceMode.Near, null);
                 bool sendMessage = this.SpawnerProps.sendMessage;
                 if (sendMessage)

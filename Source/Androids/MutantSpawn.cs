@@ -328,7 +328,7 @@ namespace MOARANDROIDS
             FilthMaker.MakeFilth(premutant.Position, premutant.Map, RimWorld.ThingDefOf.FilthBlood, premutant.LabelIndefinite(), 10);
 
             GenSpawn.Spawn(pawn, premutant.Position, premutant.Map);
-            pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent, null, true, false, null);
+            pawn.mindState.mentalStateHandler.TryStartMentalState(RimWorld.MentalStateDefOf.ManhunterPermanent, null, true, false, null);
         }
     }
 }
