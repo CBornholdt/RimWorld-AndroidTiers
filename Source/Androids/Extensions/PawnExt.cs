@@ -23,7 +23,12 @@ namespace RimWorld
     
         static public bool IsAndroid(this Pawn pawn)
         {
-            return pawn.RaceProps.FleshType == androidFlesh || pawn.RaceProps.FleshType == mechFlesh;
+            return pawn.RaceProps.FleshType == androidFlesh || pawn.IsMech();
+        }
+        
+        static public bool IsMech(this Pawn pawn)
+        {
+        	return pawn.RaceProps.FleshType == mechFlesh;
         }
 
 		static public int RemoveAllHediffsWhere(this Pawn pawn, Func<Hediff, bool> hediffChoser)
