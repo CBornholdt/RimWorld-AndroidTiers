@@ -6,7 +6,7 @@ using Verse;
 
 namespace MOARANDROIDS
 {
-    public class Recipe_InstallAndroidImplant : Recipe_InstallImplant
+    public class Recipe_InstallEnergySystemImplant : Recipe_InstallImplantAndroid
     {
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
@@ -17,7 +17,7 @@ namespace MOARANDROIDS
 				return;
 			}
             
-            if(billDoer != null && base.CheckSurgeryFail(billDoer, pawn, ingredients, part, bill)) 
+            if(billDoer != null && base.CheckSurgeryFailAndroid(billDoer, pawn, ingredients, part, bill)) 
                     return;
 
 			Hediff notPresentHediff = pawn.health.hediffSet.hediffs.FirstOrDefault(hediff => hediff.Part == part

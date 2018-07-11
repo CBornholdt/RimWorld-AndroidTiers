@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Defs>
 	
-	<RecipeDef Abstract="True" Name="SurgeryAndroidImplantInstall">
+	<RecipeDef Abstract="True" Name="SurgeryAndroidEnergySystemImplantInstall">
 		<effectWorking>Surgery</effectWorking>
 		<soundWorking>Recipe_Surgery</soundWorking>
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
 		<workSkill>Medicine</workSkill>
 		<workSkillLearnFactor>16</workSkillLearnFactor>
 		<workAmount>2500</workAmount>
-		<workerClass>MOARANDROIDS.Recipe_InstallAndroidImplant</workerClass>
+		<workerClass>MOARANDROIDS.Recipe_InstallEnergySystemImplant</workerClass>
 		<dontShowIfAnyIngredientMissing>false</dontShowIfAnyIngredientMissing>
 		<modExtensions>
 			<li Class="MOARANDROIDS.DefModExt_AutoIncludeWithEnergySystems"/>
@@ -32,7 +32,7 @@
 	</RecipeDef>
 
 	<!--		Install Implants 		-->
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallBatteryTiny</defName>
 		<label>install tiny battery</label>
 		<description>Installs tiny battery</description>
@@ -61,7 +61,7 @@
 		<addsHediff>AT_ImplantedBatteryTiny</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallBatterySmall</defName>
 		<label>install small battery</label>
 		<description>Installs small battery</description>
@@ -90,7 +90,7 @@
 		<addsHediff>AT_ImplantedBatterySmall</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallBatteryMedium</defName>
 		<label>install medium battery</label>
 		<description>Installs medium battery</description>
@@ -119,7 +119,7 @@
 		<addsHediff>AT_ImplantedBatteryMedium</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallBatteryLarge</defName>
 		<label>install large battery</label>
 		<description>Installs large battery</description>
@@ -148,7 +148,7 @@
 		<addsHediff>AT_ImplantedBatteryLarge</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallBatteryHuge</defName>
 		<label>install huge battery</label>
 		<description>Installs huge battery</description>
@@ -177,7 +177,7 @@
 		<addsHediff>AT_ImplantedBatteryHuge</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallReactorTiny</defName>
 		<label>install tiny reactor</label>
 		<description>Installs tiny reactor</description>
@@ -206,7 +206,7 @@
 		<addsHediff>AT_ImplantedReactorTiny</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallReactorSmall</defName>
 		<label>install small reactor</label>
 		<description>Installs small reactor</description>
@@ -235,7 +235,7 @@
 		<addsHediff>AT_ImplantedReactorSmall</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallReactorMedium</defName>
 		<label>install medium reactor</label>
 		<description>Installs medium reactor</description>
@@ -264,7 +264,7 @@
 		<addsHediff>AT_ImplantedReactorMedium</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallReactorLarge</defName>
 		<label>install large reactor</label>
 		<description>Installs large reactor</description>
@@ -293,7 +293,7 @@
 		<addsHediff>AT_ImplantedReactorLarge</addsHediff>
 	</RecipeDef>
 
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_InstallReactorHuge</defName>
 		<label>install huge reactor</label>
 		<description>Installs huge reactor</description>
@@ -323,7 +323,7 @@
 	</RecipeDef>
 
 	<!--        Remove implants    -->
-	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
 		<defName>AT_RemoveAndroidImplant</defName>
 		<label>remove android implant</label>
 		<description>Removes various installed android implants</description>
@@ -331,6 +331,6 @@
 		<skillRequirements>
 			<Medicine>5</Medicine>
 		</skillRequirements>
-		<workerClass>MOARANDROIDS.Recipe_RemoveAndroidImplant</workerClass>
+		<workerClass>MOARANDROIDS.Recipe_RemoveEnergySystemImplant</workerClass>
 	</RecipeDef>
 </Defs>

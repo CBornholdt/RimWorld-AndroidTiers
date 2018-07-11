@@ -134,8 +134,8 @@
     <Compile Include="AndroidEnergy\Need\Need_Energy.cs" />
     <Compile Include="AndroidEnergy\Need\CompNeedsEnergy.cs" />
     <Compile Include="AndroidEnergy\Need\CompProperties_NeedsEnergy.cs" />
-    <Compile Include="AndroidEnergy\Recipes\Recipe_InstallAndroidImplant.cs" />
-    <Compile Include="AndroidEnergy\Recipes\Recipe_RemoveAndroidImplant.cs" />
+    <Compile Include="AndroidEnergy\Recipes\Recipe_InstallEnergySystemImplant.cs" />
+    <Compile Include="AndroidEnergy\Recipes\Recipe_RemoveEnergySystemImplant.cs" />
     <Compile Include="AndroidEnergy\ThingComp_EnergyConsumable.cs" />
     <Compile Include="AndroidEnergy\CompProperties_EnergyConsumable.cs" />
     <Compile Include="Extensions\FoodTypeFlagsExt.cs" />

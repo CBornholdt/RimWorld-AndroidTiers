@@ -9,7 +9,7 @@ using Harmony;
 namespace MOARANDROIDS
 {
     //based on Recipe_RemoveBodyPart but that is internal so ...
-    public class Recipe_RemoveAndroidImplant : Recipe_Surgery
+    public class Recipe_RemoveEnergySystemImplant : Recipe_SurgeryAndroids
     {
         private const float ViolationGoodwillImpact = 20f;
 
@@ -40,7 +40,7 @@ namespace MOARANDROIDS
                 return;
             }
             
-            if(billDoer != null && base.CheckSurgeryFail(billDoer, pawn, ingredients, part, bill)) 
+            if(billDoer != null && base.CheckSurgeryFailAndroid(billDoer, pawn, ingredients, part, bill)) 
                     return;
             
             pawn.health.RemoveHediff(existingImplant);

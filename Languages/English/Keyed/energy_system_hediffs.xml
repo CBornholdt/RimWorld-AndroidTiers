@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<AT.HediffComp.StoredEnergy.TipString>Energy {0} of {1}</AT.HediffComp.StoredEnergy.TipString>
-	<AT.HediffComp.PercentChanged.Discharging.TipString>Discharging {0}% per hour</AT.HediffComp.PercentChanged.Discharging.TipString>
-	<AT.HediffComp.PercentChanged.Charging.TipString>Charging {0}% per hour</AT.HediffComp.PercentChanged.Charging.TipString>
+	<AT.HediffComp.PercentChanged.Discharging.TipString>Discharging {0} per hour</AT.HediffComp.PercentChanged.Discharging.TipString>
+	<AT.HediffComp.PercentChanged.Charging.TipString>Charging {0} per hour</AT.HediffComp.PercentChanged.Charging.TipString>
 	<AT.HediffComp.EnergyProvidedPerHour.TipString>Providing {0} energy per hour</AT.HediffComp.EnergyProvidedPerHour.TipString>
 	<AT.HediffComp.EnergyConsumedPerHour.TipString>Consuming {0} energy per hour</AT.HediffComp.EnergyConsumedPerHour.TipString>
 </LanguageData>
