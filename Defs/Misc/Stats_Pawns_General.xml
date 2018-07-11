@@ -11,47 +11,7 @@
     <toStringStyle>PercentZero</toStringStyle>
   </StatDef>
   
-   <StatDef>
-    <defName>MoveSpeed</defName>
-    <label>move speed</label>
-    <description>Speed of movement through the world in cells per second.</description>
-    <category>BasicsPawn</category>
-    <defaultBaseValue>2.8</defaultBaseValue>
-    <toStringStyle>FloatTwo</toStringStyle>
-    <formatString>{0} c/s</formatString>
-    <displayPriorityInCategory>90</displayPriorityInCategory>
-    <capacityFactors>
-      <li>
-        <capacity>Moving</capacity>
-        <weight>1</weight>
-      </li>
-      <li>
-        <capacity>HeatVenting</capacity>
-        <weight>0.35</weight>
-      </li>
-	  <li>
-	    <capacity>CoolantPumping</capacity>
-		<weight>0.4</weight>
-	  </li>
-	  <li>
-	    <capacity>ElectricalEfficiency</capacity>
-		<weight>0.3</weight>
-	  </li>
-    </capacityFactors>
-		<parts>
-			<li Class="StatPart_Glow">
-				<humanlikeOnly>true</humanlikeOnly>
-				<factorFromGlowCurve>
-					<points>
-						<li>(0,0.80)</li>
-						<li>(0.30,1.00)</li>
-					</points>
-				</factorFromGlowCurve>
-			</li>
-		</parts>
-		<scenarioRandomizable>true</scenarioRandomizable>
-	</StatDef>
-	
+
 	<StatDef>
 		<defName>MiningYield</defName>
 		<label>mining yield</label>

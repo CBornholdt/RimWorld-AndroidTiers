@@ -221,8 +221,8 @@
   
    <RecipeDef>
       <defName>CreateLightReceivingDiode</defName>
-      <label>Create light receiving diode</label>
-      <description>Create a light receiving diode .</description>
+      <label>Create crude light sensor</label>
+      <description>Create a crude light sensor .</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -305,8 +305,8 @@
 
    <RecipeDef>
       <defName>CreateFlimsyCoolantPump</defName>
-      <label>Create flimsy coolant pump</label>
-      <description>Create a flimsy coolant pump.</description>
+      <label>Create crude coolant pump</label>
+      <description>Create a crude coolant pump.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -347,8 +347,8 @@
 
    <RecipeDef>
       <defName>CreateSmallBatteryPack</defName>
-      <label>Create small battery pack</label>
-      <description>Create a small battery pack.</description>
+      <label>Create crude battery pack</label>
+      <description>Create a crude battery pack.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -389,8 +389,8 @@
 
    <RecipeDef>
       <defName>CreateTubeSealantTank</defName>
-      <label>Create tube sealant tank</label>
-      <description>Create a tube sealant tank.</description>
+      <label>Create crude mechanite storage</label>
+      <description>Create a crude mechanite storage device.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -659,8 +659,8 @@
 
    <RecipeDef>
       <defName>CreateMultiSpectrumEye</defName>
-      <label>Create multi-spectrum eye</label>
-      <description>Create a multi-spectrum eye.</description>
+      <label>Create advanced light sensor</label>
+      <description>Create an advanced light sensor.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -709,8 +709,8 @@
 
    <RecipeDef>
       <defName>CreateMultiLayerHeatsink</defName>
-      <label>Create multi-layer heatsink</label>
-      <description>Create a multi-layer heatsink.</description>
+      <label>Create advanced heatsink</label>
+      <description>Create an advanced heatsink.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -759,8 +759,8 @@
 
    <RecipeDef>
       <defName>CreateAdvancedCoolantInjector</defName>
-      <label>Create advanced coolant injector</label>
-      <description>Create an advanced coolant inector.</description>
+      <label>Create advanced coolant pump</label>
+      <description>Create an advanced coolant pump.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -809,8 +809,8 @@
 
    <RecipeDef>
       <defName>CreateNanowireBattery</defName>
-      <label>Create nanowire battery</label>
-      <description>Create an nanowire battery.</description>
+      <label>Create advanced battery pack</label>
+      <description>Create an advanced battery pack.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -860,8 +860,8 @@
 	
    <RecipeDef>
       <defName>CreateNaniteStorageDevice</defName>
-      <label>Create nanite storage device</label>
-      <description>Create a nanite storage device.</description>
+      <label>Create advanced mechanite storage</label>
+      <description>Create a advanced mechanite storage.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -910,8 +910,8 @@
 	
    <RecipeDef>
       <defName>CreateHighPowerTransformer</defName>
-      <label>Create bio-reactor</label>
-      <description>Create a highly efficient, compact bio-reactor that fits T3 and T4 androids.</description>
+      <label>Create high power material converter</label>
+      <description>Create a highly efficient, compact high power material converter that fits T3 and T4 androids.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -1202,6 +1202,7 @@
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
 		<Crafting>12</Crafting>
+		<Intellectual>8</Intellectual>
       </skillRequirements>
       <ingredients>
          <li>
@@ -1252,6 +1253,7 @@
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
 		<Crafting>12</Crafting>
+		<Shooting>8</Shooting>
       </skillRequirements>
       <ingredients>
          <li>
@@ -1302,7 +1304,7 @@
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
 		<Crafting>12</Crafting>
-		<Construction>6</Construction>
+		<Construction>8</Construction>
       </skillRequirements>
       <ingredients>
          <li>
@@ -1454,7 +1456,7 @@
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
 		<Crafting>12</Crafting>
-		<Mining>8</Mining>
+		<Mining>10</Mining>
       </skillRequirements>
       <ingredients>
          <li>
@@ -1592,63 +1594,13 @@
 	</RecipeDef>
 
    <RecipeDef>
-      <defName>CreateMDEye</defName>
-      <label>Create multi-dimensional eye</label>
-      <description>Create a multi-dimensional eye.</description>
+      <defName>CreateSecretHeatsink</defName>
+      <label>Create archotech heatsink</label>
+      <description>Create an archotech heatsink.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
 		<Crafting>16</Crafting>
-      </skillRequirements>
-      <ingredients>
-         <li>
-            <filter>
-               <thingDefs>
-                  <li>Plasteel</li>
-               </thingDefs>
-            </filter>
-            <count>50</count>
-         </li>
-         <li>
-            <filter>
-               <thingDefs>
-                  <li>AdvancedComponent</li>
-               </thingDefs>
-            </filter>
-            <count>8</count>
-         </li>
-         <li>
-            <filter>
-               <thingDefs>
-                  <li>Gold</li>
-               </thingDefs>
-            </filter>
-            <count>2</count>
-         </li>
-      </ingredients>
-      <products>
-         <MDEye>1</MDEye>
-      </products>
-	  <researchPrerequisite>T5Research</researchPrerequisite>
-      <workAmount>5000</workAmount>
-      <workSkill>Crafting</workSkill>
-    <effectWorking>Repair</effectWorking>
-    <soundWorking>Recipe_Machining</soundWorking>
-    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
-	 <recipeUsers>
-		<li>AndroidPartsTable</li>
-      </recipeUsers>
-      
-	</RecipeDef>
-
-   <RecipeDef>
-      <defName>CreateSecretHeatsink</defName>
-      <label>Create heat ejector</label>
-      <description>Create a Heat ejector.</description>
-      <jobString>Making Part</jobString>  
-      <allowMixingIngredients>false</allowMixingIngredients>
-	  <skillRequirements>
-		<Crafting>15</Crafting>
       </skillRequirements>
       <ingredients>
          <li>
@@ -1692,9 +1644,59 @@
 	</RecipeDef>
 
    <RecipeDef>
+      <defName>CreateMDEye</defName>
+      <label>Create archotech light sensor</label>
+      <description>Create an archotech light sensor.</description>
+      <jobString>Making Part</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+	  <skillRequirements>
+		<Crafting>15</Crafting>
+      </skillRequirements>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Plasteel</li>
+               </thingDefs>
+            </filter>
+            <count>50</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>AdvancedComponent</li>
+               </thingDefs>
+            </filter>
+            <count>8</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Gold</li>
+               </thingDefs>
+            </filter>
+            <count>2</count>
+         </li>
+      </ingredients>
+      <products>
+         <MDEye>1</MDEye>
+      </products>
+	  <researchPrerequisite>T5Research</researchPrerequisite>
+      <workAmount>5000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>AndroidPartsTable</li>
+      </recipeUsers>
+      
+	</RecipeDef>
+
+   <RecipeDef>
       <defName>CreateSecretCoolantPump</defName>
-      <label>Create zero kelvin injection</label>
-      <description>Create zero kelvin injection.</description>
+      <label>Create archotech coolant pump</label>
+      <description>Create archotech coolant pump.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -1735,8 +1737,8 @@
 
    <RecipeDef>
       <defName>CreateSecretBatteryPack</defName>
-      <label>Create vanometric battery cell</label>
-      <description>Create a vanometric battery cell.</description>
+      <label>Create archotech battery pack</label>
+      <description>Create an archotech battery pack.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -1786,8 +1788,8 @@
 	
    <RecipeDef>
       <defName>CreateArchotechNanites</defName>
-      <label>Create archotech nanites</label>
-      <description>Create archotech nanites.</description>
+      <label>Create archotech mechanite storage</label>
+      <description>Create mechanite storage.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -1836,8 +1838,8 @@
 	
    <RecipeDef>
       <defName>CreateMolecularDecomposer</defName>
-      <label>Create molecular decomposer</label>
-      <description>Create a molecular decomposer.</description>
+      <label>Create archotech molecular decomposer</label>
+      <description>Create an archotech molecular decomposer.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -1878,8 +1880,8 @@
 
    <RecipeDef>
       <defName>CreateQuantumConverter</defName>
-      <label>Create quantum converter</label>
-      <description>Create a quantum converter.</description>
+      <label>Create quantum power converter</label>
+      <description>Create a quantum power converter.</description>
       <jobString>Making Part</jobString>  
       <allowMixingIngredients>false</allowMixingIngredients>
 	  <skillRequirements>
@@ -1916,6 +1918,175 @@
       </products>
 	  <researchPrerequisite>T5Research</researchPrerequisite>
       <workAmount>4000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>AndroidPartsTable</li>
+      </recipeUsers>
+      
+	</RecipeDef>
+	
+   <RecipeDef>
+      <defName>CreateHearingSensorAdv</defName>
+      <label>Create advanced hearing sensor</label>
+      <description>Create an advanced hearing sensor.</description>
+      <jobString>Making Part</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+      </skillRequirements>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Plasteel</li>
+               </thingDefs>
+            </filter>
+            <count>60</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>8</count>
+         </li>
+      </ingredients>
+      <products>
+         <AdvHearingS>1</AdvHearingS>
+      </products>
+	  <researchPrerequisite>T2ReplacementsOrgans</researchPrerequisite>
+      <workAmount>1800</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>AndroidPartsTable</li>
+      </recipeUsers>
+      
+	</RecipeDef>
+	
+    <RecipeDef>
+      <defName>CreateHearingSensorCrude</defName>
+      <label>Create crude hearing sensor</label>
+      <description>Create a crude hearing sensor.</description>
+      <jobString>Making Part</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+	  <skillRequirements>
+		<Crafting>5</Crafting>
+      </skillRequirements>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>30</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>3</count>
+         </li>
+      </ingredients>
+      <products>
+         <CrudeHearingS>1</CrudeHearingS>
+      </products>
+	  <researchPrerequisite>T1Replacements</researchPrerequisite>
+      <workAmount>1200</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>AndroidPartsTable</li>
+      </recipeUsers>
+      
+	</RecipeDef>
+	
+   <RecipeDef>
+      <defName>CreateHearingSensorArch</defName>
+      <label>Create archotech hearing sensor</label>
+      <description>Create an archotech hearing sensor.</description>
+      <jobString>Making Part</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+	  <skillRequirements>
+		<Crafting>14</Crafting>
+      </skillRequirements>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Plasteel</li>
+               </thingDefs>
+            </filter>
+            <count>60</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>AdvancedComponent</li>
+               </thingDefs>
+            </filter>
+            <count>8</count>
+         </li>
+      </ingredients>
+      <products>
+         <ArchHearingS>1</ArchHearingS>
+      </products>
+	  <researchPrerequisite>T5Research</researchPrerequisite>
+      <workAmount>2300</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>AndroidPartsTable</li>
+      </recipeUsers>
+      
+	</RecipeDef>
+	
+	
+   <RecipeDef>
+      <defName>CreateSmellingAdvS</defName>
+      <label>Create advanced smelling sensor</label>
+      <description>Create an advanced smelling sensor.</description>
+      <jobString>Making Part</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+      </skillRequirements>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Plasteel</li>
+               </thingDefs>
+            </filter>
+            <count>40</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>4</count>
+         </li>
+      </ingredients>
+      <products>
+         <SmellingAdvS>1</SmellingAdvS>
+      </products>
+	  <researchPrerequisite>T2ReplacementsOrgans</researchPrerequisite>
+      <workAmount>1000</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>

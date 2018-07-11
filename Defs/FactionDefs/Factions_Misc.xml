@@ -97,23 +97,23 @@
 				<kindDef>Normal</kindDef>
         <commonality>100</commonality>
         <options>
-					<AndroidT1RaiderFactionSpecific>80</AndroidT1RaiderFactionSpecific>
+					<AndroidT1RaiderFactionSpecific>40</AndroidT1RaiderFactionSpecific>
 					<AndroidT2RaiderFactionSpecific>170</AndroidT2RaiderFactionSpecific>
 					<AndroidT3RaiderFactionSpecific>280</AndroidT3RaiderFactionSpecific>
 					<AndroidT4RaiderFactionSpecific>380</AndroidT4RaiderFactionSpecific>
-					<AndroidT1SlaveFactionSpecific>150</AndroidT1SlaveFactionSpecific>
+					<AndroidT1SlaveFactionSpecific>250</AndroidT1SlaveFactionSpecific>
         </options>
       </li>
       <li>
 				<!-- Normal fights, melee-only -->
         <kindDef>Normal</kindDef>
-        <commonality>35</commonality>
+        <commonality>15</commonality>
         <disallowedStrategies>
           <li>Siege</li>
         </disallowedStrategies>
         <options>
-					<MercenarySlasher>80</MercenarySlasher>
-					<AndroidT1SlaveFactionSpecific>100</AndroidT1SlaveFactionSpecific>
+					<MercenarySlasher>100</MercenarySlasher>
+					<AndroidT1SlaveFactionSpecific>60</AndroidT1SlaveFactionSpecific>
         </options>
       </li>
       <li>
@@ -125,7 +125,7 @@
 					<AndroidT2RaiderFactionSpecific>110</AndroidT2RaiderFactionSpecific>
 					<AndroidT3RaiderFactionSpecific>130</AndroidT3RaiderFactionSpecific>
 					<AndroidT4RaiderFactionSpecific>150</AndroidT4RaiderFactionSpecific>
-					<AndroidT1SlaveFactionSpecific>100</AndroidT1SlaveFactionSpecific>
+					<AndroidT1SlaveFactionSpecific>130</AndroidT1SlaveFactionSpecific>
         </options>
       </li>
     </pawnGroupMakers>

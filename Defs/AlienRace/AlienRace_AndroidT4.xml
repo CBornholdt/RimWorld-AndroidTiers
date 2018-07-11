@@ -205,7 +205,7 @@
 			<makesFootprints>true</makesFootprints>
 			<lifeExpectancy>1000</lifeExpectancy>
 			<leatherCommonalityFactor>0</leatherCommonalityFactor>
-			<nameCategory>HumanStandard</nameCategory>
+			<nameGenerator>AndroidAtlasStandard</nameGenerator>
 			<body>Android4Tier</body>
 			<baseHealthScale>1.4</baseHealthScale>
 			<needsRest>false</needsRest>
@@ -295,6 +295,15 @@
 	  <li>InstallMDEye</li>
 	  <li>InstallCyberReplacementArm</li>
 	  <li>InstallCyberReplacementLeg</li>
+	  <li>InstallMakeshiftReplacementArm</li>
+	  <li>InstallMakeshiftReplacementLeg</li>
+	  	  <li>InstallSmellingAdvS</li>
+	  <li>InstallAdvHearingS</li>
+	  <li>InstallArchHearingS</li>
+	  <li>InstallCrudeHearingS</li>
+	  
+	  <li>ReprogramTraitsAndroidAdv</li>
+	  <li>OverclockAndroid</li>
 	<!--Plating and shield-->
 		</recipes>
 		<butcherProducts>

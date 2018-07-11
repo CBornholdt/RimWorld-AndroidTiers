@@ -26,6 +26,19 @@
           </subNodes>
         </li>
 		
+		 <li Class="ThinkNode_ConditionalMentalStateClass">
+          <stateClass>MOARANDROIDS.MentalState_ManhunterNotColony</stateClass>
+          <subNodes>
+            <li Class="ThinkNode_Priority">
+              <subNodes>
+                <li Class="MOARANDROIDS.JobGiver_TargetEnemiesSwarm" />
+                <li Class="JobGiver_WanderAnywhere">
+                  <maxDanger>Deadly</maxDanger>
+                </li>
+              </subNodes>
+            </li>
+          </subNodes>
+        </li>
 		
         <!-- Lord -->
         <li Class="ThinkNode_Subtree">

@@ -653,7 +653,7 @@
     <rotatable>false</rotatable>
 	    <stackLimit>10</stackLimit>
     <statBases>
-      <MarketValue>300</MarketValue>
+      <MarketValue>500</MarketValue>
       <Mass>0.4</Mass>
     </statBases>
     <techLevel>Ultra</techLevel>

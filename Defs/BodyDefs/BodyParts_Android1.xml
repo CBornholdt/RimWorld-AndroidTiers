@@ -554,4 +554,56 @@
     <isAlive>false</isAlive>
   </BodyPartDef>
   
+    <BodyPartDef>
+    <defName>LeftWingBlade</defName>
+    <label>Left Wing</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+	<isAlive>false</isAlive>
+    <tags>
+      <li>ManipulationLimbCore</li>
+    </tags>
+  </BodyPartDef>
+  
+    <BodyPartDef>
+    <defName>RightWingBlade</defName>
+    <label>Right Wing</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+	<isAlive>false</isAlive>
+    <tags>
+      <li>ManipulationLimbCore</li>
+    </tags>
+  </BodyPartDef>
+  
+  <BodyPartDef>
+    <defName>PropellerBladeMicro</defName>
+    <label>propeller blade</label>
+    <hitPoints>40</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+	<frostbiteVulnerability>0.05</frostbiteVulnerability>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+    <tags>
+      <li>MovingLimbCore</li>
+    </tags>
+  </BodyPartDef>
+  
+  <BodyPartDef>
+    <defName>CounterWeightTop</defName>
+    <label>small counterweight</label>
+    <hitPoints>40</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+	<frostbiteVulnerability>0.01</frostbiteVulnerability>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+    <tags>
+      <li>MovingLimbSegment</li>
+    </tags>
+  </BodyPartDef>
+
 </Defs>

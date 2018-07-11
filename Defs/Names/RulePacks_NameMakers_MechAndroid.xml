@@ -2,15 +2,15 @@
 <Defs>
 
   <RulePackDef>
-    <defName>AndroidAtlasStandard</defName>
+    <defName>AndroidAtlasMech</defName>
     <rulePack>
       <rulesStrings>
-        <li>name->[AndroidAtlasStandardNames]</li>
+        <li>name->[AndroidAtlasMechNames]</li>
 
       </rulesStrings>
       <rulesRaw>
         <li Class="Rule_File">
-          <keyword>AndroidAtlasStandardNames</keyword>
+          <keyword>AndroidAtlasMechNames</keyword>
           <path>AndroidAtlas_Names/MechName</path>
         </li>
       </rulesRaw>
