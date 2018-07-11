@@ -7,6 +7,7 @@
 		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
 		<workSkill>Medicine</workSkill>
 		<workSkillLearnFactor>16</workSkillLearnFactor>
+		<workAmount>2500</workAmount>
 		<workerClass>MOARANDROIDS.Recipe_InstallAndroidImplant</workerClass>
 		<dontShowIfAnyIngredientMissing>false</dontShowIfAnyIngredientMissing>
 		<modExtensions>
@@ -32,11 +33,39 @@
 
 	<!--		Install Implants 		-->
 	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallBatteryTiny</defName>
+		<label>install tiny battery</label>
+		<description>Installs tiny battery</description>
+		<jobString>Installing tiny battery.</jobString>
+		<skillRequirements>
+			<Medicine>1</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemBatteryTiny</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemBatteryTiny</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MBattery</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedBatteryTiny</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
 		<defName>AT_InstallBatterySmall</defName>
 		<label>install small battery</label>
 		<description>Installs small battery</description>
 		<jobString>Installing small battery.</jobString>
-		<workAmount>2500</workAmount>
 		<skillRequirements>
 			<Medicine>1</Medicine>
 		</skillRequirements>
@@ -58,7 +87,7 @@
 		<appliedOnFixedBodyParts>
 			<li>MBattery</li>
 		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantBatterySmall</addsHediff>
+		<addsHediff>AT_ImplantedBatterySmall</addsHediff>
 	</RecipeDef>
 
 	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
@@ -66,7 +95,6 @@
 		<label>install medium battery</label>
 		<description>Installs medium battery</description>
 		<jobString>Installing medium battery.</jobString>
-		<workAmount>2500</workAmount>
 		<skillRequirements>
 			<Medicine>5</Medicine>
 		</skillRequirements>
@@ -88,7 +116,36 @@
 		<appliedOnFixedBodyParts>
 			<li>MBattery</li>
 		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantBatteryMedium</addsHediff>
+		<addsHediff>AT_ImplantedBatteryMedium</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallReactorTiny</defName>
+		<label>install tiny reactor</label>
+		<description>Installs tiny reactor</description>
+		<jobString>Installing tiny reactor.</jobString>
+		<skillRequirements>
+			<Medicine>1</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemReactorTiny</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemReactorTiny</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MReactor</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedReactorTiny</addsHediff>
 	</RecipeDef>
 
 	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
@@ -96,7 +153,6 @@
 		<label>install small reactor</label>
 		<description>Installs small reactor</description>
 		<jobString>Installing small reactor.</jobString>
-		<workAmount>2500</workAmount>
 		<skillRequirements>
 			<Medicine>1</Medicine>
 		</skillRequirements>
@@ -118,7 +174,36 @@
 		<appliedOnFixedBodyParts>
 			<li>MReactor</li>
 		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantReactorSmall</addsHediff>
+		<addsHediff>AT_ImplantedReactorSmall</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallReactorMedium</defName>
+		<label>install medium reactor</label>
+		<description>Installs medium reactor</description>
+		<jobString>Installing medium reactor.</jobString>
+		<skillRequirements>
+			<Medicine>1</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemReactorMedium</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemReactorMedium</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MReactor</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedReactorMedium</addsHediff>
 	</RecipeDef>
 
 	<!--        Remove implants    -->
@@ -127,7 +212,6 @@
 		<label>remove android implant</label>
 		<description>Removes various installed android implants</description>
 		<jobString>Removing android implant</jobString>
-		<workAmount>2500</workAmount>
 		<skillRequirements>
 			<Medicine>5</Medicine>
 		</skillRequirements>

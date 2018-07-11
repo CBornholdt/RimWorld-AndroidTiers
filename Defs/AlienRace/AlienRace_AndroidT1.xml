@@ -311,6 +311,17 @@
         <tweakCorpseRot>true</tweakCorpseRot>
       </li>
     </modExtensions>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_EnergySystem">
+        <initialBattery>AT_ImplantedBatteryTiny</initialBattery>
+        <baseEnergyConsumptionPer1000Ticks>0.025</baseEnergyConsumptionPer1000Ticks>
+      </li>
+      <li Class="MOARANDROIDS.CompProperties_NeedsEnergy">
+        <lowLevelHediff>AT_LowEnergy</lowLevelHediff>
+        <criticallyLowLevelHediff>AT_CriticalEnergy</criticallyLowLevelHediff>
+        <emptyLevelHediff>AT_EmptyEnergy</emptyLevelHediff>
+      </li>
+    </comps>
   </AlienRace.ThingDef_AlienRace>
   <TraitDef>
     <defName>SimpleMindedAndroid</defName>

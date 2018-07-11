@@ -12,6 +12,7 @@
       <Flammability>1.0</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
 			<Beauty>-4</Beauty>
+      <Mass>0.2</Mass>
 		</statBases>
     <altitudeLayer>Item</altitudeLayer>
     <tickerType>Never</tickerType>
@@ -32,6 +33,26 @@
     </techHediffsTags>
   </ThingDef>
 
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemBatteryTiny</defName>
+    <label>tiny battery</label>
+    <description>tiny energy battery</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>400</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
+        <storageCapacity>0.6</storageCapacity>
+      </li>
+    </comps>
+  </ThingDef>
 
   <ThingDef ParentName="EnergySystemImplantBase">
     <defName>AT_EnergySystemBatterySmall</defName>
@@ -46,7 +67,6 @@
     </itemGeneratorTags>
     <statBases>
       <MarketValue>800</MarketValue>
-      <Mass>0.2</Mass>
     </statBases>
     <comps>
       <li Class="MOARANDROIDS.EnergySystemProps_Battery">
@@ -67,12 +87,31 @@
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>800</MarketValue>
-      <Mass>0.2</Mass>
+      <MarketValue>1600</MarketValue>
     </statBases>
     <comps>
       <li Class="MOARANDROIDS.EnergySystemProps_Battery">
-        <storageCapacity>2</storageCapacity>
+        <storageCapacity>1.5</storageCapacity>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemReactorTiny</defName>
+    <label>tiny reactor</label>
+    <description>tiny energy reactor</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>500</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
       </li>
     </comps>
   </ThingDef>
@@ -89,8 +128,27 @@
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>800</MarketValue>
-      <Mass>0.2</Mass>
+      <MarketValue>1000</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemReactorMedium</defName>
+    <label>medium reactor</label>
+    <description>medium energy reactor</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>2000</MarketValue>
     </statBases>
     <comps>
       <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
