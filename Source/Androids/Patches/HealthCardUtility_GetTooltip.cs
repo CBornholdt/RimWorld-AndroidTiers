@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
-using Verse;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using Harmony;
+using Verse;
+using UnityEngine;
 using RimWorld;
  
-namespace MOARANDROIDS
+namespace BlueLeakTest
 {
     [HarmonyPatch(typeof(RimWorld.HealthCardUtility))]
     [HarmonyPatch("GetTooltip")]
@@ -17,7 +18,7 @@ namespace MOARANDROIDS
         {
             MethodInfo tipStringExtraGetter = AccessTools.Property(typeof(Hediff), nameof(Hediff.TipStringExtra)).GetGetMethod();
             MethodInfo labelHelper = AccessTools.Method(typeof(HealthCardUtility_GetTooltip)
-                                        , nameof(HealthCardUtility_GetTooltip.TransformBleedingToLeakingIfAndroid));
+                                        , nameof(HealthCardUtility_GetTooltip.TransformBleedingToLeakingIfFemale));
 
             foreach(var code in instructions) {
                 yield return code;
@@ -28,7 +29,7 @@ namespace MOARANDROIDS
             }   
         }
 
-        static public string TransformBleedingToLeakingIfAndroid(string original, Pawn pawn)
+        static public string TransformBleedingToLeakingIfFemale(string original, Pawn pawn)
         {
             if(pawn.IsAndroid())
                 return original.Replace("BleedingRate".Translate(), "AT_Leaking".Translate());

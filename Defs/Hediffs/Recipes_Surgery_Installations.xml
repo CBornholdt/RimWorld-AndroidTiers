@@ -1,13 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef Abstract="True" Name="SurgeryAndroid">
-    <effectWorking>Repair</effectWorking>
-    <soundWorking>Recipe_Machining</soundWorking>
-    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
-    <workSkill>Crafting</workSkill>
-    <workSkillLearnFactor>16</workSkillLearnFactor>
-  </RecipeDef>
+	<!-- SurgeryAndroid is in RecipeDefs/Recipes_Surgery_installations.xml     -->
 
 		<defName>ShutdownAndroid</defName>
 		<label>Shutdown by severing cortex mainline</label>

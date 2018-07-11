@@ -23,5 +23,7 @@ namespace MOARANDROIDS
         public static PawnKindDef AbominationAtlas;
 
         public static PawnKindDef M7MechPawn;
+
+        public static PawnKindDef MicroScyther;
     }
 }

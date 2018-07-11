@@ -11,14 +11,17 @@ namespace RimWorld
     {
         static readonly public FleshTypeDef androidFlesh;
 
+        static readonly public FleshTypeDef mechFlesh;
+
         static PawnExt()
         {
             androidFlesh = DefDatabase<FleshTypeDef>.GetNamed("Android");
+            mechFlesh = DefDatabase<FleshTypeDef>.GetNamed("MechanisedInfantry");
         }
     
         static public bool IsAndroid(this Pawn pawn)
         {
-            return pawn.RaceProps.FleshType == androidFlesh;
+            return pawn.RaceProps.FleshType == androidFlesh || pawn.RaceProps.FleshType == mechFlesh;
         }
     }
 }
