@@ -37,6 +37,26 @@
   </HediffDef>
 
   <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>AT_ImplantedBatteryLarge</defName>
+    <label>large battery</label>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+        <storageCapacity>2.25</storageCapacity>
+      </li>
+    </comps>
+  </HediffDef>
+
+    <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>AT_ImplantedBatteryHuge</defName>
+    <label>huge battery</label>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+        <storageCapacity>3</storageCapacity>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName='EnergyImplantHediffBase'>
     <defName>AT_ImplantedReactorTiny</defName>
     <label>small reactor</label>
     <comps>
@@ -58,10 +78,30 @@
 
   <HediffDef ParentName='EnergyImplantHediffBase'>
     <defName>AT_ImplantedReactorMedium</defName>
-    <label>small reactor</label>
+    <label>medium reactor</label>
     <comps>
       <li Class="MOARANDROIDS.HediffProperties_EnergySource">
         <desiredSourceRatePer1000Ticks>0.10</desiredSourceRatePer1000Ticks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>AT_ImplantedReactorLarge</defName>
+    <label>large reactor</label>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
+        <desiredSourceRatePer1000Ticks>0.15</desiredSourceRatePer1000Ticks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>AT_ImplantedReactorHuge</defName>
+    <label>huge reactor</label>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
+        <desiredSourceRatePer1000Ticks>0.20</desiredSourceRatePer1000Ticks>
       </li>
     </comps>
   </HediffDef>

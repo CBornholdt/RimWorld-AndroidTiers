@@ -120,6 +120,64 @@
 	</RecipeDef>
 
 	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallBatteryLarge</defName>
+		<label>install large battery</label>
+		<description>Installs large battery</description>
+		<jobString>Installing large battery.</jobString>
+		<skillRequirements>
+			<Medicine>5</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemBatteryLarge</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemBatteryLarge</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MBattery</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedBatteryLarge</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallBatteryHuge</defName>
+		<label>install huge battery</label>
+		<description>Installs huge battery</description>
+		<jobString>Installing huge battery.</jobString>
+		<skillRequirements>
+			<Medicine>5</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemBatteryHuge</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemBatteryHuge</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MBattery</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedBatteryHuge</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
 		<defName>AT_InstallReactorTiny</defName>
 		<label>install tiny reactor</label>
 		<description>Installs tiny reactor</description>
@@ -204,6 +262,64 @@
 			<li>MReactor</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>AT_ImplantedReactorMedium</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallReactorLarge</defName>
+		<label>install large reactor</label>
+		<description>Installs large reactor</description>
+		<jobString>Installing large reactor.</jobString>
+		<skillRequirements>
+			<Medicine>1</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemReactorLarge</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemReactorLarge</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MReactor</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedReactorLarge</addsHediff>
+	</RecipeDef>
+
+	<RecipeDef ParentName="SurgeryAndroidImplantInstall">
+		<defName>AT_InstallReactorHuge</defName>
+		<label>install huge reactor</label>
+		<description>Installs huge reactor</description>
+		<jobString>Installing huge reactor.</jobString>
+		<skillRequirements>
+			<Medicine>1</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>AT_EnergySystemReactorHuge</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>AT_EnergySystemReactorHuge</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MReactor</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AT_ImplantedReactorHuge</addsHediff>
 	</RecipeDef>
 
 	<!--        Remove implants    -->

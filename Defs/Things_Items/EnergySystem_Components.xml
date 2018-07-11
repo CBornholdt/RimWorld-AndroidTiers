@@ -97,6 +97,48 @@
   </ThingDef>
 
   <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemBatteryLarge</defName>
+    <label>large battery</label>
+    <description>large energy battery</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
+        <storageCapacity>2.25</storageCapacity>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemBatteryHuge</defName>
+    <label>huge battery</label>
+    <description>huge energy battery</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>10000</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
+        <storageCapacity>3</storageCapacity>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
     <defName>AT_EnergySystemReactorTiny</defName>
     <label>tiny reactor</label>
     <description>tiny energy reactor</description>
@@ -149,6 +191,46 @@
     </itemGeneratorTags>
     <statBases>
       <MarketValue>2000</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemReactorLarge</defName>
+    <label>large reactor</label>
+    <description>large energy reactor</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>5000</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemImplantBase">
+    <defName>AT_EnergySystemReactorHuge</defName>
+    <label>huge reactor</label>
+    <description>huge energy reactor</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>15000</MarketValue>
     </statBases>
     <comps>
       <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
