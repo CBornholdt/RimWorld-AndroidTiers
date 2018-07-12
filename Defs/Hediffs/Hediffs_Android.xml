@@ -669,7 +669,6 @@
     </addedPartProps>
   </HediffDef>
   
- 
   <HediffDef ParentName="AddedBodyPartBaseAndroid">
     <defName>BBattery</defName>
     <label>crude battery pack</label>

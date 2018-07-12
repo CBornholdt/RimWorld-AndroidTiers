@@ -28,6 +28,20 @@
     </ingestible>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2</explosiveRadius>
+        <explosiveDamageType>Smoke</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+        <postExplosionSpawnThingDef>FilthFireFoam</postExplosionSpawnThingDef>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+        <explosionEffect>ExtinguisherExplosion</explosionEffect>
+        <wickTicks>
+          <min>10</min>
+          <max>30</max>
+        </wickTicks>
+      </li>
     </comps>
     <thingCategories>
       <li>Items</li>
@@ -39,23 +53,70 @@
   </ThingDef>
 
   <ThingDef ParentName="EnergySystemConsumable">
-    <defName>AT_EnergySystemConsumableSmall</defName>
-    <label>small consumable</label>
-    <description>small energy consumable</description>
+    <defName>SmallBatteryPack</defName>
+    <label>crude battery pack</label>
+    <description>An array of small batteries lined up end-to-end to produce the most voltage. Which unsurprisingly; still isn't a lot.</description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_EnergyConsumable">
+        <energyAmount>0.5</energyAmount>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemConsumable">
+    <defName>NanowireBattery</defName>
+    <label>advanced battery pack</label>
+    <description>This battery operates under the concept of meshed layers of materials such as gold and plasteel, giving the most electrical output and storage for size. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <itemGeneratorTags>
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>800</MarketValue>
-      <Mass>0.2</Mass>
+      <MarketValue>1700</MarketValue>
+      <Mass>2</Mass>
     </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
     <comps>
       <li Class="MOARANDROIDS.CompProperties_EnergyConsumable">
-        <energyAmount>0.5</energyAmount>
+        <energyAmount>1.0</energyAmount>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="EnergySystemConsumable">
+    <defName>SecretBatteryPack</defName>
+    <label>archotech battery pack</label>
+    <description>In an attempt to recreate Vanometric power generation, this battery cell somewhat achieves that. Boasting far increased charge capacity than that of its precursors.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3200</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_EnergyConsumable">
+        <energyAmount>2.0</energyAmount>
       </li>
     </comps>
   </ThingDef>
