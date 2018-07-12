@@ -141,8 +141,8 @@ namespace MOARANDROIDS
         {
         	this.ForceRegisterReferenceable();
             
-            Scribe_Collections.Look<AttachedSink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Reference);
-            Scribe_Collections.Look<AttachedSource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Reference);
+            Scribe_Collections.Look<AttachedSink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Deep);
+            Scribe_Collections.Look<AttachedSource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Deep);
             Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");
         	Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked", -1);
 

@@ -11,7 +11,7 @@ namespace MOARANDROIDS
     {
 		private List<Tuple<Pawn, int>> connectedPawns = new List<Tuple<Pawn, int>>();
 
-		public bool WasRecentlyConnected(Pawn pawn) => connectedPawns.Any(sp => sp.Item1 == pawn);
+		public bool WasRecentlyConnected(Pawn pawn) => false;//connectedPawns.Any(sp => sp.Item1 == pawn);
 
 		public void MarkConnected(Pawn pawn) => connectedPawns.Add(Tuple.Create(pawn, Find.TickManager.TicksGame));
     
