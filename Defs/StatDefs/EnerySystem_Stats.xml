@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs> 
+  <StatCategoryDef>
+    <defName>Energy</defName>
+    <label>energy</label>
+    <displayOrder>56</displayOrder>
+    <displayAllByDefault>false</displayAllByDefault>
+  </StatCategoryDef>
+
+  <StatDef>
+    <defName>ConsumableEnergyAmount</defName>
+    <label>consumable energy amount</label>
+    <description>The amount of energy that is immediately available upon consumption</description>
+    <workerClass>MOARANDROIDS.StatWorker_ConsumableEnergyAmount</workerClass>
+    <category>Energy</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <minValue>0</minValue>
+    <roundValue>false</roundValue>
+    <toStringStyle>FloatMaxTwo</toStringStyle>
+    <showNonAbstract>true</showNonAbstract>
+  </StatDef>
+
+  <StatDef>
+    <defName>ReactorEnergyAmount</defName>
+    <label>reactor energy amount</label>
+    <description>The amount of energy that is generated per hour</description>
+    <workerClass>MOARANDROIDS.StatWorker_ReactorEnergyAmount</workerClass>
+    <category>Energy</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <minValue>0</minValue>
+    <roundValue>false</roundValue>
+    <toStringStyle>FloatMaxTwo</toStringStyle>
+    <showNonAbstract>true</showNonAbstract>
+  </StatDef>
+
+  <StatDef>
+    <defName>BatteryEnergyCapacity</defName>
+    <label>battery energy capacity</label>
+    <description>The total amount of energy storable in that battery</description>
+    <workerClass>MOARANDROIDS.StatWorker_BatteryEnergyCapacity</workerClass>
+    <category>Energy</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <minValue>0</minValue>
+    <roundValue>false</roundValue>
+    <toStringStyle>FloatMaxTwo</toStringStyle>
+    <showNonAbstract>true</showNonAbstract>
+  </StatDef>
+</Defs>

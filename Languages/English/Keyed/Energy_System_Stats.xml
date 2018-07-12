@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<AT.Stats.ConsumableEnergyAmount.Explanation>Amount of energy available for immediate release</AT.Stats.ConsumableEnergyAmount.Explanation>
+	<AT.Stats.BatteryEnergyCapacity.Explanation>Amount of energy capable of being stored</AT.Stats.BatteryEnergyCapacity.Explanation>
+	<AT.Stats.ReactorEnergyAmount.Explanation>Amount of energy generated per hour</AT.Stats.ReactorEnergyAmount.Explanation>
+</LanguageData>

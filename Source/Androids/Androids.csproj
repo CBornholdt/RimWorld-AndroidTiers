@@ -91,8 +91,6 @@
     <Compile Include="AndroidDefs.cs" />
     <Compile Include="Extensions\UtilityExt.cs" />
     <Compile Include="AndroidEnergy\EnergyConstants.cs" />
-    <Compile Include="AndroidEnergy\Comp_PassiveEnergySource.cs" />
-    <Compile Include="AndroidEnergy\CompProperties_PassiveEnergySource.cs" />
     <Compile Include="AndroidEnergy\EnergyUtility.cs" />
     <Compile Include="AndroidEnergy\IEnergySink.cs" />
     <Compile Include="AndroidEnergy\IEnergySource.cs" />
@@ -162,6 +160,9 @@
     <Compile Include="Integration\AndroidsModSettings.cs" />
     <Compile Include="UIHelper.cs" />
     <Compile Include="Patches\JobGiver_PatientGoToBed_TryIssueJobPackage.cs" />
+    <Compile Include="AndroidEnergy\Stats\StatWorker_ConsumableEnergyAmount.cs" />
+    <Compile Include="AndroidEnergy\Stats\StatWorker_ReactorEnergyAmount.cs" />
+    <Compile Include="AndroidEnergy\Stats\StatWorker_BatteryEnergyCapacity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\About\About.xml">
@@ -181,6 +182,7 @@
     <Folder Include="AndroidEnergy\Recipes\" />
     <Folder Include="Utilities\" />
     <Folder Include="ModSettings\" />
+    <Folder Include="AndroidEnergy\Stats\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
