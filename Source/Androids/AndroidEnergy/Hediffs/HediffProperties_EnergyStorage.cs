@@ -10,7 +10,7 @@ namespace MOARANDROIDS
 		public float sinkPriority = 1f;
 		public float storagePriority = 1f;
 		public float storageCapacity = 1f;
-        public float desiredTransferRatePer1000Ticks = 0.1f;
+        public float desiredTransferRatePer1000Ticks = 5f;
     
         public HediffProperties_EnergyStorage()
         {
