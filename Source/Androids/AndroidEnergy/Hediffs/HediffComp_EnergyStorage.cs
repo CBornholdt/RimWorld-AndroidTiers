@@ -28,7 +28,7 @@ namespace MOARANDROIDS
 			get {
 				StringBuilder stringBuilder = new StringBuilder();
 				stringBuilder.AppendLine("AT.HediffComp.StoredEnergy.TipString"
-											.Translate(StoredEnergy, StorageCapacity));
+											.Translate(StoredEnergy.ToString("G4"), StorageCapacity));
 				string chargingOrDischarging = wasLastSourcedFromNotSinked ? "Discharging" : "Charging";
 				stringBuilder.AppendLine(("AT.HediffComp.PercentChanged." + chargingOrDischarging + ".TipString")
 											.Translate(hourlyPercentageChange.ToStringPercent()));
@@ -116,8 +116,8 @@ namespace MOARANDROIDS
         public override void CompExposeData()
         {
             this.ForceRegisterReferenceable();
-            Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked");
-			Scribe_Values.Look<float>(ref this.storedEnergy, "StoredEnergy");
+            Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked", Find.TickManager.TicksGame - 1);
+			Scribe_Values.Look<float>(ref this.storedEnergy, "StoredEnergy", StorageCapacity);
         }
 
         public string GetUniqueLoadID() => parent.GetUniqueLoadID() + "_energySource";

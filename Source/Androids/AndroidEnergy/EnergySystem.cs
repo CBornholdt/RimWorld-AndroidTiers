@@ -30,12 +30,11 @@ namespace MOARANDROIDS
 
 		public Pawn Owner => this.parent as Pawn;
 
-		public EnergySystem()
+		public EnergySystem() { }
+        
+		public void Init()  //Initialize is already used elsewhere and I can't 
 		{
-			this.attachedSinksSorted = new List<AttachedSink>(4);
-			this.attachedSourcesSorted = new List<AttachedSource>(4);
-			this.installedComps = new ThingOwner<ThingWithComps>(this);
-			this.lastTickWorked = Find.TickManager.TicksGame - 1;
+			
 		}
 
 		public void AttachSink(IEnergySink sink, DisconnectWhen when = new DisconnectWhen())
@@ -126,13 +125,16 @@ namespace MOARANDROIDS
         //ThingComp or ThingComp-like stuff
         public CompProperties_EnergySystem Props => (CompProperties_EnergySystem)this.props;
         
-		public override void Initialize(CompProperties props)
-		{
-			base.Initialize(props);
+		public override void Initialize(CompProperties props)   //Occurs during LoadingVars
+		{               
+            base.Initialize(props);
+            this.attachedSinksSorted = new List<AttachedSink>(4);
+            this.attachedSourcesSorted = new List<AttachedSource>(4);
+            this.installedComps = new ThingOwner<ThingWithComps>(this);
+
             this.baseEnergyConsumption = new BaseEnergyConsumption(this);
 			if(Scribe.mode == LoadSaveMode.Inactive)
-				PostPostMake();
-            this.lastTickWorked = Find.TickManager.TicksGame - 1;  
+				PostPostMake(); 
 		}
 
         public override void PostExposeData()
@@ -142,7 +144,11 @@ namespace MOARANDROIDS
             Scribe_Collections.Look<AttachedSink>(ref this.attachedSinksSorted, "AttachedSinksSorted", LookMode.Reference);
             Scribe_Collections.Look<AttachedSource>(ref this.attachedSourcesSorted, "AttachedSourcesSorted", LookMode.Reference);
             Scribe_Deep.Look<ThingOwner<ThingWithComps>>(ref this.installedComps, "InstalledComps");
-        	Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked");
+        	Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked", -1);
+
+			//Was loaded into a previous mod version, did not find energy system save data so initialize
+			if(this.lastTickWorked == -1 && Scribe.mode == LoadSaveMode.PostLoadInit)
+				ProcessBackCompatability();
         }
 
 		void PostPostMake()
@@ -166,8 +172,52 @@ namespace MOARANDROIDS
                                     , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MReactor));
             this.Owner.health.AddHediff(Props.initialConduit ?? EnergyHediffs.AT_NotPresent
                                     , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MConduit));
+                                    
+            this.lastTickWorked = Find.TickManager.TicksGame - 1;
             
 			Log.Message($"PostPostMake {StoredEnergy} {StorageCapacity}");
+		}
+
+		void ProcessBackCompatability()
+		{
+			Log.Message($"AndroidTiers.EnergySystem:Processing backwards compatability for Pawn {Owner.Name}");
+        
+			this.attachedSinksSorted = new List<AttachedSink>(4);
+            this.attachedSourcesSorted = new List<AttachedSource>(4);
+            this.installedComps = new ThingOwner<ThingWithComps>(this);
+
+            attachedSinksSorted.Add(new AttachedSink(this.baseEnergyConsumption));
+
+			Hediff batteryHediff = Owner.health.hediffSet.hediffs.FirstOrDefault(
+						hediff => hediff.TryGetComp<HediffComp_EnergyStorage>() != null);
+			if(batteryHediff == null && Props.initialBattery != null) 
+                batteryHediff = HediffMaker.MakeHediff(Props.initialBattery, this.Owner, null);
+			if(batteryHediff != null) {
+                var energyStorage = batteryHediff.TryGetComp<HediffComp_EnergyStorage>();
+                energyStorage.SetEnergyDirect(energyStorage.StorageCapacity);
+			}
+			else
+                batteryHediff = HediffMaker.MakeHediff(EnergyHediffs.AT_NotPresent, this.Owner, null);
+			this.Owner.health.AddHediff(batteryHediff
+                                    , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MBattery));
+
+			Hediff reactorHediff = Owner.health.hediffSet.hediffs.FirstOrDefault(
+						hediff => hediff.TryGetComp<HediffComp_EnergySource>() != null);
+			if(reactorHediff == null && Props.initialReactor != null)
+				reactorHediff = HediffMaker.MakeHediff(Props.initialReactor, this.Owner, null);
+            if(reactorHediff == null)
+                reactorHediff = HediffMaker.MakeHediff(EnergyHediffs.AT_NotPresent, this.Owner, null);
+            this.Owner.health.AddHediff(reactorHediff
+                                    , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MReactor));
+
+			Hediff conduitHediff = null;
+            if(Props.initialConduit != null)   
+                conduitHediff = HediffMaker.MakeHediff(Props.initialReactor, this.Owner, null);
+            if(conduitHediff == null)
+                conduitHediff = HediffMaker.MakeHediff(EnergyHediffs.AT_NotPresent, this.Owner, null);
+            this.Owner.health.AddHediff(conduitHediff
+                                    , Owner.RaceProps.body.AllParts.First(part => part.def == AndroidParts.MConduit));                         
+                        
 		}
         
         override public void CompTick()

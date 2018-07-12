@@ -49,7 +49,7 @@ namespace MOARANDROIDS
         public override void CompExposeData()
         {
             this.ForceRegisterReferenceable();
-            Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked");
+            Scribe_Values.Look<int>(ref this.lastTickWorked, "LastTickWorked", Find.TickManager.TicksGame - 1);
         }
 
         public string GetUniqueLoadID() => parent.GetUniqueLoadID() + "_energySource";

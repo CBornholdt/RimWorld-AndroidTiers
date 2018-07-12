@@ -41,9 +41,9 @@ namespace MOARANDROIDS
 
             //Will store Target, Priority
             IEnumerable<Tuple<Thing, float>> allPotentialTargets = Enumerable.Empty<Tuple<Thing, float>>();
+            var consumableBias = AT_Mod.settings.energySearchSettings.consumableDistanceBias;
             
-            float GetConsumablePriority(Thing cons, float energy) {
-                var consumableBias = AT_Mod.settings.energySearchSettings.consumableDistanceBias;
+            float GetConsumablePriority(Thing cons, float energy) {      
                 return cons.PositionHeld.DistanceToSquared(getter.Position)
                     / (energy * energy * consumableBias * consumableBias);
             }
@@ -84,12 +84,14 @@ namespace MOARANDROIDS
             Func<ThingComp_EnergyConsumable, bool> validator;
             if(!criticalSearch) {
                 float energyLimit = energyNeed.MaxLevel * (1f - energyNeed.Props.criticallyLowLevelThreshPercent);
-                validator = eComp => eComp != null
-                                            && eComp.Props.energyAmount <= energyLimit
-                                            && eComp.parent.IngestibleNow;
+				validator = eComp => eComp != null
+											&& eComp.Props.energyAmount <= energyLimit
+											&& eComp.parent.IngestibleNow
+											&& !eComp.parent.IsForbidden(getter);
             }
             else
-                validator = eComp => eComp != null && eComp.parent.IngestibleNow;
+                validator = eComp => eComp != null && eComp.parent.IngestibleNow
+                                            && !eComp.parent.IsForbidden(getter);
             
             return getter.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableAlways)
                          .Select(thing => thing.TryGetComp<ThingComp_EnergyConsumable>())
