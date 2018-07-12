@@ -4,7 +4,7 @@
 		<defName>AT_Energy</defName>
 		<needClass>MOARANDROIDS.Need_Energy</needClass>
 		<label>Energy</label>
-		<description>TODO DESC</description>
+		<description>The amount of energy stored within this android, it can be recharged directly from a battery or from consuming energy packs.</description>
 		<listPriority>698</listPriority>
 		<major>true</major>
 		<showForCaravanMembers>true</showForCaravanMembers>

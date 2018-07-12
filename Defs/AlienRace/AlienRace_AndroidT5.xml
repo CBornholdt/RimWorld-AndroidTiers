@@ -360,9 +360,9 @@
     </modExtensions>
     <comps>
       <li Class="MOARANDROIDS.CompProperties_EnergySystem">
-        <initialBattery>AT_ImplantedBatteryLarge</initialBattery>
-        <initialReactor>AT_ImplantedReactorLarge</initialReactor>
-        <baseEnergyConsumptionPer1000Ticks>0.168</baseEnergyConsumptionPer1000Ticks>
+        <initialBattery>A2Battery</initialBattery>
+        <initialReactor>A2Transformer</initialReactor>
+        <baseEnergyConsumptionPer1000Ticks>0.3</baseEnergyConsumptionPer1000Ticks>
       </li>
       <li Class="MOARANDROIDS.CompProperties_NeedsEnergy">
         <lowLevelHediff>AT_LowEnergy</lowLevelHediff>

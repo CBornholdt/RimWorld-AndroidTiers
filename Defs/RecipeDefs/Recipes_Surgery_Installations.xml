@@ -598,48 +598,6 @@
 	</RecipeDef>
 
   <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallSmallBatteryPack</defName>
-		<label>install crude battery pack</label>
-		<description>Installs a crude battery pack.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing crude battery pack.</jobString>
-      <skillRequirements>
-		<Crafting>3</Crafting>
-      </skillRequirements>
-
-		<workAmount>1000</workAmount>
-		<surgerySuccessChanceFactor>1.30</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>SmallBatteryPack</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>SmallBatteryPack</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MLeftKidney</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BBattery</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
 		<defName>InstallTubeSealantTank</defName>
 		<label>install crude mechanite storage</label>
 		<description>Installs crude mechanite storage.</description>
@@ -679,90 +637,6 @@
 			<li>MRightKidney</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>BMStorage</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallLowPowerTransformer</defName>
-		<label>install low power cellulose converter</label>
-		<description>Installs a low power cellulose converter.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing low power cellulose converter.</jobString>
-      <skillRequirements>
-		<Crafting>3</Crafting>
-      </skillRequirements>
-
-		<workAmount>1000</workAmount>
-		<surgerySuccessChanceFactor>1.30</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>LowPowerTransformer</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>LowPowerTransformer</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MLiver</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BTransformer</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallBasicDCConverter</defName>
-		<label>install basic dc converter</label>
-		<description>Installs a basic dc converter.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing basic dc converter.</jobString>
-      <skillRequirements>
-		<Crafting>3</Crafting>
-      </skillRequirements>
-
-		<workAmount>1000</workAmount>
-		<surgerySuccessChanceFactor>1.30</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>BasicDCConverter</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>BasicDCConverter</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MStomach</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>BVAdapter</addsHediff>
 	</RecipeDef>
 	
 <!--=====================Advanced====================-->
@@ -982,48 +856,6 @@
 	</RecipeDef>
 
   <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallNanowireBattery</defName>
-		<label>install advanced battery pack</label>
-		<description>Installs an advanced battery pack.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing advanced battery pack.</jobString>
-      <skillRequirements>
-		<Crafting>8</Crafting>
-      </skillRequirements>
-
-		<workAmount>1600</workAmount>
-		<surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>2</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>NanowireBattery</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>NanowireBattery</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MLeftKidney</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>ABattery</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
 		<defName>InstallNaniteStorageDevice</defName>
 		<label>install advanced mechanite storage</label>
 		<description>Installs an advanced mechanite storage.</description>
@@ -1063,90 +895,6 @@
 			<li>MRightKidney</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>AMStorage</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallHighPowerTransformer</defName>
-		<label>install high power material converter</label>
-		<description>Installs a high power material converter.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing high power material converter.</jobString>
-      <skillRequirements>
-		<Crafting>6</Crafting>
-      </skillRequirements>
-
-		<workAmount>1600</workAmount>
-		<surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>2</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>HighPowerTransformer</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>HighPowerTransformer</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MStomach</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>ATransformer</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallHighPowerConverter</defName>
-		<label>install high power converter</label>
-		<description>Installs a high power converter.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing high power converter.</jobString>
-      <skillRequirements>
-		<Crafting>6</Crafting>
-      </skillRequirements>
-
-		<workAmount>1600</workAmount>
-		<surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>2</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>HighPowerConverter</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>HighPowerConverter</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MLiver</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AVAdapter</addsHediff>
 	</RecipeDef>
 	
   <RecipeDef ParentName="SurgeryAndroid">
@@ -1835,47 +1583,6 @@
 		<addsHediff>A2CoolantPump</addsHediff>
 	</RecipeDef>
 
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallSecretBatteryPack</defName>
-		<label>install archotech battery pack</label>
-		<description>Installs an archotech battery pack.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing archotech battery pack.</jobString>
-      <skillRequirements>
-		<Crafting>12</Crafting>
-      </skillRequirements>
-
-		<workAmount>1600</workAmount>
-		<surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>3</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>SecretBatteryPack</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>SecretBatteryPack</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MLeftKidney</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>A2Battery</addsHediff>
-	</RecipeDef>
 
   <RecipeDef ParentName="SurgeryAndroid">
 		<defName>InstallArchotechNanites</defName>
@@ -1918,91 +1625,6 @@
 		</appliedOnFixedBodyParts>
 		<addsHediff>A2MStorage</addsHediff>
 	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallMolecularDecomposer</defName>
-		<label>install archotech molecular decomposer</label>
-		<description>Installs an archotech molecular decomposer.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing archotech molecular decomposer.</jobString>
-      <skillRequirements>
-		<Crafting>10</Crafting>
-      </skillRequirements>
-
-		<workAmount>1600</workAmount>
-		<surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>3</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>MolecularDecomposer</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>MolecularDecomposer</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MStomach</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>A2Transformer</addsHediff>
-	</RecipeDef>
-
-  <RecipeDef ParentName="SurgeryAndroid">
-		<defName>InstallQuantumConverter</defName>
-		<label>install Zero point converter</label>
-		<description>Installs a Zero point converter.</description>
-		<workerClass>MOARANDROIDS.Recipe_InstallArtificialBodyPartAndroid</workerClass>
-		<jobString>Installing Zero point converter.</jobString>
-      <skillRequirements>
-		<Crafting>10</Crafting>
-      </skillRequirements>
-
-		<workAmount>1600</workAmount>
-		<surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-					</thingDefs>
-				</filter>
-				<count>3</count>
-			</li>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>QuantumConverter</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-					<thingDefs>
-						<li>RepairKitAT</li>
-				<li>QuantumConverter</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MLiver</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>A2VAdapter</addsHediff>
-	</RecipeDef>
-	
 
   <RecipeDef ParentName="SurgeryAndroid">
 		<defName>InstallCrudeHearingS</defName>

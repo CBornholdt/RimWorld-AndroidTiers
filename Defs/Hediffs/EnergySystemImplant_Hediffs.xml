@@ -6,110 +6,154 @@
     <isBad>false</isBad>
   </HediffDef>
 
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedBatteryTiny</defName>
-    <label>tiny battery</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
-        <storageCapacity>0.6</storageCapacity>
-      </li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-  	<defName>AT_ImplantedBatterySmall</defName>
-  	<label>small battery</label>
-    <comps>
-    	<li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
-    		<storageCapacity>1</storageCapacity>
-    	</li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedBatteryMedium</defName>
-    <label>medium battery</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
-        <storageCapacity>1.5</storageCapacity>
-      </li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedBatteryLarge</defName>
-    <label>large battery</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
-        <storageCapacity>2.25</storageCapacity>
-      </li>
-    </comps>
-  </HediffDef>
-
-    <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedBatteryHuge</defName>
-    <label>huge battery</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
-        <storageCapacity>3</storageCapacity>
-      </li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedReactorTiny</defName>
-    <label>small reactor</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.025</desiredSourceRatePer1000Ticks>
-      </li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-  	<defName>AT_ImplantedReactorSmall</defName>
-  	<label>small reactor</label>
-    <comps>
-    	<li Class="MOARANDROIDS.HediffProperties_EnergySource">
-    		<desiredSourceRatePer1000Ticks>0.05</desiredSourceRatePer1000Ticks>
-    	</li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedReactorMedium</defName>
-    <label>medium reactor</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.10</desiredSourceRatePer1000Ticks>
-      </li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedReactorLarge</defName>
-    <label>large reactor</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.15</desiredSourceRatePer1000Ticks>
-      </li>
-    </comps>
-  </HediffDef>
-
-  <HediffDef ParentName='EnergyImplantHediffBase'>
-    <defName>AT_ImplantedReactorHuge</defName>
-    <label>huge reactor</label>
-    <comps>
-      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.20</desiredSourceRatePer1000Ticks>
-      </li>
-    </comps>
-  </HediffDef>
-
   <HediffDef>
   	<defName>AT_NotPresent</defName>
   	<label>not present</label>
     <defaultLabelColor>(0.6, 0.6, 0.7)</defaultLabelColor>
     <isBad>true</isBad>
   </HediffDef>
+  
+  <!--Previous Hediffs-->
+  
+  <!--Crude-->
+  
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>BBattery</defName>
+    <label>crude battery pack</label>
+    <labelNoun>a crude battery pack</labelNoun>
+    <spawnThingOnRemoved>SmallBatteryPack</spawnThingOnRemoved>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+        <storageCapacity>0.6</storageCapacity>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+      <partEfficiency>0.6</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+ 
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>BTransformer</defName>
+    <label>low power reactor</label>
+    <labelNoun>a low power reactor</labelNoun>
+    <spawnThingOnRemoved>LowPowerTransformer</spawnThingOnRemoved>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
+        <desiredSourceRatePer1000Ticks>0.025</desiredSourceRatePer1000Ticks>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+      <partEfficiency>0.6</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>BVAdapter</defName>
+    <label>basic dc converter</label>
+    <labelNoun>a basic dc converter</labelNoun>
+    <spawnThingOnRemoved>BasicDCConverter</spawnThingOnRemoved>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+      <partEfficiency>0.6</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+  <!--Advanced-->
+  
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>ABattery</defName>
+    <label>advanced battery pack</label>
+    <labelNoun>an advanced battery pack</labelNoun>
+    <spawnThingOnRemoved>NanowireBattery</spawnThingOnRemoved>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+        <storageCapacity>1.5</storageCapacity>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+	  <isBionic>true</isBionic>
+      <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+ 
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>ATransformer</defName>
+    <label>high power reactor</label>
+    <labelNoun>a high power reactor</labelNoun>
+    <spawnThingOnRemoved>HighPowerTransformer</spawnThingOnRemoved>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
+        <desiredSourceRatePer1000Ticks>0.10</desiredSourceRatePer1000Ticks>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+	  <isBionic>true</isBionic>
+      <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>AVAdapter</defName>
+    <label>high power converter</label>
+    <labelNoun>a high power converter</labelNoun>
+    <spawnThingOnRemoved>HighPowerConverter</spawnThingOnRemoved>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+	  <isBionic>true</isBionic>
+      <partEfficiency>1.5</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+  <!--Archotech-->
+  
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>A2Battery</defName>
+    <label>archotech battery pack</label>
+    <labelNoun>an archotech battery pack</labelNoun>
+    <spawnThingOnRemoved>SecretBatteryPack</spawnThingOnRemoved>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergyStorage">
+        <storageCapacity>3</storageCapacity>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+	  <isBionic>true</isBionic>
+      <partEfficiency>1.8</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+   <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>A2Transformer</defName>
+    <label>archotech reactor</label>
+    <labelNoun>an archotech reactor</labelNoun>
+    <spawnThingOnRemoved>MolecularDecomposer</spawnThingOnRemoved>
+    <comps>
+      <li Class="MOARANDROIDS.HediffProperties_EnergySource">
+        <desiredSourceRatePer1000Ticks>0.20</desiredSourceRatePer1000Ticks>
+      </li>
+    </comps>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+	  <isBionic>true</isBionic>
+      <partEfficiency>2.5</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
+  <HediffDef ParentName='EnergyImplantHediffBase'>
+    <defName>A2VAdapter</defName>
+    <label>Zero point converter</label>
+    <labelNoun>a Zero point converter</labelNoun>
+    <spawnThingOnRemoved>QuantumConverter</spawnThingOnRemoved>
+    <addedPartProps>
+      <isSolid>true</isSolid>
+	  <isBionic>true</isBionic>
+      <partEfficiency>2.5</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+  
 </Defs>

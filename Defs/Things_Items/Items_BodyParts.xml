@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="BodyPartBase" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+			<Beauty>-4</Beauty>
+		</statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <tickerType>Never</tickerType>
+    <alwaysHaulable>true</alwaysHaulable>
+    <isBodyPartOrImplant>true</isBodyPartOrImplant>
+    <tradeTags>
+      <li>BodyPartOrImplant</li>
+    </tradeTags>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <pathCost>10</pathCost>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartBase" Name="BodyPartAndroidBase" Abstract="True">
+    <thingCategories>
+      <li>BodyPartsAndroid</li>
+    </thingCategories>
+		<statBases>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SteelPlating</defName>
+    <label>steel plating</label>
+    <description>A simple concept: add more armour to your androids because circuitry isn't exactly bulletproof.</description>
+    <graphicData>
+      <texPath>Things/Item/ArmourPlateBasic</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>8</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>PlasteelPlating</defName>
+    <label>plasteel plating</label>
+    <description>by adding plasteel plating to weakspots on the android; this simple addition should vastly increase an android's damage resistance.</description>
+    <graphicData>
+      <texPath>Things/Item/ArmourPlateAdv</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>6</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CompositePlating</defName>
+    <label>composite plating</label>
+    <description>This plating acts just as any other would but with increased damage resistance thanks to it's composite nature.</description>
+    <graphicData>
+      <texPath>Things/Item/ArmourPlateAdv2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>BasicReplacementArm</defName>
+    <label>basic replacement arm</label>
+    <description>A relatively simple arm that is usually mass produced to cater to entire droid armies on warring planets.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>8</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>BasicReplacementLeg</defName>
+    <label>basic replacement leg</label>
+    <description>A relatively simple leg that is usually mass produced to cater to entire droid armies on warring planets.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CrudeHeatsink</defName>
+    <label>crude heatsink</label>
+    <description>A very crude heatsink made form scrap metal roughly arranged into an array.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>LightReceivingDiode</defName>
+    <label>crude light sensor</label>
+    <description>As simple as light detection gets, this diode simply acts as a switch that is either opened or closed depending on whether light reaches it or not.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>FlimsyCoolantPump</defName>
+    <label>crude coolant pump</label>
+    <description>This coolant pump operates through differential pressure; which isn't a bad mechanism for operation but, the ability for this pump to even hold pressure is questionable.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>TubeSealantTank</defName>
+    <label>crude mechanite storage</label>
+    <description>A small tank that holds a gel like fluid capable of plugging up holes in mechanisms as it flows through the tubing of the android it is connected to.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvancedReplacementArm</defName>
+    <label>high power arm</label>
+    <description>This extremely tough and strong arm was made to deal with a variety of heavy duty workloads such as construction, warfare or post-distaster rescue. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvancedReplacementLeg</defName>
+    <label>high power leg</label>
+    <description>This model of leg was developed with speed in mind; used majorly by Android Olympic runners from most glitterworlds. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+      <Mass>6</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>MultiSpectrumEye</defName>
+    <label>advanced light sensor</label>
+    <description>the average human eye and factory standard eyes used for androids are only able to see the visible spectrum of light. This eye model is very different, allowing the host android to switch between infra-red, x-ray and ultraviolet. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+      <Mass>6</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>MultiLayerHeatsink</defName>
+    <label>advanced heatsink</label>
+    <description>This heatsink is composed of multiple layers of materials for maximum heat transfer. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvancedCoolantInjector</defName>
+    <label>advanced coolant pump</label>
+    <description>This coolant pump no longer operates in rhythmic pulses but now allows for continuous injection of coolant under high pressure. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>NaniteStorageDevice</defName>
+    <label>advanced mechanite storage</label>
+    <description>Compared to it's precursor; this mechanism of repair allows for quicker operation and recovery from memetic hazards such as malicious viruses by releasing a swarm of nanites within the coolant of the android it is host to. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>BasicRearCounterweight</defName>
+    <label>basic counterweight</label>
+    <description>This counterweight consists not much more of a large steel ball on the end of a rod.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>700</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvRearCounterweight</defName>
+    <label>advanced counterweight</label>
+    <description>This counterweight works off gyroscopic principles, giving much higher efficiency.</description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CrudeJawAndroid</defName>
+    <label>crude jaw</label>
+    <description>This jaw is very flimsy, not very sharp and not very strong either.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>700</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvJawAndroid</defName>
+    <label>cybernetic jaw</label>
+    <description>This jaw bolsters an insane level of strength, able to crush a man's skull with ease, you seriously don't want to be on the receiving end of this thing.</description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+ <!--Implants-->
+ 
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>PositronMindImplant</defName>
+    <label>positronic rewiring</label>
+    <description>This implant completely overhauls the standard electronic wiring of the artificial brain. Replacing it with higher efficiency positronic wire pathways. </description>
+    <graphicData>
+      <texPath>Things/Item/OrganPurple</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SoldierMindImplant</defName>
+    <label>soldier upgrade</label>
+    <description>This implant allows the android to perceive the trajectories of projectiles in real time. Along with the ability to perform war simulations inside their own mind as a secondary function.  </description>
+    <graphicData>
+      <texPath>Things/Item/OrganPurple</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>2200</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>BuilderMindImplant</defName>
+    <label>blueprint banks</label>
+    <description>Allowing the android to store multiple banks of blueprints at once, this helps the android massively with construction. </description>
+    <graphicData>
+      <texPath>Things/Item/OrganPurple</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SurgeonMindImplant</defName>
+    <label>tricorder implant</label>
+    <description>This tricorder has been minified by a factor of ten for fitting within an androids mind. This version allows the android to scan biological creatures and determine a diagnosis with just a glance. </description>
+    <graphicData>
+      <texPath>Things/Item/OrganPurple</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>2600</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef> 
+  
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SpeedMindImplant</defName>
+    <label>neural highways</label>
+    <description>This implant remaps the inner workings of the mind, allowing the formation of "highways" for electronic signals. </description>
+    <graphicData>
+      <texPath>Things/Item/OrganPurple</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>2400</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef> 
+  
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>GeoMindImplant</defName>
+    <label>Geological banks</label>
+    <description>This implant when installed; helps an android by overlaying augmented vision of the rock face they are mining from. Showing them real time updates on how to remove rock and material from rock with the highest efficiency. </description>
+    <graphicData>
+      <texPath>Things/Item/OrganPurple</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef> 
+  
+  
+  <!--Secret-->
+
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>EvolvingImplant</defName>
+    <label>Evolving AI Upgrade</label>
+    <description>This implant allows the current AI to evolve on itself. Over time - this pawn will slowly become more and more mentally complex. Reaching peak efficiency in all it does. </description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>5500</MarketValue>
+      <Mass>0.5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef> 
+
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CyberReplacementArm</defName>
+    <label>Cybernetic arm</label>
+    <description>This arm uses Ultraweave composites developed by only the most advanced glitterworld societies to produce an extremely strong and durable upgrade.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>6000</MarketValue>
+      <Mass>8</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CyberReplacementLeg</defName>
+    <label>Cybernetic leg</label>
+    <description>This leg upgrade is rarely seen outside of the lab, its immense speed and strength boost allows the user to easily lift weights and move at breakneck speeds.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>5500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SecretHeatsink</defName>
+    <label>archotech heatsink</label>
+    <description>this modified advanced heatsink is made using materials that effectively radiate heat at almost 99% efficiency, practically shooting heat out.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>4500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>MDEye</defName>
+    <label>archotech light sensor</label>
+    <description>This eye will allow the user to switch their vision between the 3 dimensions they live in and the 4th dimension, this allows them to easily predict movement patterns in real time with pinpoint accuracy as they are practically able to see future events before they occur.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>4500</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SecretCoolantPump</defName>
+    <label>archotech coolant pump</label>
+    <description>This coolant injector allows for a much higher coolant temperature range, Able to operate even at near absolute zero temperatures.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>ArchotechNanites</defName>
+    <label>archotech mechanite storage</label>
+    <description>This compartment of archotech nanites is somewhat mis-understood by even the most advanced cultures. What is known however is that it works well as a repair disperal unit, very very well.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>4500</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>CrudeHearingS</defName>
+    <label>crude hearing sensor</label>
+    <description>This hearing sensor simply acts as a basic interpretation implant, allowing for the translation of only the most basic sounds.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>AdvHearingS</defName>
+    <label>advanced hearing sensor</label>
+    <description>This hearing sensor is accurate up to a kilometer. Making it very useful when picking up the faintest of sounds.</description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>ArchHearingS</defName>
+    <label>archotech hearing sensor</label>
+    <description>This sensor is the state of the line in sound detection, able to detect all frequencies of sound. It has potentially unlimited detection.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2200</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SmellingAdvS</defName>
+    <label>advanced smelling sensor</label>
+    <description>The widened openings on this smell sensor not only allow for the detection of odor but also increases ventilation.</description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+</Defs>

@@ -1,326 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Defs>
 	
-	<RecipeDef Abstract="True" Name="SurgeryAndroidEnergySystemImplantInstall">
-		<effectWorking>Surgery</effectWorking>
-		<soundWorking>Recipe_Surgery</soundWorking>
-		<workSpeedStat>MedicalOperationSpeed</workSpeedStat>
-		<workSkill>Medicine</workSkill>
-		<workSkillLearnFactor>16</workSkillLearnFactor>
-		<workAmount>2500</workAmount>
-		<workerClass>MOARANDROIDS.Recipe_InstallEnergySystemImplant</workerClass>
-		<dontShowIfAnyIngredientMissing>false</dontShowIfAnyIngredientMissing>
-		<modExtensions>
-			<li Class="MOARANDROIDS.DefModExt_AutoIncludeWithEnergySystems"/>
-		</modExtensions>
-		<ingredients>
-			<li>
-				<filter>
-					<categories>
-						<li>Medicine</li>
-					</categories>
-				</filter>
-				<count>2</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<categories>
-				<li>Medicine</li>
-			</categories>
-		</fixedIngredientFilter>
-
-	</RecipeDef>
-
-	<!--		Install Implants 		-->
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallBatteryTiny</defName>
-		<label>install tiny battery</label>
-		<description>Installs tiny battery</description>
-		<jobString>Installing tiny battery.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemBatteryTiny</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemBatteryTiny</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MBattery</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedBatteryTiny</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallBatterySmall</defName>
-		<label>install small battery</label>
-		<description>Installs small battery</description>
-		<jobString>Installing small battery.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemBatterySmall</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemBatterySmall</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MBattery</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedBatterySmall</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallBatteryMedium</defName>
-		<label>install medium battery</label>
-		<description>Installs medium battery</description>
-		<jobString>Installing medium battery.</jobString>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemBatteryMedium</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemBatteryMedium</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MBattery</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedBatteryMedium</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallBatteryLarge</defName>
-		<label>install large battery</label>
-		<description>Installs large battery</description>
-		<jobString>Installing large battery.</jobString>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemBatteryLarge</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemBatteryLarge</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MBattery</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedBatteryLarge</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallBatteryHuge</defName>
-		<label>install huge battery</label>
-		<description>Installs huge battery</description>
-		<jobString>Installing huge battery.</jobString>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemBatteryHuge</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemBatteryHuge</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MBattery</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedBatteryHuge</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallReactorTiny</defName>
-		<label>install tiny reactor</label>
-		<description>Installs tiny reactor</description>
-		<jobString>Installing tiny reactor.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemReactorTiny</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemReactorTiny</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MReactor</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedReactorTiny</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallReactorSmall</defName>
-		<label>install small reactor</label>
-		<description>Installs small reactor</description>
-		<jobString>Installing small reactor.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemReactorSmall</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemReactorSmall</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MReactor</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedReactorSmall</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallReactorMedium</defName>
-		<label>install medium reactor</label>
-		<description>Installs medium reactor</description>
-		<jobString>Installing medium reactor.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemReactorMedium</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemReactorMedium</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MReactor</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedReactorMedium</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallReactorLarge</defName>
-		<label>install large reactor</label>
-		<description>Installs large reactor</description>
-		<jobString>Installing large reactor.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemReactorLarge</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemReactorLarge</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MReactor</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedReactorLarge</addsHediff>
-	</RecipeDef>
-
-	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
-		<defName>AT_InstallReactorHuge</defName>
-		<label>install huge reactor</label>
-		<description>Installs huge reactor</description>
-		<jobString>Installing huge reactor.</jobString>
-		<skillRequirements>
-			<Medicine>1</Medicine>
-		</skillRequirements>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>AT_EnergySystemReactorHuge</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>AT_EnergySystemReactorHuge</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<appliedOnFixedBodyParts>
-			<li>MReactor</li>
-		</appliedOnFixedBodyParts>
-		<addsHediff>AT_ImplantedReactorHuge</addsHediff>
-	</RecipeDef>
+	  <RecipeDef Abstract="True" Name="SurgeryAndroidEnergySystemImplantInstall">
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>16</workSkillLearnFactor>
+	<anesthetize>false</anesthetize>
+	<workerClass>MOARANDROIDS.Recipe_InstallEnergySystemImplant</workerClass>
+	<dontShowIfAnyIngredientMissing>false</dontShowIfAnyIngredientMissing>
+	<modExtensions>
+		<li Class="MOARANDROIDS.DefModExt_AutoIncludeWithEnergySystems"/>
+	</modExtensions>
+  </RecipeDef>
 
 	<!--        Remove implants    -->
 	<RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
@@ -333,4 +26,392 @@
 		</skillRequirements>
 		<workerClass>MOARANDROIDS.Recipe_RemoveEnergySystemImplant</workerClass>
 	</RecipeDef>
+	
+	<!--Pre-existing recipes-->
+	
+	<!--Crude-->
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallSmallBatteryPack</defName>
+		<label>install crude battery pack</label>
+		<description>Installs a crude battery pack.</description>
+		
+		<jobString>Installing crude battery pack.</jobString>
+      <skillRequirements>
+		<Crafting>3</Crafting>
+      </skillRequirements>
+
+		<workAmount>1000</workAmount>
+		<surgerySuccessChanceFactor>1.30</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmallBatteryPack</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>SmallBatteryPack</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MLeftKidney</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>BBattery</addsHediff>
+	</RecipeDef>
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallLowPowerTransformer</defName>
+		<label>install low power reactor</label>
+		<description>Installs a low power reactor.</description>
+		
+		<jobString>Installing low power reactor.</jobString>
+      <skillRequirements>
+		<Crafting>3</Crafting>
+      </skillRequirements>
+
+		<workAmount>1000</workAmount>
+		<surgerySuccessChanceFactor>1.30</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>LowPowerTransformer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>LowPowerTransformer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MLiver</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>BTransformer</addsHediff>
+	</RecipeDef>
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallBasicDCConverter</defName>
+		<label>install basic dc converter</label>
+		<description>Installs a basic dc converter.</description>
+		
+		<jobString>Installing basic dc converter.</jobString>
+      <skillRequirements>
+		<Crafting>3</Crafting>
+      </skillRequirements>
+
+		<workAmount>1000</workAmount>
+		<surgerySuccessChanceFactor>1.30</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BasicDCConverter</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>BasicDCConverter</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MStomach</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>BVAdapter</addsHediff>
+	</RecipeDef>
+	
+	<!--Advanced-->
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallNanowireBattery</defName>
+		<label>install advanced battery pack</label>
+		<description>Installs an advanced battery pack.</description>
+		
+		<jobString>Installing advanced battery pack.</jobString>
+      <skillRequirements>
+		<Crafting>8</Crafting>
+      </skillRequirements>
+
+		<workAmount>1600</workAmount>
+		<surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>NanowireBattery</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>NanowireBattery</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MLeftKidney</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>ABattery</addsHediff>
+	</RecipeDef>
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallHighPowerTransformer</defName>
+		<label>install high power reactor</label>
+		<description>Installs a high power reactor.</description>
+		
+		<jobString>Installing high power reactor.</jobString>
+      <skillRequirements>
+		<Crafting>6</Crafting>
+      </skillRequirements>
+
+		<workAmount>1600</workAmount>
+		<surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>HighPowerTransformer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>HighPowerTransformer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MStomach</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>ATransformer</addsHediff>
+	</RecipeDef>
+
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallHighPowerConverter</defName>
+		<label>install high power converter</label>
+		<description>Installs a high power converter.</description>
+		
+		<jobString>Installing high power converter.</jobString>
+      <skillRequirements>
+		<Crafting>6</Crafting>
+      </skillRequirements>
+
+		<workAmount>1600</workAmount>
+		<surgerySuccessChanceFactor>0.95</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>HighPowerConverter</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>HighPowerConverter</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MLiver</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>AVAdapter</addsHediff>
+	</RecipeDef>
+	
+      <!--Archotech-->
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallSecretBatteryPack</defName>
+		<label>install archotech battery pack</label>
+		<description>Installs an archotech battery pack.</description>
+		
+		<jobString>Installing archotech battery pack.</jobString>
+      <skillRequirements>
+		<Crafting>12</Crafting>
+      </skillRequirements>
+
+		<workAmount>1600</workAmount>
+		<surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SecretBatteryPack</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>SecretBatteryPack</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MLeftKidney</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>A2Battery</addsHediff>
+	</RecipeDef>
+
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallMolecularDecomposer</defName>
+		<label>install archotech reactor</label>
+		<description>Installs an archotech reactor.</description>
+		
+		<jobString>Installing archotech reactor.</jobString>
+      <skillRequirements>
+		<Crafting>10</Crafting>
+      </skillRequirements>
+
+		<workAmount>1600</workAmount>
+		<surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MolecularDecomposer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>MolecularDecomposer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MStomach</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>A2Transformer</addsHediff>
+	</RecipeDef>
+
+  <RecipeDef ParentName="SurgeryAndroidEnergySystemImplantInstall">
+		<defName>InstallQuantumConverter</defName>
+		<label>install Zero point converter</label>
+		<description>Installs a Zero point converter.</description>
+		<jobString>Installing Zero point converter.</jobString>
+      <skillRequirements>
+		<Crafting>10</Crafting>
+      </skillRequirements>
+
+		<workAmount>1600</workAmount>
+		<surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+					</thingDefs>
+				</filter>
+				<count>3</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QuantumConverter</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+					<thingDefs>
+						<li>RepairKitAT</li>
+				<li>QuantumConverter</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>MLiver</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>A2VAdapter</addsHediff>
+	</RecipeDef>
+	
+
 </Defs>

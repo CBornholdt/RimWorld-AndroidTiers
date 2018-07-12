@@ -14,7 +14,7 @@
 			<Beauty>-4</Beauty>
 		</statBases>
     <altitudeLayer>Item</altitudeLayer>
-    <tickerType>Never</tickerType>
+    <tickerType>Normal</tickerType>
     <alwaysHaulable>true</alwaysHaulable>
     <isBodyPartOrImplant>false</isBodyPartOrImplant>
     <ingestible>
@@ -30,9 +30,9 @@
       <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>2</explosiveRadius>
-        <explosiveDamageType>Smoke</explosiveDamageType>
+        <explosiveDamageType>Bomb</explosiveDamageType>
         <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
-        <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+        <startWickHitPointsPercent>0.1</startWickHitPointsPercent>
         <postExplosionSpawnThingDef>FilthFireFoam</postExplosionSpawnThingDef>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
         <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
@@ -53,16 +53,16 @@
   </ThingDef>
 
   <ThingDef ParentName="EnergySystemConsumable">
-    <defName>SmallBatteryPack</defName>
-    <label>crude battery pack</label>
-    <description>An array of small batteries lined up end-to-end to produce the most voltage. Which unsurprisingly; still isn't a lot.</description>
+    <defName>AT_SmallConsumable</defName>
+    <label>Small energy pack</label>
+    <description>A small bank of capacitors, designed to deliver a quick burst of energy to an android, however: it isn't a lot.</description>
     <graphicData>
-      <texPath>Things/Item/Organblack</texPath>
+      <texPath>Things/Item/BatteryPack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>400</MarketValue>
-      <Mass>5</Mass>
+      <MarketValue>30</MarketValue>
+      <Mass>0.5</Mass>
     </statBases>
     <techHediffsTags>
       <li>Simple</li>
@@ -75,19 +75,19 @@
   </ThingDef>
 
   <ThingDef ParentName="EnergySystemConsumable">
-    <defName>NanowireBattery</defName>
-    <label>advanced battery pack</label>
-    <description>This battery operates under the concept of meshed layers of materials such as gold and plasteel, giving the most electrical output and storage for size. </description>
+    <defName>AT_MediumConsumable</defName>
+    <label>Medium energy pack</label>
+    <description>This pack operates somewhat efficiently for it's size, able to easily recharge an android most of the way to it's full amount. </description>
     <graphicData>
-      <texPath>Things/Item/Organwhite</texPath>
+      <texPath>Things/Item/BatteryPack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <itemGeneratorTags>
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>1700</MarketValue>
-      <Mass>2</Mass>
+      <MarketValue>60</MarketValue>
+      <Mass>1</Mass>
     </statBases>
     <techHediffsTags>
       <li>Advanced</li>
@@ -100,16 +100,16 @@
   </ThingDef>
 
   <ThingDef ParentName="EnergySystemConsumable">
-    <defName>SecretBatteryPack</defName>
-    <label>archotech battery pack</label>
-    <description>In an attempt to recreate Vanometric power generation, this battery cell somewhat achieves that. Boasting far increased charge capacity than that of its precursors.</description>
+    <defName>AT_LargeConsumable</defName>
+    <label>Large energy pack</label>
+    <description>This pack consists of a small array of highly efficient power cells that upon use: release an intense amount of power, charging most androids to their max capacity in a matter of seconds.</description>
     <graphicData>
-      <texPath>Things/Item/Organgold</texPath>
+      <texPath>Things/Item/BatteryPack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>3200</MarketValue>
-      <Mass>5</Mass>
+      <MarketValue>120</MarketValue>
+      <Mass>2</Mass>
     </statBases>
     <techHediffsTags>
       <li>secret</li>

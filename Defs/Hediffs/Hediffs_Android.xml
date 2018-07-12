@@ -668,27 +668,6 @@
       <partEfficiency>0.65</partEfficiency>
     </addedPartProps>
   </HediffDef>
-  
-  <HediffDef ParentName="AddedBodyPartBaseAndroid">
-    <defName>BBattery</defName>
-    <label>crude battery pack</label>
-    <labelNoun>a crude battery pack</labelNoun>
-    <spawnThingOnRemoved>SmallBatteryPack</spawnThingOnRemoved>
-				<stages>
-			<li>
-				 <capMods>
-					<li>
-					  <capacity>Moving</capacity>
-					  <offset>-0.1</offset>
-					</li>
-				</capMods>
-			</li>
-		</stages>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-      <partEfficiency>0.6</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
  
   <HediffDef ParentName="AddedBodyPartBaseAndroid">
     <defName>BMStorage</defName>
@@ -698,28 +677,6 @@
     <addedPartProps>
       <isSolid>true</isSolid>
       <partEfficiency>0.5</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
- 
-  <HediffDef ParentName="AddedBodyPartBaseAndroid">
-    <defName>BTransformer</defName>
-    <label>low power cellulose converter</label>
-    <labelNoun>a low power cellulose converter</labelNoun>
-    <spawnThingOnRemoved>LowPowerTransformer</spawnThingOnRemoved>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-      <partEfficiency>0.6</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
-  
-  <HediffDef ParentName="AddedBodyPartBaseAndroid">
-    <defName>BVAdapter</defName>
-    <label>basic dc converter</label>
-    <labelNoun>a basic dc converter</labelNoun>
-    <spawnThingOnRemoved>BasicDCConverter</spawnThingOnRemoved>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-      <partEfficiency>0.6</partEfficiency>
     </addedPartProps>
   </HediffDef>
   
@@ -864,29 +821,6 @@
     </addedPartProps>
   </HediffDef>
   
- 
-  <HediffDef ParentName="AddedBodyPartBaseAndroid2">
-    <defName>ABattery</defName>
-    <label>advanced battery pack</label>
-    <labelNoun>an advanced battery pack</labelNoun>
-    <spawnThingOnRemoved>NanowireBattery</spawnThingOnRemoved>
-			<stages>
-			<li>
-				 <capMods>
-					<li>
-					  <capacity>Moving</capacity>
-					  <offset>+0.1</offset>
-					</li>
-				</capMods>
-			</li>
-		</stages>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-	  <isBionic>true</isBionic>
-      <partEfficiency>1.5</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
- 
   <HediffDef ParentName="AddedBodyPartBaseAndroid2">
     <defName>AMStorage</defName>
     <label>advanced mechanite storage</label>
@@ -899,30 +833,6 @@
       <isSolid>true</isSolid>
 	  <isBionic>true</isBionic>
       <partEfficiency>1.6</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
- 
-  <HediffDef ParentName="AddedBodyPartBaseAndroid2">
-    <defName>ATransformer</defName>
-    <label>high power material converter</label>
-    <labelNoun>a high power material converter</labelNoun>
-    <spawnThingOnRemoved>HighPowerTransformer</spawnThingOnRemoved>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-	  <isBionic>true</isBionic>
-      <partEfficiency>1.5</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
-  
-  <HediffDef ParentName="AddedBodyPartBaseAndroid2">
-    <defName>AVAdapter</defName>
-    <label>high power converter</label>
-    <labelNoun>a high power converter</labelNoun>
-    <spawnThingOnRemoved>HighPowerConverter</spawnThingOnRemoved>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-	  <isBionic>true</isBionic>
-      <partEfficiency>1.5</partEfficiency>
     </addedPartProps>
   </HediffDef>
 
@@ -1188,29 +1098,6 @@
     </addedPartProps>
 
   </HediffDef>
-  
- 
-  <HediffDef ParentName="AddedBodyPartBaseAndroid3">
-    <defName>A2Battery</defName>
-    <label>archotech battery pack</label>
-    <labelNoun>an archotech battery pack</labelNoun>
-    <spawnThingOnRemoved>SecretBatteryPack</spawnThingOnRemoved>
-			<stages>
-			<li>
-				 <capMods>
-					<li>
-					  <capacity>Moving</capacity>
-					  <offset>+0.4</offset>
-					</li>
-				</capMods>
-			</li>
-		</stages>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-	  <isBionic>true</isBionic>
-      <partEfficiency>1.8</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
  
   <HediffDef ParentName="AddedBodyPartBaseAndroid3">
     <defName>A2MStorage</defName>
@@ -1226,31 +1113,6 @@
       <partEfficiency>2</partEfficiency>
     </addedPartProps>
   </HediffDef>
- 
-  <HediffDef ParentName="AddedBodyPartBaseAndroid3">
-    <defName>A2Transformer</defName>
-    <label>Molecular decomposer</label>
-    <labelNoun>a Molecular decomposer</labelNoun>
-    <spawnThingOnRemoved>MolecularDecomposer</spawnThingOnRemoved>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-	  <isBionic>true</isBionic>
-      <partEfficiency>2.5</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
-  
-  <HediffDef ParentName="AddedBodyPartBaseAndroid3">
-    <defName>A2VAdapter</defName>
-    <label>Zero point converter</label>
-    <labelNoun>a Zero point converter</labelNoun>
-    <spawnThingOnRemoved>QuantumConverter</spawnThingOnRemoved>
-    <addedPartProps>
-      <isSolid>true</isSolid>
-	  <isBionic>true</isBionic>
-      <partEfficiency>2.5</partEfficiency>
-    </addedPartProps>
-  </HediffDef>
-  
   
     <HediffDef ParentName="AddedBodyPartBaseAndroid">
     <defName>HearingSensorCrude</defName>

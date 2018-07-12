@@ -1,241 +1,202 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-  <ThingDef Name="EnergySystemImplantBase" Abstract="True">
-    <label>energy system component</label>
-    <thingClass>ThingWithComps</thingClass>
-    <category>Item</category>
-    <useHitPoints>true</useHitPoints>
-    <selectable>true</selectable>
+  <!--Pre-Existing Items-->
+  
+  <!--Crude-->
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>LowPowerTransformer</defName>
+    <label>low power reactor</label>
+    <description>This reactor is highly inefficient, only able to obtain the smallest amounts of energy due to it's crude design - leaving a lot of what could be gained behind.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
     <statBases>
-      <MaxHitPoints>50</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-			<DeteriorationRate>2.0</DeteriorationRate>
-			<Beauty>-4</Beauty>
-      <Mass>0.2</Mass>
-		</statBases>
-    <altitudeLayer>Item</altitudeLayer>
-    <tickerType>Never</tickerType>
-    <alwaysHaulable>true</alwaysHaulable>
-    <isBodyPartOrImplant>true</isBodyPartOrImplant>
-    <tradeTags>
-      <li>BodyPartOrImplant</li>
-    </tradeTags>
-    <comps>
-      <li Class="CompProperties_Forbiddable"/>
-    </comps>
-    <thingCategories>
-      <li>BodyPartsArtificial</li>
-    </thingCategories>
-    <pathCost>10</pathCost>
+      <MarketValue>400</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
     <techHediffsTags>
-      <li>Advanced</li>
+      <li>Simple</li>
+    </techHediffsTags>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>BasicDCConverter</defName>
+    <label>basic dc converter</label>
+    <description>A simple ac / dc converter that only effectively works one way.</description>
+    <graphicData>
+      <texPath>Things/Item/Organblack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
     </techHediffsTags>
   </ThingDef>
 
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemBatteryTiny</defName>
-    <label>tiny battery</label>
-    <description>tiny energy battery</description>
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SmallBatteryPack</defName>
+    <label>crude battery pack</label>
+    <description>An array of small batteries lined up end-to-end to produce the most voltage. Which unsurprisingly; still isn't a lot.</description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Organblack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
     <statBases>
       <MarketValue>400</MarketValue>
+      <Mass>5</Mass>
     </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
     <comps>
       <li Class="MOARANDROIDS.EnergySystemProps_Battery">
         <storageCapacity>0.6</storageCapacity>
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemBatterySmall</defName>
-    <label>small battery</label>
-    <description>small energy battery</description>
+  
+ <!--Advanced-->
+ 
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>HighPowerTransformer</defName>
+    <label>high power reactor</label>
+    <description>This reactor is able to convert material into energy at a very high efficiency. </description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Organwhite</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <itemGeneratorTags>
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>800</MarketValue>
+      <MarketValue>1700</MarketValue>
+      <Mass>6</Mass>
     </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
     <comps>
-      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
-        <storageCapacity>1</storageCapacity>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemBatteryMedium</defName>
-    <label>medium battery</label>
-    <description>medium energy battery</description>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>HighPowerConverter</defName>
+    <label>high power converter</label>
+    <description>This power converter is capable of converting and manipulation the properties of electrical signals so effectively that it appears to be magical with insant operation and 99.9% convertion efficiency. </description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Organwhite</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <itemGeneratorTags>
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>1600</MarketValue>
+      <MarketValue>1700</MarketValue>
+      <Mass>3</Mass>
     </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>NanowireBattery</defName>
+    <label>advanced battery pack</label>
+    <description>This battery operates under the concept of meshed layers of materials such as gold and plasteel, giving the most electrical output and storage for size. </description>
+    <graphicData>
+      <texPath>Things/Item/Organwhite</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <itemGeneratorTags>
+      <li>SpecialReward</li>
+    </itemGeneratorTags>
+    <statBases>
+      <MarketValue>1700</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
     <comps>
       <li Class="MOARANDROIDS.EnergySystemProps_Battery">
         <storageCapacity>1.5</storageCapacity>
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemBatteryLarge</defName>
-    <label>large battery</label>
-    <description>large energy battery</description>
+ 
+ <!--Archotech-->
+ 
+   <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>MolecularDecomposer</defName>
+    <label>archotech reactor</label>
+    <description>Making other forms of power generation look primitive, this reactor converts material on the molecular level, increasing efficiency twofold.</description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Organgold</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
     <statBases>
       <MarketValue>4000</MarketValue>
+      <Mass>3</Mass>
     </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
     <comps>
-      <li Class="MOARANDROIDS.EnergySystemProps_Battery">
-        <storageCapacity>2.25</storageCapacity>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemBatteryHuge</defName>
-    <label>huge battery</label>
-    <description>huge energy battery</description>
+  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>QuantumConverter</defName>
+    <label>Zero point converter</label>
+    <description>A highly advanced power converter that is able to transfer around the body at 100% efficiency due to its zero-point energy properties.</description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Organgold</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
     <statBases>
-      <MarketValue>10000</MarketValue>
+      <MarketValue>3500</MarketValue>
+      <Mass>3</Mass>
     </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
+  </ThingDef>
+  
+    <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>SecretBatteryPack</defName>
+    <label>archotech battery pack</label>
+    <description>In an attempt to recreate Vanometric power generation, this battery cell somewhat achieves that. Boasting far increased charge capacity than that of its precursors.</description>
+    <graphicData>
+      <texPath>Things/Item/Organgold</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3200</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>secret</li>
+    </techHediffsTags>
     <comps>
       <li Class="MOARANDROIDS.EnergySystemProps_Battery">
         <storageCapacity>3</storageCapacity>
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemReactorTiny</defName>
-    <label>tiny reactor</label>
-    <description>tiny energy reactor</description>
-    <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
-    <statBases>
-      <MarketValue>500</MarketValue>
-    </statBases>
-    <comps>
-      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemReactorSmall</defName>
-    <label>small reactor</label>
-    <description>small energy reactor</description>
-    <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
-    <statBases>
-      <MarketValue>1000</MarketValue>
-    </statBases>
-    <comps>
-      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemReactorMedium</defName>
-    <label>medium reactor</label>
-    <description>medium energy reactor</description>
-    <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
-    <statBases>
-      <MarketValue>2000</MarketValue>
-    </statBases>
-    <comps>
-      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemReactorLarge</defName>
-    <label>large reactor</label>
-    <description>large energy reactor</description>
-    <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
-    <statBases>
-      <MarketValue>5000</MarketValue>
-    </statBases>
-    <comps>
-      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="EnergySystemImplantBase">
-    <defName>AT_EnergySystemReactorHuge</defName>
-    <label>huge reactor</label>
-    <description>huge energy reactor</description>
-    <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <itemGeneratorTags>
-      <li>SpecialReward</li>
-    </itemGeneratorTags>
-    <statBases>
-      <MarketValue>15000</MarketValue>
-    </statBases>
-    <comps>
-      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
-      </li>
-    </comps>
-  </ThingDef>
+  
 </Defs>
 
