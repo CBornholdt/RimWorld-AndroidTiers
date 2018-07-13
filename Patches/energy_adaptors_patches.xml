@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-	<Operation Class="PatchOperationReplace">
+	<Operation Class="PatchOperationAttributeSet">
 		<xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Battery"]</xpath>
-		<value>
-			<li Class="MOARANDROIDS.EnergyAdapter_PowerBatteryProps"/>
-		</value>
+		<attribute>Class</attribute>
+		<value>MOARANDROIDS.EnergyAdapter_PowerBatteryProps</value>
 	</Operation>
 </Patch>

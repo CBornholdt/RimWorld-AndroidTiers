@@ -17,7 +17,17 @@ namespace MOARANDROIDS
 			}
         }
 
-        public Alert_LowEnergyColonists()
+		public override AlertPriority Priority {
+			get {
+				if(LowEnergyColonists.Any(pawn => pawn.needs
+						.TryGetNeed<Need_Energy>().EnergyNeed >= EnergyNeedCategory.Critical))
+					return AlertPriority.Critical;
+				else
+					return AlertPriority.High;
+			}
+		}
+
+		public Alert_LowEnergyColonists()
         {
             this.defaultLabel = "AT.Alert.LowEnergy.Label".Translate();
             this.defaultPriority = AlertPriority.High;
