@@ -11,6 +11,8 @@ namespace MOARANDROIDS
 
     public class Need_Energy : Need
     {
+        private static readonly float Epsilon = 0.00001f;
+    
 		public Need_Energy() => this.threshPercents = new List<float>(3);
 
 		public CompProperties_NeedsEnergy Props => this.pawn.TryGetComp<CompNeedsEnergy>()?.Props;
@@ -86,18 +88,9 @@ namespace MOARANDROIDS
 		public void AdjustLowEnergyHediffs()
 		{
 			EnergyNeedCategory eNeeds = EnergyNeed;
-
-			if(Props.emptyLevelHediff != null) {
-				if(this.CurLevel < 0.00001f) {
-					if(!this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
-						this.pawn.health.AddHediff(Props.emptyLevelHediff);
-				}   //Check for hediff removal
-				else if(this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
-					pawn.RemoveAllHediffsWhere(hediff => hediff.def == Props.emptyLevelHediff);
-			}
             
             if(Props.criticallyLowLevelHediff != null) {
-                if(eNeeds == EnergyNeedCategory.Critical) {
+                if(eNeeds == EnergyNeedCategory.Critical && this.CurLevel >= Epsilon) {
                     if(!this.pawn.health.hediffSet.HasHediff(Props.criticallyLowLevelHediff))
                         this.pawn.health.AddHediff(Props.criticallyLowLevelHediff);
                 }   //Check for hediff removal
@@ -113,6 +106,16 @@ namespace MOARANDROIDS
 				else if(this.pawn.health.hediffSet.HasHediff(Props.lowLevelHediff))
 					pawn.RemoveAllHediffsWhere(hediff => hediff.def == Props.lowLevelHediff);
 			}
+            
+            //Should be last, if this kills the pawn other hediffs might not be removed
+            if(Props.emptyLevelHediff != null) {    
+                if(this.CurLevel < Epsilon) {
+                    if(!this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
+                        this.pawn.health.AddHediff(Props.emptyLevelHediff);
+                }   //Check for hediff removal
+                else if(this.pawn.health.hediffSet.HasHediff(Props.emptyLevelHediff))
+                    pawn.RemoveAllHediffsWhere(hediff => hediff.def == Props.emptyLevelHediff);
+            }
 		}
 	}
 }
