@@ -10,7 +10,7 @@ namespace MOARANDROIDS
         public float consumableDistanceBias = 1f;
         public float batteryProtectionLevel = 0.1f;
         public bool allowCriticalToOverrideProtection = true;
-        public int batteryReconnectionTicks = 250;
+        public int batteryReconnectionTicks = 1000;
         public bool allowConsumableWaste = false;
 		public int maxConsumablesToCarry = 3;
 

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<AT.Alert.LowEnergy.Label>Android has low energy</AT.Alert.LowEnergy.Label>
+	<AT.Alert.LowEnergy.Explanation>These androids have low energy:\n\n{0}\nGet them some energy or they might shutdown and perish.</AT.Alert.LowEnergy.Explanation>
+</LanguageData>

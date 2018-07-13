@@ -83,15 +83,19 @@ namespace MOARANDROIDS
 
             Func<ThingComp_EnergyConsumable, bool> validator;
             if(!criticalSearch) {
-                float energyLimit = energyNeed.MaxLevel * (1f - energyNeed.Props.criticallyLowLevelThreshPercent);
+				float energyLimit = energyNeed.MaxLevel - energyNeed.CurLevel;
 				validator = eComp => eComp != null
 											&& eComp.Props.energyAmount <= energyLimit
 											&& eComp.parent.IngestibleNow
-											&& !eComp.parent.IsForbidden(getter);
+											&& !eComp.parent.IsForbidden(getter)
+											&& getter.CanReserveAndReach(eComp.parent, PathEndMode.Touch, Danger.Deadly
+												, maxPawns: 1, stackCount: -1, layer: null, ignoreOtherReservations: false);
             }
             else
                 validator = eComp => eComp != null && eComp.parent.IngestibleNow
-                                            && !eComp.parent.IsForbidden(getter);
+                                            && !eComp.parent.IsForbidden(getter)
+                                            && getter.CanReserveAndReach(eComp.parent, PathEndMode.Touch, Danger.Deadly
+                                                , maxPawns: 1, stackCount: -1, layer: null, ignoreOtherReservations: false);
             
             return getter.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableAlways)
                          .Select(thing => thing.TryGetComp<ThingComp_EnergyConsumable>())

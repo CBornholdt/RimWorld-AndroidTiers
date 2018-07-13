@@ -71,7 +71,7 @@ namespace MOARANDROIDS
                 
                 var batteryComp = t.TryGetComp<EnergyAdapter_PowerBattery>();
                 if(batteryComp != null) {
-					string text = "ConnectBattery".Translate(t.Label);
+					string text = "AT.Job.ConnectBattery.OptionLabel".Translate(t.Label);
 
                     FloatMenuOption batteryMenuOption;
 
