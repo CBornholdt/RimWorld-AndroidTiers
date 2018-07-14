@@ -317,7 +317,7 @@
       <li Class="MOARANDROIDS.CompProperties_EnergySystem">
         <initialBattery>BBattery</initialBattery>
         <initialReactor>BTransformer</initialReactor>
-        <baseEnergyConsumptionPer1000Ticks>0.06</baseEnergyConsumptionPer1000Ticks>
+        <baseEnergyConsumptionPer1000Ticks>0.035</baseEnergyConsumptionPer1000Ticks>
       </li>
       <li Class="MOARANDROIDS.CompProperties_NeedsEnergy">
         <lowLevelHediff>AT_LowEnergy</lowLevelHediff>

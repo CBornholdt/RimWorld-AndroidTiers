@@ -14,9 +14,12 @@
 			<Beauty>-4</Beauty>
 		</statBases>
     <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>10</stackLimit>
     <tickerType>Normal</tickerType>
     <alwaysHaulable>true</alwaysHaulable>
     <isBodyPartOrImplant>false</isBodyPartOrImplant>
+    <resourceReadoutPriority>Last</resourceReadoutPriority>
+    <drawGUIOverlay>true</drawGUIOverlay>
     <ingestible>
       <foodType>None</foodType>
       <ingestHoldUsesTable>false</ingestHoldUsesTable>
@@ -61,7 +64,7 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>30</MarketValue>
+      <MarketValue>20</MarketValue>
       <Mass>0.5</Mass>
     </statBases>
     <techHediffsTags>
@@ -86,7 +89,7 @@
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>60</MarketValue>
+      <MarketValue>40</MarketValue>
       <Mass>1</Mass>
     </statBases>
     <techHediffsTags>
@@ -108,7 +111,7 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>120</MarketValue>
+      <MarketValue>80</MarketValue>
       <Mass>2</Mass>
     </statBases>
     <techHediffsTags>
@@ -120,4 +123,252 @@
       </li>
     </comps>
   </ThingDef>
+  
+
+  <!--Singular Energy Pack Recipes-->
+  
+   <RecipeDef>
+      <defName>CreateSmallEnergyConsumable</defName>
+      <label>Create Small Energy Pack</label>
+      <description>Create one small energy pack from steel and components.</description>
+      <jobString>Making Energy Pack</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>10</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>1</count>
+         </li>
+      </ingredients>
+      <products>
+         <AT_SmallConsumable>1</AT_SmallConsumable>
+      </products>
+	  <researchPrerequisite>Machining</researchPrerequisite>
+      <workAmount>1000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>TableMachining</li>
+      </recipeUsers>
+	</RecipeDef>
+	
+   <RecipeDef>
+      <defName>CreateMediumEnergyConsumable</defName>
+      <label>Create Medium Energy Pack</label>
+      <description>Create one medium energy pack from steel and components.</description>
+      <jobString>Making Energy Pack</jobString>  
+	  <skillRequirements>
+		<Crafting>4</Crafting>
+      </skillRequirements>
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>20</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>2</count>
+         </li>
+      </ingredients>
+      <products>
+         <AT_MediumConsumable>1</AT_MediumConsumable>
+      </products>
+	  <researchPrerequisite>Machining</researchPrerequisite>
+      <workAmount>2000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>TableMachining</li>
+      </recipeUsers>
+	</RecipeDef>
+
+   <RecipeDef>
+      <defName>CreateLargeEnergyConsumable</defName>
+      <label>Create Large Energy Pack</label>
+      <description>Create one large energy pack from steel and components.</description>
+      <jobString>Making Energy Pack</jobString>  
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+      </skillRequirements>
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>40</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>3</count>
+         </li>
+      </ingredients>
+      <products>
+         <AT_LargeConsumable>1</AT_LargeConsumable>
+      </products>
+	  <researchPrerequisite>Machining</researchPrerequisite>
+      <workAmount>4000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>TableMachining</li>
+      </recipeUsers>
+	</RecipeDef>
+	
+	<!--Bulk Energy Pack Recipes-->
+	
+   <RecipeDef>
+      <defName>CreateSmallEnergyConsumableBulk</defName>
+      <label>Create 5x Small Energy Pack</label>
+      <description>Create 5x small energy packs from steel and components.</description>
+      <jobString>Making Energy Packs</jobString>  
+	  <skillRequirements>
+		<Crafting>6</Crafting>
+      </skillRequirements>
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>50</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>5</count>
+         </li>
+      </ingredients>
+      <products>
+         <AT_SmallConsumable>5</AT_SmallConsumable>
+      </products>
+	  <researchPrerequisite>Machining</researchPrerequisite>
+      <workAmount>4000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>TableMachining</li>
+      </recipeUsers>
+	</RecipeDef>
+	
+   <RecipeDef>
+      <defName>CreateMediumEnergyConsumableBulk</defName>
+      <label>Create 5x Medium Energy Pack</label>
+      <description>Create 5x medium energy packs from steel and components.</description>
+      <jobString>Making Energy Packs</jobString>  
+	  <skillRequirements>
+		<Crafting>8</Crafting>
+      </skillRequirements>
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>100</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>10</count>
+         </li>
+      </ingredients>
+      <products>
+         <AT_MediumConsumable>5</AT_MediumConsumable>
+      </products>
+	  <researchPrerequisite>Machining</researchPrerequisite>
+      <workAmount>8000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>TableMachining</li>
+      </recipeUsers>
+	</RecipeDef>
+
+   <RecipeDef>
+      <defName>CreateLargeEnergyConsumableBulk</defName>
+      <label>Create 5x Large Energy Pack</label>
+      <description>Create 5x large energy packs from steel and components.</description>
+      <jobString>Making Energy Packs</jobString>  
+	  <skillRequirements>
+		<Crafting>10</Crafting>
+      </skillRequirements>
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>200</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Component</li>
+               </thingDefs>
+            </filter>
+            <count>15</count>
+         </li>
+      </ingredients>
+      <products>
+         <AT_LargeConsumable>5</AT_LargeConsumable>
+      </products>
+	  <researchPrerequisite>Machining</researchPrerequisite>
+      <workAmount>16000</workAmount>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Repair</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+	 <recipeUsers>
+		<li>TableMachining</li>
+      </recipeUsers>
+	</RecipeDef>
 </Defs>

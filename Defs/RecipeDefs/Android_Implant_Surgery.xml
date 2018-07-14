@@ -67,7 +67,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<appliedOnFixedBodyParts>
-			<li>MLeftKidney</li>
+			<li>MBattery</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>BBattery</addsHediff>
 	</RecipeDef>
@@ -109,7 +109,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<appliedOnFixedBodyParts>
-			<li>MLiver</li>
+			<li>MReactor</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>BTransformer</addsHediff>
 	</RecipeDef>
@@ -195,7 +195,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<appliedOnFixedBodyParts>
-			<li>MLeftKidney</li>
+			<li>MBattery</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>ABattery</addsHediff>
 	</RecipeDef>
@@ -237,7 +237,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<appliedOnFixedBodyParts>
-			<li>MStomach</li>
+			<li>MReactor</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>ATransformer</addsHediff>
 	</RecipeDef>
@@ -324,7 +324,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<appliedOnFixedBodyParts>
-			<li>MLeftKidney</li>
+			<li>MBattery</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>A2Battery</addsHediff>
 	</RecipeDef>
@@ -367,7 +367,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<appliedOnFixedBodyParts>
-			<li>MStomach</li>
+			<li>MReactor</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>A2Transformer</addsHediff>
 	</RecipeDef>

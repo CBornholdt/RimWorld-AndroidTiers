@@ -39,7 +39,7 @@
 
   <BodyPartDef>
     <defName>MLeftKidney</defName>
-    <label>Battery</label>
+    <label>Aux Battery</label>
     <hitPoints>20</hitPoints>
     <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
     <skinCovered>false</skinCovered>
@@ -75,7 +75,7 @@
 
   <BodyPartDef>
     <defName>MStomach</defName>
-    <label>bio-processor</label>
+    <label>Spinal Frame</label>
     <hitPoints>25</hitPoints>
     <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
     <skinCovered>false</skinCovered>
