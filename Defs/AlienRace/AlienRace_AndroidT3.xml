@@ -264,10 +264,15 @@
       <li>InstallTubeSealantTank</li>
       <li>InstallLowPowerTransformer</li>
       <li>InstallBasicDCConverter</li>
-      <li>InstallAdvancedReplacementLeg</li>
-      <li>InstallAdvancedReplacementArm</li>
+      <li>InstallMultiSpectrumEye</li>
+      <li>InstallMultiLayerHeatsink</li>
+      <li>InstallAdvancedCoolantInjector</li>
+      <li>InstallNanowireBattery</li>
+      <li>InstallNaniteStorageDevice</li>
       <li>InstallHighPowerTransformer</li>
       <li>InstallHighPowerConverter</li>
+      <li>InstallAdvancedReplacementLeg</li>
+      <li>InstallAdvancedReplacementArm</li>
       <li>InstallBasicPlating</li>
       <li>InstallAdvPlating</li>
       <li>InstallAdv2Plating</li>
