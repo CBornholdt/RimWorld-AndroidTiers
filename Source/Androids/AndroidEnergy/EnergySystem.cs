@@ -435,6 +435,8 @@ namespace MOARANDROIDS
 			public IEnergySink sink;
 			public DisconnectWhen disconnectWhen;
 
+			public AttachedSink() { }
+
 			public AttachedSink(IEnergySink sink, DisconnectWhen when = new DisconnectWhen())
 			{
 				this.sink = sink;
@@ -452,6 +454,8 @@ namespace MOARANDROIDS
         {
             public IEnergySource source;
             public DisconnectWhen disconnectWhen;
+
+			public AttachedSource() { }
             
             public AttachedSource(IEnergySource source, DisconnectWhen when)
             {
