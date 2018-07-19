@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
+using System;
 using Harmony;
 using Verse;
 using RimWorld;
-using MOARANDROIDS;
 using RimWorld.Planet;
 
-namespace BlueLeakTest
+namespace MOARANDROIDS
 {
     [StaticConstructorOnStartup]
     static public class HarmonyPatches
@@ -14,6 +14,12 @@ namespace BlueLeakTest
         {
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.rwmods.androidtiers");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+            //Need to patch annoying nested type, cannot use annotations
+			Type nestedType = typeof(HealthCardUtility).GetNestedType("<GenerateSurgeryOption>c__AnonStorey4"
+                            , BindingFlags.NonPublic | BindingFlags.Public);
+			harmony.Patch(nestedType.GetMethod("<>m__0", BindingFlags.NonPublic | BindingFlags.Instance),
+				null, null, new HarmonyMethod(typeof(HealthCardUtility_GenerateSurgeryOptions).GetMethod("Transpiler")));
         }
     }
 

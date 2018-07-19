@@ -32,7 +32,7 @@
 		<targetsBodyPart>false</targetsBodyPart>
 		<anesthetize>false</anesthetize>
 		<workAmount>8500</workAmount>
-		<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+		<dontShowIfAnyIngredientMissing>false</dontShowIfAnyIngredientMissing>
 		<surgerySuccessChanceFactor>99999</surgerySuccessChanceFactor>
 		<ingredients>
 			<li>
