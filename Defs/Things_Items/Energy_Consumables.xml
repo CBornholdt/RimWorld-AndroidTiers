@@ -60,7 +60,7 @@
     <label>Small energy pack</label>
     <description>A small bank of capacitors, designed to deliver a quick burst of energy to an android, however: it isn't a lot.</description>
     <graphicData>
-      <texPath>Things/Item/BatteryPack</texPath>
+      <texPath>Things/Item/BatteryPack_Small</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
@@ -107,7 +107,7 @@
     <label>Large energy pack</label>
     <description>This pack consists of a small array of highly efficient power cells that upon use: release an intense amount of power, charging most androids to their max capacity in a matter of seconds.</description>
     <graphicData>
-      <texPath>Things/Item/BatteryPack</texPath>
+      <texPath>Things/Item/BatteryPack_Large</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>

@@ -193,7 +193,7 @@
 		</alienRace>
 		<statBases>
 			<MarketValue>18000</MarketValue>
-			<MoveSpeed>4.80</MoveSpeed>
+			<MoveSpeed>6.80</MoveSpeed>
 			<Flammability>0</Flammability>
 			<PsychicSensitivity>0</PsychicSensitivity>
 			<ComfyTemperatureMin>-200</ComfyTemperatureMin>
@@ -217,7 +217,7 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>80</power>
+				<power>60</power>
 				<cooldownTime>3.2</cooldownTime>
 				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
 				<surpriseAttack>
@@ -234,7 +234,7 @@
 				<capacities>
 					<li>Blunt</li>
 				</capacities>
-				<power>80</power>
+				<power>60</power>
 				<cooldownTime>3.2</cooldownTime>
 				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
 				<surpriseAttack>
@@ -326,7 +326,7 @@
 		<aiAvoidCover>true</aiAvoidCover>
 		<wildSpawn_spawnWild>false</wildSpawn_spawnWild>
    <weaponMoney>
-      <min>800</min>
+      <min>400</min>
       <max>1200</max>
     </weaponMoney>
     <weaponTags>

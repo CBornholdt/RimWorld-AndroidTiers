@@ -69,9 +69,9 @@
       <MarketValue>800</MarketValue>
       <Mass>42</Mass>
       <AccuracyTouch>0.5</AccuracyTouch>
-      <AccuracyShort>0.65</AccuracyShort>
-      <AccuracyMedium>0.80</AccuracyMedium>
-      <AccuracyLong>0.45</AccuracyLong>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.90</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
       <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
       <Weapon_Bulk>2.0</Weapon_Bulk>
     </statBases>
@@ -138,6 +138,7 @@
       <speed>110</speed>
     </projectile>
   </ThingDef>
+  
   <ThingDef ParentName="BaseGunSpecialAtlas">
     <defName>MechMastiffGun</defName>
     <label>Mastiff Shotgun</label>
@@ -150,9 +151,9 @@
     <statBases>
       <MarketValue>800</MarketValue>
       <Mass>42</Mass>
-      <AccuracyTouch>0.75</AccuracyTouch>
-      <AccuracyShort>0.55</AccuracyShort>
-      <AccuracyMedium>0.3</AccuracyMedium>
+      <AccuracyTouch>0.95</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.5</AccuracyMedium>
       <AccuracyLong>0.15</AccuracyLong>
       <RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
       <Weapon_Bulk>2.0</Weapon_Bulk>
@@ -234,10 +235,10 @@
     <statBases>
       <MarketValue>800</MarketValue>
       <Mass>30</Mass>
-      <AccuracyTouch>0.5</AccuracyTouch>
-      <AccuracyShort>0.85</AccuracyShort>
-      <AccuracyMedium>0.80</AccuracyMedium>
-      <AccuracyLong>0.5</AccuracyLong>
+      <AccuracyTouch>0.7</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyLong>0.4</AccuracyLong>
       <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
       <Weapon_Bulk>2.0</Weapon_Bulk>
     </statBases>
@@ -347,9 +348,9 @@
 	      <WorkToMake>60000</WorkToMake>
       <MarketValue>900</MarketValue>
       <Mass>12</Mass>
-      <AccuracyTouch>0.4</AccuracyTouch>
-      <AccuracyShort>0.75</AccuracyShort>
-      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.90</AccuracyMedium>
       <AccuracyLong>0.65</AccuracyLong>
       <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
       <Weapon_Bulk>2.5</Weapon_Bulk>
@@ -434,7 +435,7 @@
       <Mass>30</Mass>
       <AccuracyTouch>0.5</AccuracyTouch>
       <AccuracyShort>0.8</AccuracyShort>
-      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyMedium>0.70</AccuracyMedium>
       <AccuracyLong>0.35</AccuracyLong>
       <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
       <Weapon_Bulk>2.0</Weapon_Bulk>
@@ -551,7 +552,7 @@
       <MarketValue>900</MarketValue>
       <Mass>40</Mass>
       <AccuracyTouch>0.5</AccuracyTouch>
-      <AccuracyShort>0.6</AccuracyShort>
+      <AccuracyShort>0.7</AccuracyShort>
       <AccuracyMedium>0.80</AccuracyMedium>
       <AccuracyLong>0.55</AccuracyLong>
       <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
@@ -790,10 +791,10 @@
 		<statBases>
 			<MarketValue>1200</MarketValue>
 			<Mass>45</Mass>
-      <AccuracyTouch>0.3</AccuracyTouch>
-      <AccuracyShort>0.3</AccuracyShort>
-      <AccuracyMedium>0.40</AccuracyMedium>
-      <AccuracyLong>0.35</AccuracyLong>
+      <AccuracyTouch>0.4</AccuracyTouch>
+      <AccuracyShort>0.5</AccuracyShort>
+      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyLong>0.45</AccuracyLong>
 			<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
       <Weapon_Bulk>2</Weapon_Bulk>
 		</statBases>
