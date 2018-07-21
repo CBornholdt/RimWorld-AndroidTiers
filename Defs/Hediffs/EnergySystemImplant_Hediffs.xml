@@ -40,7 +40,7 @@
     <spawnThingOnRemoved>LowPowerTransformer</spawnThingOnRemoved>
     <comps>
       <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.025</desiredSourceRatePer1000Ticks>
+        <desiredSourceRatePer1000Ticks>0.01</desiredSourceRatePer1000Ticks>
       </li>
     </comps>
     <addedPartProps>
@@ -86,7 +86,7 @@
     <spawnThingOnRemoved>HighPowerTransformer</spawnThingOnRemoved>
     <comps>
       <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.10</desiredSourceRatePer1000Ticks>
+        <desiredSourceRatePer1000Ticks>0.025</desiredSourceRatePer1000Ticks>
       </li>
     </comps>
     <addedPartProps>
@@ -134,7 +134,7 @@
     <spawnThingOnRemoved>MolecularDecomposer</spawnThingOnRemoved>
     <comps>
       <li Class="MOARANDROIDS.HediffProperties_EnergySource">
-        <desiredSourceRatePer1000Ticks>0.20</desiredSourceRatePer1000Ticks>
+        <desiredSourceRatePer1000Ticks>0.05</desiredSourceRatePer1000Ticks>
       </li>
     </comps>
     <addedPartProps>

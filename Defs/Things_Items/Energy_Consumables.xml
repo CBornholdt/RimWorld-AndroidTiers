@@ -24,7 +24,7 @@
       <foodType>None</foodType>
       <ingestHoldUsesTable>false</ingestHoldUsesTable>
       <preferability>NeverForNutrition</preferability>
-      <maxNumToIngestAtOnce>3</maxNumToIngestAtOnce>
+      <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
       <outcomeDoers>
         <li Class="MOARANDROIDS.IngestionOutcomeDoer_EnergyConsumable"/>
       </outcomeDoers>
@@ -64,8 +64,8 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>20</MarketValue>
-      <Mass>0.5</Mass>
+      <MarketValue>10</MarketValue>
+      <Mass>0.25</Mass>
     </statBases>
     <techHediffsTags>
       <li>Simple</li>
@@ -89,8 +89,8 @@
       <li>SpecialReward</li>
     </itemGeneratorTags>
     <statBases>
-      <MarketValue>40</MarketValue>
-      <Mass>1</Mass>
+      <MarketValue>20</MarketValue>
+      <Mass>0.5</Mass>
     </statBases>
     <techHediffsTags>
       <li>Advanced</li>
@@ -111,8 +111,8 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
-      <MarketValue>80</MarketValue>
-      <Mass>2</Mass>
+      <MarketValue>40</MarketValue>
+      <Mass>1</Mass>
     </statBases>
     <techHediffsTags>
       <li>secret</li>
@@ -140,7 +140,7 @@
                   <li>Steel</li>
                </thingDefs>
             </filter>
-            <count>10</count>
+            <count>5</count>
          </li>
          <li>
             <filter>
@@ -155,13 +155,13 @@
          <AT_SmallConsumable>1</AT_SmallConsumable>
       </products>
 	  <researchPrerequisite>Machining</researchPrerequisite>
-      <workAmount>1000</workAmount>
+      <workAmount>250</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 	 <recipeUsers>
-		<li>TableMachining</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
 	</RecipeDef>
 	
@@ -181,7 +181,7 @@
                   <li>Steel</li>
                </thingDefs>
             </filter>
-            <count>20</count>
+            <count>10</count>
          </li>
          <li>
             <filter>
@@ -196,13 +196,13 @@
          <AT_MediumConsumable>1</AT_MediumConsumable>
       </products>
 	  <researchPrerequisite>Machining</researchPrerequisite>
-      <workAmount>2000</workAmount>
+      <workAmount>500</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 	 <recipeUsers>
-		<li>TableMachining</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
 	</RecipeDef>
 
@@ -222,7 +222,7 @@
                   <li>Steel</li>
                </thingDefs>
             </filter>
-            <count>40</count>
+            <count>20</count>
          </li>
          <li>
             <filter>
@@ -236,14 +236,14 @@
       <products>
          <AT_LargeConsumable>1</AT_LargeConsumable>
       </products>
-	  <researchPrerequisite>Machining</researchPrerequisite>
-      <workAmount>4000</workAmount>
+	  <researchPrerequisite>Basic_EnergyManipulation</researchPrerequisite>
+      <workAmount>1000</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 	 <recipeUsers>
-		<li>TableMachining</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
 	</RecipeDef>
 	
@@ -265,7 +265,7 @@
                   <li>Steel</li>
                </thingDefs>
             </filter>
-            <count>50</count>
+            <count>25</count>
          </li>
          <li>
             <filter>
@@ -280,13 +280,13 @@
          <AT_SmallConsumable>5</AT_SmallConsumable>
       </products>
 	  <researchPrerequisite>Machining</researchPrerequisite>
-      <workAmount>4000</workAmount>
+      <workAmount>1000</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 	 <recipeUsers>
-		<li>TableMachining</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
 	</RecipeDef>
 	
@@ -306,7 +306,7 @@
                   <li>Steel</li>
                </thingDefs>
             </filter>
-            <count>100</count>
+            <count>50</count>
          </li>
          <li>
             <filter>
@@ -320,14 +320,14 @@
       <products>
          <AT_MediumConsumable>5</AT_MediumConsumable>
       </products>
-	  <researchPrerequisite>Machining</researchPrerequisite>
-      <workAmount>8000</workAmount>
+	  <researchPrerequisite>Basic_EnergyManipulation</researchPrerequisite>
+      <workAmount>2000</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 	 <recipeUsers>
-		<li>TableMachining</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
 	</RecipeDef>
 
@@ -347,7 +347,7 @@
                   <li>Steel</li>
                </thingDefs>
             </filter>
-            <count>200</count>
+            <count>100</count>
          </li>
          <li>
             <filter>
@@ -361,14 +361,14 @@
       <products>
          <AT_LargeConsumable>5</AT_LargeConsumable>
       </products>
-	  <researchPrerequisite>Machining</researchPrerequisite>
-      <workAmount>16000</workAmount>
+	  <researchPrerequisite>Basic_EnergyManipulation</researchPrerequisite>
+      <workAmount>4000</workAmount>
       <workSkill>Crafting</workSkill>
     <effectWorking>Repair</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
 	 <recipeUsers>
-		<li>TableMachining</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
 	</RecipeDef>
 </Defs>

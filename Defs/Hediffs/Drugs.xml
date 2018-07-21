@@ -36,8 +36,7 @@
   <recipeMaker>
 			<researchPrerequisite>AdvEnhancement</researchPrerequisite>
       <recipeUsers>
-        <li>DrugLab</li>
-		<li>AndroidPartsTable</li>
+        <li>AndroidDrugsTable</li>
       </recipeUsers>
    </recipeMaker>
     <costList>
@@ -296,8 +295,7 @@
   <recipeMaker>
 			<researchPrerequisite>BasicEnhancement</researchPrerequisite>
       <recipeUsers>
-        <li>DrugLab</li>
-		<li>AndroidPartsTable</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
    </recipeMaker>
     <costList>
@@ -519,8 +517,7 @@
   <recipeMaker>
 			<researchPrerequisite>AdvEnhancement</researchPrerequisite>
       <recipeUsers>
-        <li>DrugLab</li>
-		<li>AndroidPartsTable</li>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
    </recipeMaker>
     <costList>

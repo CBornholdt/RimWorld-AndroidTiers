@@ -1,6 +1,31 @@
 ﻿<?Yml version="1.0" encoding="utf8" ?>
 <Defs>
+  
+	<ResearchProjectDef>
+		<defName>Basic_EnergyManipulation</defName>
+		<label>Basic energy manipulation</label>
+		<tab>AtlasAndroids</tab>
+		<description>Basic manipulation of energy. Needed for the production of bulk medium energy packs and large energy packs for androids to consume.</description>
+		<baseCost>600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites><li>Machining</li></prerequisites>
+		<researchViewY>6</researchViewY>
+		<researchViewX>0</researchViewX>
+	</ResearchProjectDef>
 
+	<ResearchProjectDef>
+		<defName>Adv_EnergyManipulation</defName>
+		<label>Advanced energy manipulation</label>
+		<tab>AtlasAndroids</tab>
+		<description>Continuing on with the previous developments in energy manipulation; this research looks into more exotic forms of power.</description>
+		<baseCost>600</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites><li>Basic_EnergyManipulation</li></prerequisites>
+		<researchViewY>6</researchViewY>
+		<researchViewX>1</researchViewX>
+	</ResearchProjectDef>
+	
+  <!--Main Research Branch-->
 	<ResearchProjectDef>
 		<defName>BasicRobotics</defName>
 		<label>Basic robotics</label>
