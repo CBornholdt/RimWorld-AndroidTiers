@@ -1,0 +1,23 @@
+ <?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<JobDef>
+		<defName>AT_CarryToMindUploadCasket</defName>
+		<driverClass>MOARANDROIDS.JobDriver_CarryToMindUploadCasket</driverClass>
+		<reportString>carrying to TargetA to mind upload casket</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+  <JobDef>
+    <defName>AT_EnterMindUploadCasket</defName>
+    <driverClass>MOARANDROIDS.JobDriver_EnterMindUploadCasket</driverClass>
+    <reportString>entering mind upload casket.</reportString>
+  <!--  <taleOnCompletion>EnteredCryptosleep</taleOnCompletion> 	-->
+  </JobDef>
+
+  <JobDef>
+		<defName>AT_StartMindUpload</defName>
+		<driverClass>MOARANDROIDS.JobDriver_StartMindUpload</driverClass>
+		<reportString>starting mind upload of {0}</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+</Defs>

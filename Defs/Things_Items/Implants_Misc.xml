@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>  
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>MindCaptureImplantEmpty</defName>
+    <label>empty mind capture implant</label>
+    <description>Empty mind capture implant.</description>
+    <graphicData>
+      <texPath>Things/Implants/MindCaptureEmpty</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BodyPartAndroidBase">
+    <defName>MindCaptureImplantFull</defName>
+    <label>full mind capture implant</label>
+    <description>Full mind capture implant.</description>
+    <graphicData>
+      <texPath>Things/Implants/MindCaptureFull</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>3</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+    <comps>
+      <li Class="MOARANDROIDS.CompProperties_AndroidImplant">
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

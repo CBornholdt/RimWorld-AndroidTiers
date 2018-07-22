@@ -33,4 +33,25 @@ namespace MOARANDROIDS
 		static public BodyPartDef MReactor;
 		static public BodyPartDef MBattery;
 	}
+
+	[DefOf]
+	static public class AndroidImplants
+	{
+		static public ThingDef AT_MindCaptureImplantEmpty;
+		static public ThingDef AT_MindCaptureImplantFull;
+	}
+
+	[DefOf]
+	static public class MiscJobs
+	{
+        static public JobDef AT_CarryToMindUploadCasket;
+        static public JobDef AT_EnterMindUploadCasket;
+		static public JobDef AT_StartMindUpload;
+	}
+
+	[DefOf]
+	static public class AndroidBuildings
+	{
+		static public ThingDef AT_MindUploadCasket;
+	}
 }

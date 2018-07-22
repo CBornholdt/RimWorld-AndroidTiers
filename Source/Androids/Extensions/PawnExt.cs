@@ -20,6 +20,11 @@ namespace RimWorld
             androidFlesh = DefDatabase<FleshTypeDef>.GetNamed("Android");
             mechFlesh = DefDatabase<FleshTypeDef>.GetNamed("MechanisedInfantry");
         }
+
+		static public bool IsRobot(this Pawn pawn)
+		{
+			return !pawn.RaceProps.IsFlesh || pawn.IsAndroid() || pawn.IsMech();
+		}
     
         static public bool IsAndroid(this Pawn pawn)
         {

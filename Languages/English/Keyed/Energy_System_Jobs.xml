@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<AT.Job.ConnectBattery.OptionLabel>Charge From Battery</AT.Job.ConnectBattery.OptionLabel>
+	<AT.Job.EnterMindUploadCasket.OptionLabel>Enter mind upload casket</AT.Job.EnterMindUploadCasket.OptionLabel>
+	<AT.Jobs.CarryCorpseToMindUpload.OptionLabel>Load {0} into mind upload casket</AT.Jobs.CarryCorpseToMindUpload.OptionLabel>
+	<AT.Job.NotAllowed.NotForRobots>Not for Robots</AT.Job.NotAllowed.NotForRobots>
 </LanguageData>
