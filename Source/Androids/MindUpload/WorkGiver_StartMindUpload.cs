@@ -10,6 +10,11 @@ namespace MOARANDROIDS
 {
     public class WorkGiver_StartMindUpload : WorkGiver_Scanner
     {
+        static public IEnumerable<Thing> AvailableBlankImplants(Pawn pawn) => pawn.Map.listerThings
+                    .ThingsMatching(ThingRequest.ForDef(AndroidImplants.AT_MindCaptureImplantEmpty))
+                    .Where(thing => pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch,
+                        maxDanger: Danger.Deadly));
+    
         //TODO split for performance if ever automated
 		public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
 		{
@@ -17,13 +22,8 @@ namespace MOARANDROIDS
 
 			if(casket == null)
 				return null;
-
-			var availableBlankImplants = pawn.Map.listerThings
-                    .ThingsMatching(ThingRequest.ForDef(AndroidImplants.AT_MindCaptureImplantEmpty))
-                    .Where(thing => pawn.CanReserveAndReach(thing, PathEndMode.ClosestTouch,
-                        maxDanger: (forced) ? Danger.Deadly : pawn.NormalMaxDanger()));
                         
-			if(!availableBlankImplants.Any()) {
+			if(!AvailableBlankImplants(pawn).Any()) {
 				JobFailReason.Is("AT.Work.StartMindUpload.NoImplantsAvailable".Translate());
 				return null;
 			}
@@ -33,7 +33,7 @@ namespace MOARANDROIDS
 				return null;
 			}
 
-			var chosenBlankImplant = availableBlankImplants.MinBy(implant =>
+			var chosenBlankImplant = AvailableBlankImplants(pawn).MinBy(implant =>
 				implant.PositionHeld.DistanceToSquared(t.InteractionCell));
 
 			return new Job(MiscJobs.AT_StartMindUpload, t, chosenBlankImplant);

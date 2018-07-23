@@ -13,6 +13,8 @@ namespace MOARANDROIDS
     //Will copy code from Building_CryptosleepCasket but I don't want to actually be one ...
     public class Building_MindUploadCasket : Building_Casket
     {
+		bool currentlyUploading = false;
+    
 		/*Should allow pawn to decay/if left inside too long ...
 		public override void Tick()
 		{
@@ -27,14 +29,27 @@ namespace MOARANDROIDS
             }
 		}       */
 
+		public bool CurrentlyUploading => currentlyUploading;
+
 		public bool IsReadyForMindUpload()
 		{
 			return innerContainer.Any(thing => (thing is Corpse corpse && corpse.InnerPawn.IsValidForMindUpload())
 											|| (thing is Pawn pawn && pawn.IsValidForMindUpload()));
 		}
-        
-        //From Building_CryptosleepCasket
-        public override bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
+
+		public void BeginMindUploadProcess()
+		{
+			currentlyUploading = true;
+		}
+
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Values.Look<bool>(ref this.currentlyUploading, "CurrentlyUploading", false);
+		}
+
+		//From Building_CryptosleepCasket
+		public override bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
         {
             if (base.TryAcceptThing(thing, allowSpecialEffects))
             {
