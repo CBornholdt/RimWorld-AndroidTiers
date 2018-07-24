@@ -4,8 +4,10 @@ using RimWorld;
 
 namespace MOARANDROIDS
 {
-    public abstract class HediffComp_AndroidImplant : HediffComp
+    public class HediffComp_AndroidImplant : HediffComp
     {
-        abstract public void LoadSettingsFromThingComp(ThingComp_AndroidImplant implant);
+		public HediffComp_AndroidImplant() { }
+
+		virtual public void LoadStateFromThingComp(ThingComp_AndroidImplant implant) { }
     }
 }

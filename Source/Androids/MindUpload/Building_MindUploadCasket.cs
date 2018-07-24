@@ -14,6 +14,13 @@ namespace MOARANDROIDS
     public class Building_MindUploadCasket : Building_Casket
     {
 		bool currentlyUploading = false;
+		float uploadingWork = 0f;
+        
+        private static readonly Vector2 BarSize = new Vector2(0.55f, 0.1f);
+        private static readonly Material BarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f), false);
+        private Material barFilledCachedMat;
+        private static readonly Color BarZeroProgressColor = new Color(0.4f, 0.27f, 0.22f);
+        private static readonly Color BarCompletedColor = new Color(0.9f, 0.85f, 0.2f);
     
 		/*Should allow pawn to decay/if left inside too long ...
 		public override void Tick()
@@ -31,6 +38,19 @@ namespace MOARANDROIDS
 
 		public bool CurrentlyUploading => currentlyUploading;
 
+		public float TotalWorkNeeded => 100f;
+
+		public float Progress => uploadingWork / TotalWorkNeeded;
+
+		public override void Tick()
+		{
+			if(CurrentlyUploading) {
+				uploadingWork += 1;
+				if(uploadingWork >= TotalWorkNeeded)
+					CompleteMindUpload();
+			}
+		}
+
 		public bool IsReadyForMindUpload()
 		{
 			return innerContainer.Any(thing => (thing is Corpse corpse && corpse.InnerPawn.IsValidForMindUpload())
@@ -40,12 +60,20 @@ namespace MOARANDROIDS
 		public void BeginMindUploadProcess()
 		{
 			currentlyUploading = true;
+			uploadingWork = 0;
+		}
+
+		public void CompleteMindUpload()
+		{
+
+
 		}
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Values.Look<bool>(ref this.currentlyUploading, "CurrentlyUploading", false);
+			Scribe_Values.Look<float>(ref this.uploadingWork, "UploadingProgress", 0f);
 		}
 
 		//From Building_CryptosleepCasket
@@ -92,6 +120,39 @@ namespace MOARANDROIDS
                 }
             }
         }
+        
+        private Material BarFilledMat
+        {
+            get
+            {
+                if (this.barFilledCachedMat == null)
+                {
+                    this.barFilledCachedMat = SolidColorMaterials.SimpleSolidColorMaterial(Color.Lerp
+                        (Building_MindUploadCasket.BarZeroProgressColor, Building_MindUploadCasket.BarCompletedColor
+                                    , this.Progress), false);
+                }
+                return this.barFilledCachedMat;
+            }
+        }
+
+		public override void Draw()
+		{
+			base.Draw();
+			if(this.CurrentlyUploading) {
+				Vector3 drawPos = this.DrawPos;
+				drawPos.y += 0.046875f;
+				drawPos.z += 0.25f;
+				GenDraw.DrawFillableBar(new GenDraw.FillableBarRequest() {
+					center = drawPos,
+					size = Building_MindUploadCasket.BarSize,
+					fillPercent = (float)Progress,
+					filledMat = this.BarFilledMat,
+					unfilledMat = Building_MindUploadCasket.BarUnfilledMat,
+					margin = 0.1f,
+					rotation = Rot4.North
+				});
+			}
+		}    
 
         [DebuggerHidden]
         public override IEnumerable<Gizmo> GetGizmos()

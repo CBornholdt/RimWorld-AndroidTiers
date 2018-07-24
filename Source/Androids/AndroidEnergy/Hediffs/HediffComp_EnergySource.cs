@@ -54,7 +54,7 @@ namespace MOARANDROIDS
 
         public string GetUniqueLoadID() => parent.GetUniqueLoadID() + "_energySource";
 
-		public override void LoadSettingsFromThingComp(ThingComp_AndroidImplant implant) { }
+		public override void LoadStateFromThingComp(ThingComp_AndroidImplant implant) { }
 
 		public void SourceAttached(EnergySystem system) { }
 

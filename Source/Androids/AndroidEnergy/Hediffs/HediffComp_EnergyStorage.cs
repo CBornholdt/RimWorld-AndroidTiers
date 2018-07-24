@@ -133,7 +133,7 @@ namespace MOARANDROIDS
             UpdatePercentageChangeAndLastTick(amount);
         }
 
-		public override void LoadSettingsFromThingComp(ThingComp_AndroidImplant implant) =>
+		public override void LoadStateFromThingComp(ThingComp_AndroidImplant implant) =>
 			SetEnergyDirect((implant as IEnergyStorage).StoredEnergy);
 
 		public void SinkAttached(EnergySystem system) { }

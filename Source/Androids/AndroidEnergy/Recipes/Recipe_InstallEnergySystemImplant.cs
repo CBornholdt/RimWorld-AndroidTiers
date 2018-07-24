@@ -31,7 +31,7 @@ namespace MOARANDROIDS
 			    pawn.health.RemoveHediff(existingHediff);
                 
             Hediff implantedHediff = HediffMaker.MakeHediff(recipe.addsHediff, pawn);
-                implantedHediff.TryGetComp<HediffComp_AndroidImplant>()?.LoadSettingsFromThingComp(implantComp);
+                implantedHediff.TryGetComp<HediffComp_AndroidImplant>()?.LoadStateFromThingComp(implantComp);
                 pawn.health.AddHediff(implantedHediff, part);
 
 			if(billDoer != null) {

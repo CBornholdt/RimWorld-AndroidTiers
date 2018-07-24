@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>  
   <ThingDef ParentName="BodyPartAndroidBase">
-    <defName>MindCaptureImplantEmpty</defName>
+    <defName>AT_MindCaptureImplantEmpty</defName>
     <label>empty mind capture implant</label>
     <description>Empty mind capture implant.</description>
     <graphicData>
@@ -22,7 +22,7 @@
   </ThingDef>
 
   <ThingDef ParentName="BodyPartAndroidBase">
-    <defName>MindCaptureImplantFull</defName>
+    <defName>AT_MindCaptureImplantFull</defName>
     <label>full mind capture implant</label>
     <description>Full mind capture implant.</description>
     <graphicData>
