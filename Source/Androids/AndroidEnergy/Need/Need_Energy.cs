@@ -18,6 +18,8 @@ namespace MOARANDROIDS
 		public CompProperties_NeedsEnergy Props => this.pawn.TryGetComp<CompNeedsEnergy>()?.Props;
 
 		public EnergySystem EnergySystem => this.pawn.TryGetComp<EnergySystem>();
+
+		public float EnergyNeeded => this.MaxLevel - this.CurLevel;
         
         public EnergyNeedCategory EnergyNeed {
 			get {

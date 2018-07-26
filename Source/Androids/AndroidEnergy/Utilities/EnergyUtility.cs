@@ -51,8 +51,8 @@ namespace MOARANDROIDS
                 persistent.PositionHeld.DistanceToSquared(getter.Position)
                     / (availEnergy * availEnergy);
 
-            if(AT_Mod.settings.energySearchSettings.allowConsumables)
-                allPotentialTargets = PotentialConsumableEnergySources(getter, user, criticalSearch)
+            if(getter == user && AT_Mod.settings.energySearchSettings.allowConsumables)
+                allPotentialTargets = EnergyConsumableUtility.PotentialConsumableEnergySources(getter, user, criticalSearch)
                                             .Select(eComp => Tuple.Create(eComp.parent as Thing
                                                         , GetConsumablePriority(eComp.parent, eComp.Props.energyAmount)));
 
@@ -69,37 +69,6 @@ namespace MOARANDROIDS
             rechargeSource = allPotentialTargets.MinBy(target_priority => target_priority.Item2).Item1;
 
             return true;
-        }
-
-        static public IEnumerable<ThingComp_EnergyConsumable> PotentialConsumableEnergySources(Pawn pawn
-            , bool criticalSearch) => PotentialConsumableEnergySources(pawn, pawn, criticalSearch);
-
-        static public IEnumerable<ThingComp_EnergyConsumable> PotentialConsumableEnergySources(Pawn getter
-            , Pawn user, bool criticalSearch)
-        {
-            var energyNeed = user.needs.TryGetNeed<Need_Energy>();
-            if(energyNeed == null)
-                return Enumerable.Empty<ThingComp_EnergyConsumable>();
-
-            Func<ThingComp_EnergyConsumable, bool> validator;
-            if(!criticalSearch) {
-				float energyLimit = energyNeed.MaxLevel - energyNeed.CurLevel;
-				validator = eComp => eComp != null
-											&& eComp.Props.energyAmount <= energyLimit
-											&& eComp.parent.IngestibleNow
-											&& !eComp.parent.IsForbidden(getter)
-											&& getter.CanReserveAndReach(eComp.parent, PathEndMode.Touch, Danger.Deadly
-												, maxPawns: 1, stackCount: -1, layer: null, ignoreOtherReservations: false);
-            }
-            else
-                validator = eComp => eComp != null && eComp.parent.IngestibleNow
-                                            && !eComp.parent.IsForbidden(getter)
-                                            && getter.CanReserveAndReach(eComp.parent, PathEndMode.Touch, Danger.Deadly
-                                                , maxPawns: 1, stackCount: -1, layer: null, ignoreOtherReservations: false);
-            
-            return getter.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableAlways)
-                         .Select(thing => thing.TryGetComp<ThingComp_EnergyConsumable>())
-                         .Where(validator);                  
         }     
 
         static public IEnumerable<EnergyAdapter_PowerBattery> PotentialBuildingEnergySources(Pawn pawn) =>

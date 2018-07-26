@@ -51,7 +51,7 @@ namespace MOARANDROIDS
 			if(rechargeSource.IngestibleNow)
 				return EnergyUtility.CreateEnergyConsumableJob(pawn, rechargeSource);
 
-			if(!(rechargeSource as ThingWithComps)?.AllComps.Any(comp => comp is IEnergySource) ?? false) {
+			if(!rechargeSource.IsEnergySource()) {
 				Log.Warning("JobGiver_RechargeEnergy.TryGiveJob ... should not have reached here, TryFindBestEnergyRechargeSource should have returned false");
 				return null;
 			}
