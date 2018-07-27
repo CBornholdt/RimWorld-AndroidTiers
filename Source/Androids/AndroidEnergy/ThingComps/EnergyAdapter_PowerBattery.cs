@@ -7,10 +7,11 @@ using UnityEngine;
 
 namespace MOARANDROIDS
 {
-	public class EnergyAdapter_PowerBattery : CompPowerBattery, IEnergySource
+	public class EnergyAdapter_PowerBattery : CompPowerBattery, IEnergySource, IEnergySystemConnectable
     {
-		private List<Tuple<Pawn, int>> connectedPawns = new List<Tuple<Pawn, int>>();
+        private List<Tuple<Pawn, int>> connectedPawns = new List<Tuple<Pawn, int>>();
 		private int ticker;
+		private int numCurrentlyConnected = 0;
 
 		public bool WasRecentlyConnected(Pawn pawn) => connectedPawns.Any(sp => sp.Item1 == pawn);
 
@@ -27,6 +28,12 @@ namespace MOARANDROIDS
 		public float DesiredSourceRatePer1000Ticks => Props.desiredTranferRatePer1000Ticks;
 
 		public float CurrentMaxSourcableEnergy => base.StoredEnergy / Props.powerPerUnitEnergy;
+
+		public ThingWithComps Parent => this.parent;
+
+		public string ForcedWorkFloatMenuOptionText => "AT.Job.ConnectBattery.OptionLabel".Translate();
+
+		public int SimultaneousConnections => Props.maxCurrentConnections;
 
 		public void SourceEnergy(float amount)
 		{
@@ -47,8 +54,7 @@ namespace MOARANDROIDS
 			ticker = Rand.Range(0, 250);
 			base.Initialize(props);
 		}
-
-        
+     
 		public override void CompTick()
 		{
 			if(--ticker <= 0) {
@@ -71,8 +77,58 @@ namespace MOARANDROIDS
 			base.CompTickRare();
 		}
 
-		public void SourceAttached(EnergySystem system) { }
-		
-		public void SourceDetached(EnergySystem system) => MarkConnected(system.Owner);	
+		public void SourceAttached(EnergySystem system)
+		{
+			this.numCurrentlyConnected++;
+		}
+
+
+		public void SourceDetached(EnergySystem system)
+		{
+			this.numCurrentlyConnected--;
+			MarkConnected(system.Owner);
+		}
+
+		public ConnectWhen WhenToConnect()
+		{
+			return new ConnectWhen(ConnectWhenTag.WhenTouching);
+		}
+
+		public DisconnectWhen WhenToDisconnect()
+		{
+			var tag = DisconnectWhenTag.NotTouching | DisconnectWhenTag.EnergySystemFull;
+
+			if(AT_Mod.settings.energySearchSettings.allowCriticalToOverrideProtection)
+				tag = tag | DisconnectWhenTag.SourceLow_StorageNotCritical;
+			else
+				tag = tag | DisconnectWhenTag.SourceLow;
+                            
+			return new DisconnectWhen(tag);
+		}
+
+		public bool IsAvailableFor(EnergySystem system, bool isCritical)
+		{
+			if(isCritical)
+				return numCurrentlyConnected < Props.maxCurrentConnections;
+			else
+				return (numCurrentlyConnected < Props.maxCurrentConnections)
+					&& StoredEnergyPct >= AT_Mod.settings.energySearchSettings.batteryProtectionLevel;
+		}
+
+		public bool IsAvailableFor(EnergySystem system, bool isCritical, out string unavailableReason)
+		{
+			unavailableReason = null;
+			if(numCurrentlyConnected >= Props.maxCurrentConnections) {
+				unavailableReason = "AT.Job.PowerBattery.UnavailableReason.TooManyConnections"
+					.Translate(Props.maxCurrentConnections);
+				return false;
+			}
+			if(!isCritical && StoredEnergyPct < AT_Mod.settings.energySearchSettings.batteryProtectionLevel) {
+				unavailableReason = "AT.Job.PowerBattery.UnavailableReason.BatteryDrainProtection"
+					.Translate();
+				return false;
+			}
+			return true;    	
+		}
 	}
 }

@@ -13,7 +13,7 @@ namespace MOARANDROIDS
 		public ConnectWhenTag when;
 		public float distance;
 
-		ConnectWhen(ConnectWhenTag when, float distance)
+		public ConnectWhen(ConnectWhenTag when, float distance = 0)
 		{
 			this.when = when;
 			this.distance = distance;

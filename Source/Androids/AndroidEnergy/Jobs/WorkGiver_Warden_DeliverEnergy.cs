@@ -49,7 +49,7 @@ namespace MOARANDROIDS
                 return null;
             }
             return new Job(JobDefOf.DeliverFood, rechargeSource, prisoner)
-            {
+            {   //TODO adjust count here to reflect number of prisoners
                 count = EnergyConsumableUtility.WillIngestStackCountOf(prisoner, rechargeSource.def),
                 targetC = RCellFinder.SpotToChewStandingNear(prisoner, rechargeSource)
             };
@@ -77,6 +77,8 @@ namespace MOARANDROIDS
                     Thing thing = list[j];
                     if (thing.IsEnergyConsumable())
 						energyInRoom += thing.ConsumableEnergy();
+					if(thing.IsEnergySource())
+						energyInRoom += thing.GetMaxSourceableEnergy();
                 }
                 List<Thing> list2 = region.ListerThings.ThingsInGroup(ThingRequestGroup.Pawn);
                 for (int k = 0; k < list2.Count; k++)

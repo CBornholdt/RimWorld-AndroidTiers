@@ -26,14 +26,17 @@ namespace MOARANDROIDS
             };
             
         static public Job CreateConnectSourceThenDisconnectJob(Pawn pawn, Thing source
-            , DisconnectWhenTag whenToDisconnect = DisconnectWhenTag.Never, int atTick = int.MaxValue) =>
-            new EnergySystemJob() {
-                def = EnergyJobs.AT_ConnectSourceThenDisconnect,
-                disconnectWhen = new DisconnectWhen(whenToDisconnect, atTick),
-                targetA = source
-            };              
+            , DisconnectWhen whenToDisconnect) =>
+            new EnergySystemJob(EnergyJobs.AT_ConnectSourceThenDisconnect, source) {
+                disconnectWhen = whenToDisconnect,
+            };
             
-
+        static public Job CreateConnectSourceThenDisconnectJob(Pawn pawn, Thing source
+            , DisconnectWhenTag whenToDisconnectTag) =>
+            new EnergySystemJob(EnergyJobs.AT_ConnectSourceThenDisconnect, source) {
+                disconnectWhen = new DisconnectWhen(whenToDisconnectTag),
+            };                  
+            
         static public bool TryFindBestEnergyRechargeSource(Pawn getter, Pawn user, bool criticalSearch
                                  , out Thing rechargeSource)
         {
@@ -51,17 +54,17 @@ namespace MOARANDROIDS
                 persistent.PositionHeld.DistanceToSquared(getter.Position)
                     / (availEnergy * availEnergy);
 
-            if(getter == user && AT_Mod.settings.energySearchSettings.allowConsumables)
+            if(AT_Mod.settings.energySearchSettings.allowConsumables)
                 allPotentialTargets = EnergyConsumableUtility.PotentialConsumableEnergySources(getter, user, criticalSearch)
                                             .Select(eComp => Tuple.Create(eComp.parent as Thing
                                                         , GetConsumablePriority(eComp.parent, eComp.Props.energyAmount)));
 
             if(getter == user && AT_Mod.settings.energySearchSettings.allowPowerBatteries)
                 allPotentialTargets = allPotentialTargets.Concat(
-                        PotentialBuildingEnergySources(user, criticalSearch)
-                            .Select(bComp => Tuple.Create(bComp.parent as Thing
-                                                        , GetPersistentPriority(bComp.parent
-                                                                , bComp.CurrentMaxSourcableEnergy))));
+                        EnergyConnectableUtility.PotentialConnectableEnergySources(user, criticalSearch)
+                            .Select(connectable => Tuple.Create(connectable.Parent as Thing
+                                                        , GetPersistentPriority(connectable.Parent
+                                                                , (connectable as IEnergySource).CurrentMaxSourcableEnergy))));
 
 			if(!allPotentialTargets.Any())
 				return false;                                                
@@ -70,7 +73,7 @@ namespace MOARANDROIDS
 
             return true;
         }     
-
+       
         static public IEnumerable<EnergyAdapter_PowerBattery> PotentialBuildingEnergySources(Pawn pawn) =>
             PotentialBuildingEnergySources(pawn, false);
 
@@ -98,9 +101,6 @@ namespace MOARANDROIDS
 
             return pawn.Map.AllBuildingsWithComp<EnergyAdapter_PowerBattery>().Where(validator);                     
         }                                                                            
-        
-        static public bool IsEnergyConsumable(this Thing thing) =>
-            thing.TryGetComp<ThingComp_EnergyConsumable>() != null;
 
         static public bool IsBuildingEnergySource(this Building building) =>
             building.AllComps.Any(comp => comp is IEnergySource);

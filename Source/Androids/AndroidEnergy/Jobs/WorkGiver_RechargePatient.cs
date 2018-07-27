@@ -44,11 +44,12 @@ namespace MOARANDROIDS
 			if(!RechargePatientUtility.ShouldBeManuallyRecharged(patient)) {
 				return false;
 			}
-			LocalTargetInfo target = t;
-			if(!pawn.CanReserve(target, 1, -1, null, forced)) {
+			if(!pawn.CanReserve(t, 1, -1, null, forced)) {
 				return false;
 			}
-			if(!EnergyUtility.TryFindBestEnergyRechargeSource(pawn, patient, patientNeed.EnergyNeed >= EnergyNeedCategory.Critical, out Thing rechargeSource)) {
+			if(!EnergyUtility.TryFindBestEnergyRechargeSource(pawn, patient
+                , criticalSearch: patientNeed.EnergyNeed >= EnergyNeedCategory.Critical
+                , rechargeSource: out Thing rechargeSource)) {
 				JobFailReason.Is("AT.Job.FailReason.NoEnergySources".Translate());
 				return false;
 			}
