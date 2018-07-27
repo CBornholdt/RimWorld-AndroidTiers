@@ -4,30 +4,31 @@ using RimWorld;
 
 namespace MOARANDROIDS
 {
-    [Flags]
-    public enum DisconnectWhenTag
-    {
-        Never = 0,
-        SinkDisabled = 0x1,
-        SinkPassive = 0x2,
-        SinkActive = 0x4,
-        SinkSlow = 0x8,
-        SinkLow = 0x10,
-        SourceDisabled = 0x20,
-        SourcePassive = 0x40,
-        SourceActive = 0x80,
-        SourceSlow = 0x100,
-        SourceLow = 0x200, 
-        StorageEmpty = 0x400,
-        StorageCriticallyLow = 0x800,
-        StorageLow = 0x1000,
-        StorageNormal = 0x2000,
-        StorageFull = 0x4000,
-        Touching = 0x8000,
-        NotTouching = 0x10000,
-        Time = 0x20000,       
-        EnergySystemEmpty = 0x40000,
-        EnergySystemFull = 0x80000
+	[Flags]
+	public enum DisconnectWhenTag
+	{
+		Never = 0,
+		SinkDisabled = 0x1,
+		SinkPassive = 0x2,
+		SinkActive = 0x4,
+		SinkSlow = 0x8,
+		SinkLow = 0x10,
+		SourceDisabled = 0x20,
+		SourcePassive = 0x40,
+		SourceActive = 0x80,
+		SourceSlow = 0x100,
+		SourceLow = 0x200,
+		StorageEmpty = 0x400,
+		StorageCriticallyLow = 0x800,
+		StorageLow = 0x1000,
+		StorageNormal = 0x2000,
+		StorageFull = 0x4000,
+		Touching = 0x8000,
+		NotTouching = 0x10000,
+		Time = 0x20000,
+		EnergySystemEmpty = 0x40000,
+		EnergySystemFull = 0x80000,
+		SourceLow_StorageNotCritical = 0x100000
     }
 
     public struct DisconnectWhen
@@ -44,6 +45,9 @@ namespace MOARANDROIDS
 
 	public static class DisconnectWhenExt
 	{
+		public static DisconnectWhen ToDisconnectWhen(this DisconnectWhenTag tag) =>
+			new DisconnectWhen(tag);
+    
         //TODO redo as chain of command
 		public static bool ShouldDisconnectSystemFrom(this DisconnectWhen when, EnergySystem system, IEnergySource source)
 		{
@@ -63,6 +67,11 @@ namespace MOARANDROIDS
 					return true;
 			}
 			if((tag & DisconnectWhenTag.SourceLow) != 0 && source.SourceLevelPercent() <= EnergyConstants.EnergySourceLowThresh)
+				return true;
+
+			if((tag & DisconnectWhenTag.SourceLow_StorageNotCritical) != 0
+				&& source.SourceLevelPercent() < EnergyConstants.EnergySourceLowThresh
+				&& system.StorageLevel <= StorageLevelTag.CriticallyLow)
 				return true;
 			
 			if((tag & DisconnectWhenTag.Touching) != 0 && source.Position().AdjacentTo8WayOrInside(system.parent.PositionHeld))

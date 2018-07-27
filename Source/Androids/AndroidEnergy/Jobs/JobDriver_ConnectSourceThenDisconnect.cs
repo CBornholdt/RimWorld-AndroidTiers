@@ -14,7 +14,9 @@ namespace MOARANDROIDS
 
         override public bool TryMakePreToilReservations()
         {
-            return this.pawn.Reserve(TargetA, this.job, maxPawns: 1, stackCount: -1, layer: null);
+			int maxPawns = TargetA.Thing.TryGetCompInterface<IEnergySystemConnectable>()?.SimultaneousConnections
+				?? 1;
+            return this.pawn.Reserve(TargetA, this.job, maxPawns: maxPawns, stackCount: -1, layer: null);
         }
 
         override protected IEnumerable<Toil> MakeNewToils()

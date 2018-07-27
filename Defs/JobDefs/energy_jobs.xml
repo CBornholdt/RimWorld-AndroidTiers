@@ -19,4 +19,17 @@
 		<reportString>connecting to energy source</reportString>
 		<casualInterruptible>true</casualInterruptible>
 	</JobDef>
+
+	<JobDef>
+		<defName>AT_ConnectSink</defName>
+		<driverClass>MOARANDROIDS.JobDriver_ConnectSink</driverClass>
+		<reportString>connecting to energy sink</reportString>
+		<casualInterruptible>false</casualInterruptible>
+	</JobDef>
+	<JobDef>
+		<defName>AT_ConnectSourceThenDisconnect</defName>
+		<driverClass>MOARANDROIDS.JobDriver_ConnectSinkThenDisconnect</driverClass>
+		<reportString>connecting to energy sink</reportString>
+		<casualInterruptible>true</casualInterruptible>
+	</JobDef>
 </Defs>

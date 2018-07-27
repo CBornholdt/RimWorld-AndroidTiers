@@ -68,29 +68,35 @@ namespace MOARANDROIDS
                         
 					opts.Add(consumableMenuOption);
 				}
-                
-                var batteryComp = t.TryGetComp<EnergyAdapter_PowerBattery>();
-                if(batteryComp != null) {
-					string text = "AT.Job.ConnectBattery.OptionLabel".Translate(t.Label);
 
-                    FloatMenuOption batteryMenuOption;
+				var energySystem = pawn.TryGetComp<EnergySystem>();
+                var connectable = t.TryGetCompInterface<IEnergySystemConnectable>();
+                if(connectable != null && energySystem != null) {
+					string text = connectable.ForcedWorkFloatMenuOptionText;
+                    
+                    FloatMenuOption connectableMenuOption = null;
 
-                    if(!pawn.CanReach(t, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn))
-                        batteryMenuOption = new FloatMenuOption(text + " (" + "NoPath".Translate() + ")", action: null);
-                    else {                                                     
-                        DisconnectWhenTag whenToDisconnect = DisconnectWhenTag.NotTouching 
-                                                            | DisconnectWhenTag.EnergySystemFull
-                                                            | DisconnectWhenTag.SourceSlow;
-						if(!AT_Mod.settings.energySearchSettings.allowCriticalToOverrideProtection
-								|| energyNeed.EnergyNeed != EnergyNeedCategory.Critical)
-							whenToDisconnect = whenToDisconnect | DisconnectWhenTag.SourceLow;
-                                                                                                                                                                
-                        batteryMenuOption = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, delegate {
-                            Job job = EnergyUtility.CreateConnectSourceThenDisconnectJob(pawn, t, whenToDisconnect);
-                            pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                        }, menuPriorityForEnergy), pawn, t, "ReservedBy");
+					if(!pawn.CanReach(t, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn))
+						connectableMenuOption = new FloatMenuOption(text + " (" + "NoPath".Translate() + ")", action: null);
+					else if(!connectable.IsAvailableFor(energySystem, true, out string unavailableReason))
+						connectableMenuOption = new FloatMenuOption(text + " (" + "AT.Unavailable".Translate() +
+							unavailableReason + ")", action: null);
+                    else{                                                     
+                        if(connectable is IEnergySource source)                                                                                                                                              
+                            connectableMenuOption = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, delegate {
+                                Job job = EnergyUtility.CreateConnectSourceThenDisconnectJob(pawn, t, connectable.WhenToDisconnect());
+                                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                            }, menuPriorityForEnergy), pawn, t, "ReservedBy");
+						else if (connectable is IEnergySink sink)
+                            connectableMenuOption = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text, delegate {
+								Job job = new EnergySystemJob(EnergyJobs.AT_ConnectSinkThenDisconnect, pawn, t) {
+									disconnectWhen = connectable.WhenToDisconnect()
+								};
+                                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                            }, menuPriorityForEnergy), pawn, t, "ReservedBy");    
                     }
-                    opts.Add(batteryMenuOption);
+                    if(connectableMenuOption != null)   //mostly for safety, its possible
+                        opts.Add(connectableMenuOption);
                 }
 			}
         }

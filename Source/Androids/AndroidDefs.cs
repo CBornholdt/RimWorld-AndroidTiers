@@ -16,6 +16,8 @@ namespace MOARANDROIDS
 		static public JobDef AT_RechargeEnergy;
 		static public JobDef AT_ConnectSource;
 		static public JobDef AT_ConnectSourceThenDisconnect;
+        static public JobDef AT_ConnectSink;
+        static public JobDef AT_ConnectSinkThenDisconnect;
 	}
 
 	[DefOf]
