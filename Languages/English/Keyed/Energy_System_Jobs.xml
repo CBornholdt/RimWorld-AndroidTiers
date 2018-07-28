@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 	<AT.Job.ConnectBattery.OptionLabel>Charge From Battery</AT.Job.ConnectBattery.OptionLabel>
+	<AT.Job.PowerBattery.UnavailableReason.TooManyConnections>Too many connections, only {0} allowed</AT.Job.PowerBattery.UnavailableReason.TooManyConnections>
+	<AT.Job.PowerBattery.UnavailableReason.BatteryDrainProtection>Battery level too low - battery drain protection</AT.Job.PowerBattery.UnavailableReason.BatteryDrainProtection>
 </LanguageData>

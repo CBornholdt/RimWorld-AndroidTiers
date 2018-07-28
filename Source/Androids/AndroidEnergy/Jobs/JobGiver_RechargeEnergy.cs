@@ -44,20 +44,22 @@ namespace MOARANDROIDS
 
 			bool criticalSearch = energyNeed.EnergyNeed >= EnergyNeedCategory.Critical;
 
-			if(!EnergyUtility.TryFindBestEnergyRechargeSource(pawn, pawn, criticalSearch
-								, out Thing rechargeSource))
+			Thing rechargeSource = pawn.inventory.innerContainer.FirstOrDefault(EnergyThingExt.IsEnergyConsumable);
+
+			if(rechargeSource == null && !EnergyUtility.TryFindBestEnergyRechargeSource(pawn, pawn, criticalSearch
+								, out rechargeSource))
 				return null;
 
 			if(rechargeSource.IngestibleNow)
 				return EnergyUtility.CreateEnergyConsumableJob(pawn, rechargeSource);
 
-			if(!(rechargeSource as ThingWithComps)?.AllComps.Any(comp => comp is IEnergySource) ?? false) {
+			if(!rechargeSource.IsEnergySource()) {
 				Log.Warning("JobGiver_RechargeEnergy.TryGiveJob ... should not have reached here, TryFindBestEnergyRechargeSource should have returned false");
 				return null;
 			}
 
-            var whenToDisconnect = DisconnectWhenTag.NotTouching | DisconnectWhenTag.EnergySystemFull
-                            | DisconnectWhenTag.SourceSlow | DisconnectWhenTag.SourceLow;
+			var whenToDisconnect = rechargeSource.TryGetCompInterface<IEnergySystemConnectable>()
+												?.WhenToDisconnect() ?? new DisconnectWhen(DisconnectWhenTag.Never);
 
 			return EnergyUtility.CreateConnectSourceThenDisconnectJob(pawn, rechargeSource, whenToDisconnect);  
         }

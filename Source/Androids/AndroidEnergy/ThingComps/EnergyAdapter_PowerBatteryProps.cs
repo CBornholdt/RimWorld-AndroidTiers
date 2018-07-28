@@ -9,6 +9,7 @@ namespace MOARANDROIDS
 		public float sourcePriority = 10f;
 		public float desiredTranferRatePer1000Ticks = 2;
 		public float powerPerUnitEnergy = 400f;
+		public int maxCurrentConnections = 2;
     
 		public EnergyAdapter_PowerBatteryProps() => this.compClass = typeof(EnergyAdapter_PowerBattery);
     }

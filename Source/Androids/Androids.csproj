@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -27,6 +28,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -91,18 +93,11 @@
     <Compile Include="AndroidDefs.cs" />
     <Compile Include="Extensions\UtilityExt.cs" />
     <Compile Include="AndroidEnergy\EnergyConstants.cs" />
-    <Compile Include="AndroidEnergy\EnergyUtility.cs" />
     <Compile Include="AndroidEnergy\IEnergySink.cs" />
     <Compile Include="AndroidEnergy\IEnergySource.cs" />
     <Compile Include="AndroidEnergy\IEnergyStorage.cs" />
-    <Compile Include="AndroidEnergy\EnergySystem.cs" />
-    <Compile Include="AndroidEnergy\CompProperties_EnergySystem.cs" />
-    <Compile Include="AndroidEnergy\EnergyAdapter_PowerBattery.cs" />
     <Compile Include="Extensions\EnergyExt.cs" />
     <Compile Include="Extensions\ILoadReferenceableExt.cs" />
-    <Compile Include="AndroidEnergy\EnergyAdapter_PowerBatteryProps.cs" />
-    <Compile Include="AndroidEnergy\EnergySystemJob.cs" />
-    <Compile Include="AndroidEnergy\DisconnectWhen.cs" />
     <Compile Include="AndroidEnergy\Jobs\JobDriver_ConnectSource.cs" />
     <Compile Include="AndroidEnergy\Jobs\JobDriver_ConnectSourceThenDisconnect.cs" />
     <Compile Include="AndroidEnergy\Jobs\JobDriver_InstallEnergySystemComp.cs" />
@@ -124,18 +119,13 @@
     <Compile Include="AndroidEnergy\ImplantComps\EnergySystemComp_Battery.cs" />
     <Compile Include="AndroidEnergy\ImplantComps\EnergySystemProps_Battery.cs" />
     <Compile Include="AndroidEnergy\Hediffs\HediffComp_AndroidImplant.cs" />
-    <Compile Include="AndroidEnergy\ImplantComps\ThingComp_AndroidImplant.cs" />
-    <Compile Include="AndroidEnergy\ImplantExt.cs" />
     <Compile Include="DefModExt\DefModExt_ImplantableBodyPart.cs" />
     <Compile Include="DefModExt\DefModExt_AutoIncludeWithEnergySystems.cs" />
-    <Compile Include="AndroidEnergy\ImplantComps\CompProperties_AndroidImplant.cs" />
     <Compile Include="AndroidEnergy\Need\Need_Energy.cs" />
     <Compile Include="AndroidEnergy\Need\CompNeedsEnergy.cs" />
     <Compile Include="AndroidEnergy\Need\CompProperties_NeedsEnergy.cs" />
     <Compile Include="AndroidEnergy\Recipes\Recipe_InstallEnergySystemImplant.cs" />
     <Compile Include="AndroidEnergy\Recipes\Recipe_RemoveEnergySystemImplant.cs" />
-    <Compile Include="AndroidEnergy\ThingComp_EnergyConsumable.cs" />
-    <Compile Include="AndroidEnergy\CompProperties_EnergyConsumable.cs" />
     <Compile Include="Extensions\FoodTypeFlagsExt.cs" />
     <Compile Include="AndroidEnergy\IngestionOutcomeDoer_EnergyConsumable.cs" />
     <Compile Include="Utilities\Tuple.cs" />
@@ -166,6 +156,31 @@
     <Compile Include="Patches\ThingDef_ConnectToPower.cs" />
     <Compile Include="AndroidEnergy\Need\Alert_LowEnergyColonists.cs" />
     <Compile Include="Patches\HealthCardUtility_GenerateSurgeryOptions.cs" />
+    <Compile Include="AndroidEnergy\Jobs\WorkGiver_RechargePatient.cs" />
+    <Compile Include="AndroidEnergy\Utilities\EnergyUtility.cs" />
+    <Compile Include="AndroidEnergy\Utilities\RechargePatientUtility.cs" />
+    <Compile Include="AndroidEnergy\Utilities\EnergyConsumableUtility.cs" />
+    <Compile Include="AndroidEnergy\Jobs\WorkGiver_Warden_Recharge.cs" />
+    <Compile Include="AndroidEnergy\Jobs\WorkGiver_Warden_DeliverEnergy.cs" />
+    <Compile Include="AndroidEnergy\Extensions\EnergyThingExt.cs" />
+    <Compile Include="AndroidEnergy\Utilities\EnergyUsageUtility.cs" />
+    <Compile Include="AndroidEnergy\Utilities\EnergySourceUtility.cs" />
+    <Compile Include="AndroidEnergy\ThingComps\CompProperties_EnergyConsumable.cs" />
+    <Compile Include="AndroidEnergy\ThingComps\CompProperties_EnergySystem.cs" />
+    <Compile Include="AndroidEnergy\ThingComps\EnergySystem.cs" />
+    <Compile Include="AndroidEnergy\ThingComps\ThingComp_EnergyConsumable.cs" />
+    <Compile Include="AndroidEnergy\ThingComps\EnergyAdapter_PowerBattery.cs" />
+    <Compile Include="AndroidEnergy\ThingComps\EnergyAdapter_PowerBatteryProps.cs" />
+    <Compile Include="AndroidEnergy\IEnergySystemConnectable.cs" />
+    <Compile Include="AndroidEnergy\Extensions\ImplantExt.cs" />
+    <Compile Include="Implants\CompProperties_AndroidImplant.cs" />
+    <Compile Include="Implants\ThingComp_AndroidImplant.cs" />
+    <Compile Include="AndroidEnergy\Jobs\EnergySystemJob.cs" />
+    <Compile Include="AndroidEnergy\ConnectWhen.cs" />
+    <Compile Include="AndroidEnergy\DisconnectWhen.cs" />
+    <Compile Include="AndroidEnergy\Utilities\EnergyConnectableUtility.cs" />
+    <Compile Include="AndroidEnergy\Jobs\JobDriver_ConnectSink.cs" />
+    <Compile Include="AndroidEnergy\Jobs\JobDriver_ConnectSinkThenDisconnect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\About\About.xml">
@@ -186,6 +201,10 @@
     <Folder Include="Utilities\" />
     <Folder Include="ModSettings\" />
     <Folder Include="AndroidEnergy\Stats\" />
+    <Folder Include="AndroidEnergy\Utilities\" />
+    <Folder Include="AndroidEnergy\Extensions\" />
+    <Folder Include="AndroidEnergy\ThingComps\" />
+    <Folder Include="Implants\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <AT.Work.StartMindUpload.NoImplantsAvailable>No blank mind container implants available</AT.Work.StartMindUpload.NoImplantsAvailable>
+  <AT.Work.StartMindUpload.CasketNotReady>Casket not ready, load pawn or corpse</AT.Work.StartMindUpload.CasketNotReady>
+  <AT.Job.FailReason.NoEnergySources>No Energy Sources</AT.Job.FailReason.NoEnergySources>
+</LanguageData>

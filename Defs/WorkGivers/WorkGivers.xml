@@ -20,6 +20,45 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
+  <WorkGiverDef>
+    <defName>DoctorRechargeHumanlikes</defName>
+    <label>recharge patients</label>
+    <giverClass>MOARANDROIDS.WorkGiver_RechargePatient</giverClass>
+    <workType>Doctor</workType>
+    <verb>recharge</verb>
+    <gerund>recharging</gerund>
+    <priorityInType>59</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+    <feedHumanlikesOnly>true</feedHumanlikesOnly>
+  </WorkGiverDef>
 
+  <WorkGiverDef>
+    <defName>RechargePrisoner</defName>
+    <label>recharge prisoners</label>
+    <giverClass>MOARANDROIDS.WorkGiver_Warden_Recharge</giverClass>
+    <workType>Warden</workType>
+    <verb>recharge</verb>
+    <gerund>recharging</gerund>
+    <priorityInType>79</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>DeliverFoodToPrisoner</defName>
+    <label>deliver energy consumables to prisoners</label>
+    <giverClass>MOARANDROIDS.WorkGiver_Warden_DeliverEnergy</giverClass>
+    <workType>Warden</workType>
+    <verb>deliver energy consumables for</verb>
+    <gerund>delivering consumables for</gerund>
+    <priorityInType>69</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
 
 </Defs>
