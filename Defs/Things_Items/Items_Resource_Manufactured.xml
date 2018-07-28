@@ -32,7 +32,7 @@
   </ThingDef>
   
    <RecipeDef>
-      <defName>RepairKitAT</defName>
+      <defName>MakeRepairKitAT</defName>
       <label>Make a repair kit</label>
       <description>Create a simple set of tools and materials for an android repair kit.</description>
       <jobString>Making repair kit</jobString>  
@@ -58,14 +58,51 @@
       <products>
          <RepairKitAT>1</RepairKitAT>
       </products>
-      <workAmount>1650</workAmount>
+      <workAmount>1000</workAmount>
       <workSpeedStat>SculptingSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>
     <effectWorking>Smelt</effectWorking>
     <soundWorking>Recipe_Smelt</soundWorking>
 	 <recipeUsers>
-		<li>TableMachining</li>
-		<li>AndroidPartsTable</li>
+		<li>AndroidDrugsTable</li>
+      </recipeUsers>
+      
+	</RecipeDef>
+	
+   <RecipeDef>
+      <defName>MakeRepairKitAT</defName>
+      <label>Make 5x repair kits</label>
+      <description>Create 5 Android Repair Kits.</description>
+      <jobString>Making repair kit</jobString>  
+      <allowMixingIngredients>false</allowMixingIngredients>
+      <ingredients>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Plasteel</li>
+               </thingDefs>
+            </filter>
+            <count>40</count>
+         </li>
+         <li>
+            <filter>
+               <thingDefs>
+                  <li>Steel</li>
+               </thingDefs>
+            </filter>
+            <count>80</count>
+         </li>
+      </ingredients>
+      <products>
+         <RepairKitAT>5</RepairKitAT>
+      </products>
+      <workAmount>3000</workAmount>
+      <workSpeedStat>SculptingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Smelt</soundWorking>
+	 <recipeUsers>
+		<li>AndroidDrugsTable</li>
       </recipeUsers>
       
 	</RecipeDef>
